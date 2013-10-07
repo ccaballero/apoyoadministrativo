@@ -1,0 +1,3 @@
+cidetsi_base_homepage:
+    pattern:  /
+    defaults: { _controller: CidetsiBaseBundle:Default:index }

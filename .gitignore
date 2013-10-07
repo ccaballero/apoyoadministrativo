@@ -17,3 +17,14 @@ syntax: glob
 .buildpath
 .project
 
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.yml
+
+LICENSE
+README.md
+UPGRADE*.md
+

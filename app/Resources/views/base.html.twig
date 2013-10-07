@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Apoyo administrativo{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon"
+              href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Careers</a></li>
+            </ul>
+        </header>
+        {% block body %}{% endblock %}
+        <footer>
+            <ul>
+                <li><a href="">INFORMÁTICA-SISTEMAS</a></li>
+                <li><a href="">CIDETSI</a></li>
+            </ul>
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

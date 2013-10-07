@@ -1,0 +1,7 @@
+parameters:
+#    cidetsi_base.example.class: Cidetsi\BaseBundle\Example
+
+services:
+#    cidetsi_base.example:
+#        class: %cidetsi_base.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

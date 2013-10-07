@@ -1,0 +1,4 @@
+# CidetsiBaseBundle routes
+cidetsi_base:
+    resource: "@CidetsiBaseBundle/Resources/config/routing.yml"
+    prefix:   /
