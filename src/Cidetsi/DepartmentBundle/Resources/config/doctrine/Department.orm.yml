@@ -1,0 +1,18 @@
+Cidetsi\DepartmentBundle\Entity\Department:
+    type: entity
+    table: department
+    indexes:
+        name_index:
+            columns: [ name ]
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 64
+    lifecycleCallbacks: {}
+#    repositoryClass: Cidetsi\BaseBundle\Entity\DepartmentRepository

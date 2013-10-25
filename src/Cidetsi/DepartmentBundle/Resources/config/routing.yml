@@ -1,0 +1,3 @@
+cidetsi_department_homepage:
+    pattern:  /departamentos
+    defaults: { _controller: CidetsiDepartmentBundle:Default:index }
