@@ -3,23 +3,30 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Apoyo administrativo{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link href="{{ asset('/bundles/cidetsibase/css/reset.css') }}" rel="stylesheet" />
+        <link href="{{ asset('/bundles/cidetsibase/css/base.css') }}" rel="stylesheet" />
+        {% endblock %}
+        {% block scripts %}
+        <script src="{{ asset('/bundles/cidetsibase/js/base.js') }}"></script>
+        {% endblock %}
         <link rel="icon" type="image/x-icon"
-              href="{{ asset('favicon.ico') }}" />
+              href="{{ asset('/favicon.ico') }}" />
     </head>
     <body>
         <header>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Careers</a></li>
-            </ul>
+            <nav>
+                {{ render(controller('CidetsiBaseBundle:Default:menu')) }}
+            </nav>
+            <nav>
+                {{ render(controller('CidetsiBaseBundle:Default:toolbar')) }}
+            </nav>
         </header>
-        {% block body %}{% endblock %}
+        <div>{% block body %}{% endblock %}</div>
         <footer>
-            <ul>
-                <li><a href="">INFORMÁTICA-SISTEMAS</a></li>
-                <li><a href="">CIDETSI</a></li>
-            </ul>
+            <nav>
+                {{ render(controller('CidetsiBaseBundle:Default:footer')) }}
+            </nav>
         </footer>
         {% block javascripts %}{% endblock %}
     </body>

@@ -1,0 +1,17 @@
+Habiendo definido las funcionalidades que requiero para consolidar un producto
+mejorado al antiguo sistema de apoyo administrativo.
+
+Se pasa a detallar estos, ademas de ponerles fechas tentativas.
+
+- Departamentos.
+    - Planes de estudios.
+    - Gestiones.
+    - Materias.
+    - Docentes.
+    - Auxiliares.
+    - Espacios fisicos.
+    - Seguimientos.
+    - Nombramientos.
+- Autoridades.
+    - Organigrama.
+

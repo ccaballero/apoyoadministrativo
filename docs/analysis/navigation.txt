@@ -1,0 +1,131 @@
+MAPA DE NAVEGACIÓN
+==================
+
+Paso a describir el mapa de navegación que pienso reflejar en el sistema de
+apoyo administrativo nuevo:
+
+Visto que:
+
+Intención #1: Quiero que el sistema se asemeje en interfaz a actual sistema,
+    con algunas correcciones leves para la mejora de la amigabilidad, pero no
+    tanto como para ser indistingible del sistema antiguo.
+Intención #2: Quiero crear una plantilla 100% responsiva, o al menos lo
+    suficientemente responsiva para la mayor cantidad de sus paginas.
+
+
+Modelo antiguo:
+--------------
+
+Nombramientos
+    Docentes
+        Registro
+        Modificación
+    Auxiliares
+        Registro
+        Modificación
+Seguimientos
+    Docentes
+        Registro
+        Modificación
+    Auxiliares
+        Registro
+        Modificación
+Reportes
+    Lista de docentes
+    Lista Docentes Excel
+    Lista de Auxiliares Excel
+    Lista Auxiliares-Adhonorem
+Historicos
+    Docentes
+    Auxiliares
+    Auxiliares Ad-honorem
+Cursos
+    Cursos
+    Registro de inscritos
+    Registro de notas
+    Emisión de listas
+    Certificados
+    Reportes
+Varios
+    Programa Analítico
+        Registro
+        Modificación
+        Reportes
+    Reserva de Laboratorio
+        Registro/Modificación
+        Reporte
+    Certificado a Auxiliares
+        Temporal
+        Final
+    Credenciales
+        Titulares
+        Adhonorem
+    Correo electronico
+        Apertura de cursos
+Tesis
+    Tesis
+        Registrar
+        Modificar
+    Prestamo de Tesis
+        Buscar Tesis
+        Registrar prestamo
+        Devolución
+    Reportes
+        Reporte de Tesis defendidas
+        Exportar Excel
+        Lista de deudores
+        Lista de Tesistas
+Catalogos
+    Autoridades
+    Carreras-Plan de Estudios
+    Materias
+    Cambio de Gestión
+    Administración de roles
+    Docentes
+    Profesores
+    Auxiliares
+    Auxiliares Ad-honorem
+    Usuarios
+    Laboratorios
+    Salas
+    Cargos
+    Actividades
+    Categorias/Catalogo de cursos
+?
+    Ayuda
+    Acerca de ...
+
+Veo que la jerarquia deberia ser de tres niveles. la primera agrupación es la
+agrupación por funcionalidad.
+
+Entre estos considero:
+
+    - Nombramientos y Seguimientos.
+        - Docentes
+        - Auxiliares
+    - Organigrama (por llamarlo igual al del sistema de comunicados y avisos).
+        - Administración de cargos.
+        - Administración de usuarios.
+    - Administración de Planes de Estudios (Materias).
+    - Administración de cursos.
+        - Generación de certificados.
+        - Generación de reportes.
+    - Administración de laboratorios. 
+        - Generación de credenciales.
+        - Generación de certificados.
+    - Administración de espacios fisicos.
+        - Reserva de espacios fisicos.
+    - Manejo de programas analiticos.
+    - Manejo de tesis.
+
+De aqui en mas solo hablaria del primero de ellos, es decir, las 
+funcionalidades sobre seguimientos y nombramientos. Pero estas dependen de 
+otras funcionalidades mas genericas.
+
+Asi que veo este orden de desarrollo:
+
+    1- Administración de planes de estudios.
+    2- Manejo de organigrama.
+    3- Administración de espacios fisicos.
+    4- Nombramientos y seguimientos.
+
