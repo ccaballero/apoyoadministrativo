@@ -1,13 +1,13 @@
 <?php
 
-namespace Cidetsi\DepartmentBundle\Entity;
+namespace Cidetsi\DepartamentoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Department
+ * Departamento
  */
-class Department
+class Departamento
 {
     /**
      * @var integer
@@ -34,7 +34,7 @@ class Department
      * Set name
      *
      * @param string $name
-     * @return Department
+     * @return Departamento
      */
     public function setName($name)
     {
@@ -51,5 +51,33 @@ class Department
     public function getName()
     {
         return $this->name;
+    }
+    /**
+     * @var string
+     */
+    private $facultad;
+
+
+    /**
+     * Set facultad
+     *
+     * @param string $facultad
+     * @return Departamento
+     */
+    public function setFacultad($facultad)
+    {
+        $this->facultad = $facultad;
+    
+        return $this;
+    }
+
+    /**
+     * Get facultad
+     *
+     * @return string 
+     */
+    public function getFacultad()
+    {
+        return $this->facultad;
     }
 }

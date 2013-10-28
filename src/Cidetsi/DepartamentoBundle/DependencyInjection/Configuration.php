@@ -1,6 +1,6 @@
 <?php
 
-namespace Cidetsi\DepartmentBundle\DependencyInjection;
+namespace Cidetsi\DepartamentoBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

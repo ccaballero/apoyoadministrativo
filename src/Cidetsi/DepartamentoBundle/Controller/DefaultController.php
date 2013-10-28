@@ -1,6 +1,6 @@
 <?php
 
-namespace Cidetsi\DepartmentBundle\Controller;
+namespace Cidetsi\DepartamentoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CidetsiDepartmentBundle:Default:index.html.twig');
+        return $this->render('CidetsiDepartamentoBundle:Default:index.html.twig');
     }
 }

@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Cidetsi\BaseBundle\CidetsiBaseBundle(),
-            new Cidetsi\DepartmentBundle\CidetsiDepartmentBundle(),
+            new Cidetsi\DepartamentoBundle\CidetsiDepartamentoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -29,6 +29,8 @@ class AppKernel extends Kernel
                 new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] =
                 new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            $bundles[] =
+                new DavidBadura\FixturesBundle\DavidBaduraFixturesBundle();
         }
 
         return $bundles;

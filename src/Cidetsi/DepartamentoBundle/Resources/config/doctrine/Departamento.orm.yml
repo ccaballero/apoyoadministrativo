@@ -1,6 +1,6 @@
-Cidetsi\DepartmentBundle\Entity\Department:
+Cidetsi\DepartamentoBundle\Entity\Departamento:
     type: entity
-    table: department
+    table: departamento
     indexes:
         name_index:
             columns: [ name ]
@@ -14,5 +14,8 @@ Cidetsi\DepartmentBundle\Entity\Department:
         name:
             type: string
             length: 64
+        facultad:
+            type: string
+            length: 128
     lifecycleCallbacks: {}
-#    repositoryClass: Cidetsi\BaseBundle\Entity\DepartmentRepository
+#    repositoryClass: Cidetsi\BaseBundle\Entity\DepartamentoRepository

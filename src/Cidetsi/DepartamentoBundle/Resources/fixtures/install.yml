@@ -1,0 +1,8 @@
+# Cidetsi/DepartamentoBundle/Resources/fixtures/install.yml
+departamento:
+    properties:
+        class: "Cidetsi\DepartamentoBundle\Entity\Departamento"
+    data:
+        sistemas:
+            name: inf-sis
+            facultad: ciencias y tecnología
