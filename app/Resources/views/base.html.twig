@@ -4,8 +4,10 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Apoyo administrativo{% endblock %}</title>
         {% block stylesheets %}
-        <link href="{{ asset('/bundles/cidetsibase/css/reset.css') }}" rel="stylesheet" />
-        <link href="{{ asset('/bundles/cidetsibase/css/base.css') }}" rel="stylesheet" />
+        <link rel="stylesheet"
+              href="{{ asset('/bundles/cidetsibase/css/reset.css') }}" />
+        <link rel="stylesheet"
+              href="{{ asset('/bundles/cidetsibase/css/base.css') }}" />
         {% endblock %}
         {% block scripts %}
         <script src="{{ asset('/bundles/cidetsibase/js/base.js') }}"></script>

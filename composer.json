@@ -21,7 +21,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
-        "davidbadura/fixtures-bundle": "1.0.*"
+        "davidbadura/fixtures-bundle": "1.0.*",
+        "tecnick.com/tcpdf": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

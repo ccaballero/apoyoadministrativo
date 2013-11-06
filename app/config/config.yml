@@ -67,5 +67,5 @@ swiftmailer:
     spool:     { type: memory }
 
 # YML fixtures
-david_badura_fixtures:
-    bundles: [CidetsiDepartamentoBundle]
+#david_badura_fixtures:
+#    bundles: [CidetsiDepartamentoBundle]

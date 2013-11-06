@@ -3,6 +3,30 @@ departamento:
     properties:
         class: "Cidetsi\DepartamentoBundle\Entity\Departamento"
     data:
-        sistemas:
-            name: inf-sis
+        biologia:
+            name: biologia
+            facultad: ciencias y tecnología
+        civil:
+            name: civil
+            facultad: ciencias y tecnología
+        electrica:
+            name: electrica
+            facultad: ciencias y tecnología
+        fisica:
+            name: fisica
+            facultad: ciencias y tecnología
+        industrias:
+            name: industrias
+            facultad: ciencias y tecnología
+        infsis:
+            name: informática-sistemas
+            facultad: ciencias y tecnología
+        matematicas:
+            name: matematicas
+            facultad: ciencias y tecnología
+        mecanica:
+            name: mecanica
+            facultad: ciencias y tecnología
+        quimica:
+            name: quimica
             facultad: ciencias y tecnología
