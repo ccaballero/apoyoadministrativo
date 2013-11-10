@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
         <title>{% block title %}Apoyo administrativo{% endblock %}</title>
-        {% block stylesheets %}
-        <link rel="stylesheet"
-              href="{{ asset('/bundles/cidetsibase/css/reset.css') }}" />
-        <link rel="stylesheet"
-              href="{{ asset('/bundles/cidetsibase/css/base.css') }}" />
-        {% endblock %}
-        {% block scripts %}
-        <script src="{{ asset('/bundles/cidetsibase/js/base.js') }}"></script>
-        {% endblock %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon"
               href="{{ asset('/favicon.ico') }}" />
+        {% block stylesheets %}
+        <link rel="stylesheet"
+              href="{{ asset(
+              '/bundles/cidetsibase/css/bootstrap/bootstrap.min.css') }}" />
+        {% endblock %}
+        {% block scripts %}
+        <script src="{{
+            asset('/bundles/cidetsibase/js/jquery.min.js') }}"></script>
+        <script src="{{
+            asset('/bundles/cidetsibase/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
     </head>
     <body>
         <header>
-            <nav>
-                {{ render(controller('CidetsiBaseBundle:Default:menu')) }}
-            </nav>
-            <nav>
-                {{ render(controller('CidetsiBaseBundle:Default:toolbar')) }}
+            <nav class="navbar navbar-inverse navbar-fixed-top"
+                 role="navigation">
+                <div class="container">
+                    {{ render(controller('CidetsiBaseBundle:Default:menu')) }}
+                </div>
             </nav>
         </header>
-        <div>{% block body %}{% endblock %}</div>
+        {% block body %}{% endblock %}
         <footer>
             <nav>
                 {{ render(controller('CidetsiBaseBundle:Default:footer')) }}
             </nav>
         </footer>
-        {% block javascripts %}{% endblock %}
     </body>
 </html>
