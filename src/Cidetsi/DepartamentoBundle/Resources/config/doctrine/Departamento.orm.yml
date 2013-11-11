@@ -13,6 +13,9 @@ Cidetsi\DepartamentoBundle\Entity\Departamento:
     fields:
         name:
             type: string
+            length: 128
+        abbreviation:
+            type: string
             length: 64
         facultad:
             type: string

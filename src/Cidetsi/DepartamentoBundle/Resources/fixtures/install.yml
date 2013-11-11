@@ -4,29 +4,38 @@ departamento:
         class: "Cidetsi\DepartamentoBundle\Entity\Departamento"
     data:
         biologia:
-            name: biologia
+            name: Departamento de Biología
+            abbreviation: biología
             facultad: ciencias y tecnología
         civil:
-            name: civil
+            name: Departamento de Civil
+            abbreviation: civil
             facultad: ciencias y tecnología
         electrica:
-            name: electrica
+            name: Departamento de Eléctrica
+            abbreviation: eléctrica
             facultad: ciencias y tecnología
         fisica:
-            name: fisica
+            name: Departamento de Física
+            abbreviation: física
             facultad: ciencias y tecnología
         industrias:
-            name: industrias
+            name: Departamento de Industrias
+            abbreviation: industrias
             facultad: ciencias y tecnología
         infsis:
-            name: informática-sistemas
+            name: Departamento de Informática-Sistemas
+            abbreviation: informática-sistemas
             facultad: ciencias y tecnología
         matematicas:
-            name: matematicas
+            name: Departamento de Matemáticas
+            abbreviation: matemáticas
             facultad: ciencias y tecnología
         mecanica:
-            name: mecanica
+            name: Departamento de Mecánica
+            abbreviation: mecánica
             facultad: ciencias y tecnología
         quimica:
-            name: quimica
+            name: Departamento de Química
+            abbreviation: química
             facultad: ciencias y tecnología

@@ -80,4 +80,60 @@ class Departamento
     {
         return $this->facultad;
     }
+    /**
+     * @var string
+     */
+    private $abbrevation;
+
+
+    /**
+     * Set abbrevation
+     *
+     * @param string $abbrevation
+     * @return Departamento
+     */
+    public function setAbbrevation($abbrevation)
+    {
+        $this->abbrevation = $abbrevation;
+    
+        return $this;
+    }
+
+    /**
+     * Get abbrevation
+     *
+     * @return string 
+     */
+    public function getAbbrevation()
+    {
+        return $this->abbrevation;
+    }
+    /**
+     * @var string
+     */
+    private $abbreviation;
+
+
+    /**
+     * Set abbreviation
+     *
+     * @param string $abbreviation
+     * @return Departamento
+     */
+    public function setAbbreviation($abbreviation)
+    {
+        $this->abbreviation = $abbreviation;
+    
+        return $this;
+    }
+
+    /**
+     * Get abbreviation
+     *
+     * @return string 
+     */
+    public function getAbbreviation()
+    {
+        return $this->abbreviation;
+    }
 }
