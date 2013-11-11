@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-home"></span>
     </a>
 </div>
-<div class="collapse navbar-collapse" id="navbar-main">
+<nav class="collapse navbar-collapse" id="navbar-main" role="navigation">
     <ul class="nav navbar-nav">
         <li>
             <a href="{{ path('cidetsi_departamento_homepage') }}">
@@ -18,4 +18,4 @@
         <li><a href="{{ path('tcpdf_test') }}">Autoridades</a></li>
     </ul>
     {{ render(controller('CidetsiBaseBundle:Default:toolbar')) }}
-</div>
+</nav>

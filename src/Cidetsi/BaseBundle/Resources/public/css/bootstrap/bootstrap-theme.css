@@ -1,0 +1,22 @@
+/*url: http://www.colourlovers.com/palette/3119740/Frog_and_Toad*/
+
+/*Frog&Toad           8CA55F*/
+/*IlostAtWimbleton    3D4A27*/
+/*up                  D3EEA3*/
+/*closed              1C464E*/
+/*pale ocean          92CBD6*/
+
+body {
+    padding-top: 50px;
+    position: relative;
+}
+
+.navbar-inverse {
+    background-color: #1C464E;
+    border: none;
+    box-shadow: 0px 2px 4px #000000;
+}
+
+.jumbotron {
+    background-color: #D3EEA3;
+}
