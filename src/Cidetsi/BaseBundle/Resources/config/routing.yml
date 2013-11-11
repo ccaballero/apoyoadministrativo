@@ -1,6 +1,6 @@
-cidetsi_base_homepage:
+base_homepage:
     pattern:  /
     defaults: { _controller: CidetsiBaseBundle:Default:index }
-tcpdf_test:
-    pattern: /pdf
-    defaults: { _controller: CidetsiBaseBundle:Default:pdf }
+#tcpdf_test:
+#    pattern: /pdf
+#    defaults: { _controller: CidetsiBaseBundle:Default:pdf }

@@ -6,16 +6,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{{ path('cidetsi_base_homepage') }}">
+    <a class="navbar-brand" href="{{ path('base_homepage') }}">
         <span class="glyphicon glyphicon-home"></span>
     </a>
 </div>
 <nav class="collapse navbar-collapse" id="navbar-main" role="navigation">
-    <!--<ul class="nav navbar-nav">
-        <li>
-            <a href="{{ path('cidetsi_departamento_homepage') }}">
-                Departamentos</a></li>
-        <li><a href="{{ path('tcpdf_test') }}">Autoridades</a></li>
-    </ul>-->
     {{ render(controller('CidetsiBaseBundle:Default:toolbar')) }}
 </nav>

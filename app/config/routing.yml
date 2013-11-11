@@ -1,9 +1,7 @@
 # CidetsiDepartamentoBundle routes
-cidetsi_departamento:
-    resource: "@CidetsiDepartamentoBundle/Resources/config/routing.yml"
-    prefix:   /
-
-# CidetsiBaseBundle routes
-cidetsi_base:
+departamento:
+    resource: "@CidetsiDepartamentoBundle/Resources/config/routing/departamento.yml"
+    prefix:   /departamento
+base:
     resource: "@CidetsiBaseBundle/Resources/config/routing.yml"
     prefix:   /

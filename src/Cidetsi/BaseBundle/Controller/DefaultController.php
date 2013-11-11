@@ -11,14 +11,14 @@ class DefaultController extends Controller
 //            'Seguimientos' => 'Administración de seguimientos para docentes y auxiliares',
 //            'Nombramientos' => 'Administración de nombramientos para docentes y auxiliares',
         $items = array(
-            'cidetsi_departamento_homepage' => array(
+            'departamento' => array(
                 'label' => 'Departamentos',
                 'description' => 'Lista de los diferentes departamentos en la FCyT',
             ),
-            'cidetsi_carrera_homepage' => array(
-                'label' => 'Carreras',
-                'description' => 'Lista de las diferentes carreras que comprenden la FCyT',
-            ),
+//            'cidetsi_carrera_homepage' => array(
+//                'label' => 'Carreras',
+//                'description' => 'Lista de las diferentes carreras que comprenden la FCyT',
+//            ),
         );
         
         return $this->render('CidetsiBaseBundle:Default:index.html.twig', array(

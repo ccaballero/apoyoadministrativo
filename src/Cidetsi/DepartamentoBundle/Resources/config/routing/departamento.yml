@@ -1,0 +1,30 @@
+departamento:
+    pattern:  /
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:index" }
+
+departamento_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:show" }
+
+departamento_new:
+    pattern:  /new
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:new" }
+
+departamento_create:
+    pattern:  /create
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:create" }
+    requirements: { _method: post }
+
+departamento_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:edit" }
+
+departamento_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:update" }
+    requirements: { _method: post|put }
+
+departamento_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:delete" }
+    requirements: { _method: post|delete }
