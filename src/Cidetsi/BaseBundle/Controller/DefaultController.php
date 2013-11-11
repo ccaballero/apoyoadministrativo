@@ -7,7 +7,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     public function indexAction() {
-        return $this->render('CidetsiBaseBundle:Default:index.html.twig');
+//            'Planes de estudios' => 'Lista de los diferentes planes de estudio establecidos en la FCyT',
+//            'Seguimientos' => 'Administración de seguimientos para docentes y auxiliares',
+//            'Nombramientos' => 'Administración de nombramientos para docentes y auxiliares',
+        $items = array(
+            'cidetsi_departamento_homepage' => array(
+                'label' => 'Departamentos',
+                'description' => 'Lista de los diferentes departamentos en la FCyT',
+            ),
+        );
+        
+        return $this->render('CidetsiBaseBundle:Default:index.html.twig', array(
+            'items' => $items,
+        ));
     }
 
     public function menuAction() {

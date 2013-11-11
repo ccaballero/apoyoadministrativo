@@ -6,7 +6,8 @@
         <div class="container">
             <div class="media">
                 <a class="pull-left hidden-xs" href="#">
-                    <img class="media-object" data-src="holder.js/150x150/social" alt="...">
+                    <img class="media-object"
+                         data-src="holder.js/150x150/social">
                 </a>
                 <div class="media-body">
                     <h2 class="media-heading">Apoyo administrativo</h2>
@@ -23,26 +24,9 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 col-sm-3 col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Seguimientos</h2>
-                    </div>
-                    <div class="panel-body">
-                        <p>Administración de seguimientos</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2 col-sm-3 col-xs-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">Nombramientos</h2>
-                    </div>
-                    <div class="panel-body">
-                        <p>Administración de nombramientos</p>
-                    </div>
-                </div>
-            </div>
+            {% for url, details in items %}
+                {{ include('CidetsiBaseBundle:Default:items.html.twig') }}
+            {% endfor %}
         </div>
     </div>
 </section>
