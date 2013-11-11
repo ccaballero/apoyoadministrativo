@@ -25,11 +25,23 @@ class Carrera
     private $abbreviation;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $planes;
+
+    /**
      * @var \Cidetsi\DepartamentoBundle\Entity\Departamento
      */
     private $departamento;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -84,6 +96,39 @@ class Carrera
     public function getAbbreviation()
     {
         return $this->abbreviation;
+    }
+
+    /**
+     * Add planes
+     *
+     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
+     * @return Carrera
+     */
+    public function addPlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
+    {
+        $this->planes[] = $planes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove planes
+     *
+     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
+     */
+    public function removePlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
+    {
+        $this->planes->removeElement($planes);
+    }
+
+    /**
+     * Get planes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPlanes()
+    {
+        return $this->planes;
     }
 
     /**
