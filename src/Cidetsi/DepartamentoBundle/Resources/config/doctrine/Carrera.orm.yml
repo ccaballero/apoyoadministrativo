@@ -1,6 +1,6 @@
-Cidetsi\DepartamentoBundle\Entity\Departamento:
+Cidetsi\DepartamentoBundle\Entity\Carrera:
     type: entity
-    table: departamento
+    table: carrera
     indexes:
         name_index:
             columns: [ name ]
@@ -17,12 +17,12 @@ Cidetsi\DepartamentoBundle\Entity\Departamento:
         abbreviation:
             type: string
             length: 64
-        facultad:
-            type: string
-            length: 128
-    oneToMany:
-        carreras:
-            targetEntity: Carrera
-            mappedBy: departamento
+    manyToOne:
+        departamento:
+            targetEntity: Departamento
+            inversedBy: carreras
+            joinColumn:
+                name: departamento
+                referencedColumnName: id
     lifecycleCallbacks: {}
-#    repositoryClass: Cidetsi\BaseBundle\Entity\DepartamentoRepository
+#    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

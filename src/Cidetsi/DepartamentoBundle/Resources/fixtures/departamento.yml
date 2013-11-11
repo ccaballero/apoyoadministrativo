@@ -1,4 +1,3 @@
-# Cidetsi/DepartamentoBundle/Resources/fixtures/install.yml
 departamento:
     properties:
         class: "Cidetsi\DepartamentoBundle\Entity\Departamento"

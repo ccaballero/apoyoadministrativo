@@ -11,12 +11,18 @@ body {
     position: relative;
 }
 
-/*.navbar-inverse {
-    background-color: #1C464E;
+.navbar-inverse {
+    background-color: #000000;
     border: none;
     box-shadow: 0px 2px 4px #000000;
-}*/
+}
 
 .jumbotron {
     background-color: #D3EEA3;
+    background-image: url('/bundles/cidetsibase/images/pw_maze_black.png');
+}
+
+.jumbotron h2,
+.jumbotron p {
+    color: #999999;
 }

@@ -4,15 +4,15 @@ namespace Cidetsi\DepartamentoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class DepartamentoController extends Controller
 {
     public function indexAction() {
         $list = $this->getDoctrine()
                      ->getRepository('CidetsiDepartamentoBundle:Departamento')
-                     ->findAll();
+                     ->findBy(array(), array('name' => 'asc'));
 
         return $this->render(
-            'CidetsiDepartamentoBundle:Default:index.html.twig', array(
+            'CidetsiDepartamentoBundle:Departamento:index.html.twig', array(
                 'list' => $list
         ));
     }

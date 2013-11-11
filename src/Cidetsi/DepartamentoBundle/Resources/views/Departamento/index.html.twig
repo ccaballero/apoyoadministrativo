@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <h1>Departamentos</h1>
+        <p>Estos son los departamentos en la facultad de ciencias y tecnologia,
+        para los que este sistema gestiona información.</p>
+        <div class="panel-group" id="accordion">
+        {% for item in list %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse{{ item.id }}">
+                            {{ item.name }}
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapse{{ item.id }}" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        {% for carrera in item.carreras %}
+                            <li class="list-group-item">
+                                {{ carrera.name }} ({{ carrera.abbreviation}})
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <h1>Carreras</h1>
+        <p>Estas son las carreras que posee la facultad de ciencias y
+        tecnologia.</p>
+        <ul class="list-group">
+        {% for carrera in list %}
+            <li class="list-group-item">
+                {{ carrera.name }} ({{ carrera.abbreviation}})
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

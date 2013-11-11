@@ -19,7 +19,29 @@ class Departamento
      */
     private $name;
 
+    /**
+     * @var string
+     */
+    private $abbreviation;
 
+    /**
+     * @var string
+     */
+    private $facultad;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $carreras;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->carreras = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -52,11 +74,29 @@ class Departamento
     {
         return $this->name;
     }
-    /**
-     * @var string
-     */
-    private $facultad;
 
+    /**
+     * Set abbreviation
+     *
+     * @param string $abbreviation
+     * @return Departamento
+     */
+    public function setAbbreviation($abbreviation)
+    {
+        $this->abbreviation = $abbreviation;
+    
+        return $this;
+    }
+
+    /**
+     * Get abbreviation
+     *
+     * @return string 
+     */
+    public function getAbbreviation()
+    {
+        return $this->abbreviation;
+    }
 
     /**
      * Set facultad
@@ -80,60 +120,37 @@ class Departamento
     {
         return $this->facultad;
     }
-    /**
-     * @var string
-     */
-    private $abbrevation;
-
 
     /**
-     * Set abbrevation
+     * Add carreras
      *
-     * @param string $abbrevation
+     * @param \Cidetsi\DepartamentoBundle\Entity\Carrera $carreras
      * @return Departamento
      */
-    public function setAbbrevation($abbrevation)
+    public function addCarrera(\Cidetsi\DepartamentoBundle\Entity\Carrera $carreras)
     {
-        $this->abbrevation = $abbrevation;
+        $this->carreras[] = $carreras;
     
         return $this;
     }
 
     /**
-     * Get abbrevation
+     * Remove carreras
      *
-     * @return string 
+     * @param \Cidetsi\DepartamentoBundle\Entity\Carrera $carreras
      */
-    public function getAbbrevation()
+    public function removeCarrera(\Cidetsi\DepartamentoBundle\Entity\Carrera $carreras)
     {
-        return $this->abbrevation;
-    }
-    /**
-     * @var string
-     */
-    private $abbreviation;
-
-
-    /**
-     * Set abbreviation
-     *
-     * @param string $abbreviation
-     * @return Departamento
-     */
-    public function setAbbreviation($abbreviation)
-    {
-        $this->abbreviation = $abbreviation;
-    
-        return $this;
+        $this->carreras->removeElement($carreras);
     }
 
     /**
-     * Get abbreviation
+     * Get carreras
      *
-     * @return string 
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getAbbreviation()
+    public function getCarreras()
     {
-        return $this->abbreviation;
+        return $this->carreras;
     }
 }
