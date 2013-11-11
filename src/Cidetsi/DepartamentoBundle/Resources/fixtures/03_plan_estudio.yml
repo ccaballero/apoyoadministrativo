@@ -1,0 +1,99 @@
+planEstudio:
+    properties:
+        class: "Cidetsi\DepartamentoBundle\Entity\\PlanEstudio"
+    data:
+        ing_alimentos:
+            name: Ingeniería de Alimentos
+            code: 409701
+            status: active
+            carrera: "@carrera:ing_alimentos"
+        lic_biologia:
+            name: Licenciatura en Biología
+            code: 399501
+            status: active
+            carrera: "@carrera:lic_biologia"
+        ing_civil:
+            name: Ingeniería Civil
+            code: 329201
+            status: active
+            carrera: "@carrera:ing_civil"
+        ing_civil:
+            name: Ingeniería Civil (nuevo)
+            code: 329202
+            status: active
+            carrera: "@carrera:ing_civil"
+        lic_didactica_fisica:
+            name: Licenciatura en Didáctica de la Física
+            code: 760101
+            status: active
+            carrera: "@carrera:lic_didactica_fisica"
+        lic_didactica_matematica:
+            name: Licenciatura en Didáctica de la Matemática
+            code: 114071
+            status: active
+            carrera: "@carrera:lic_didactica_matematica"
+        ing_electrica:
+            name: Ingeniería Eléctrica
+            code: 299701
+            status: active
+            carrera: "@carrera:ing_electrica"
+        ing_electromecanica:
+            name: Ingeniería Electromecánica
+            code: 650001
+            status: active
+            carrera: "@carrera:ing_electromecanica"
+        ing_electronica:
+            name: Ingeniería Electrónica
+            code: 429701
+            status: active
+            carrera: "@carrera:ing_electrica"
+        lic_fisica:
+            name: Licenciatura en Física
+            code: 359201
+            status: active
+            carrera: "@carrera:lic_fisica"
+        ing_industrial:
+            name: Ingeniería Industrial
+            code: 309801
+            status: active
+            carrera: "@carrera:ing_industrial"
+        ing_informatica:
+            name: Ingeniería en Informática
+            code: 134111
+            status: active
+            carrera: "@carrera:ing_informatica"
+        lic_informatica:
+            name: Licenciatura en Informática
+            code: 378501
+            status: active
+            carrera: "@carrera:ing_informatica"
+        lic_matematicas:
+            name: Licenciatura en Matemáticas
+            code: 349701
+            status: active
+            carrera: "@carrera:lic_matematicas"
+        ing_matematica:
+            name: Ingeniería Matemática
+            code: 439801
+            status: active
+            carrera: "@carrera:ing_matematica"
+        ing_mecanica:
+            name: Ingeniería Mecánica
+            code: 319801
+            status: active
+            carrera: "@carrera:ing_mecanica"
+        lic_quimica:
+            name: Licenciatura en Química
+            code: 389701
+            status: active
+            carrera: "@carrera:lic_quimica"
+        ing_quimica:
+            name: Ingeniería Química
+            code: 339701
+            status: active
+            carrera: "@carrera:ing_quimica"
+        ing_sistemas:
+            name: Ingeniería de Sistemas
+            code: 419701
+            status: active
+            carrera: "@carrera:ing_sistemas"

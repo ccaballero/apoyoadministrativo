@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-sudo rm -rf /var/www/apoyoadm.local/app/cache/*
-sudo rm -rf /var/www/apoyoadm.local/app/logs/*
+PWD=`pwd`
+cd $PWD
+
+php app/console doctrine:schema:drop --force
+
