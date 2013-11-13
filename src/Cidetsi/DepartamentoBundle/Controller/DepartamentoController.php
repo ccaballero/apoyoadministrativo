@@ -21,6 +21,17 @@ class DepartamentoController extends Controller
         ));
     }
 
+    public function newAction() {
+        $entity = new Departamento();
+        $form   = $this->createCreateForm($entity);
+
+        return $this->render(
+            'CidetsiDepartamentoBundle:Departamento:new.html.twig', array(
+                'entity' => $entity,
+                'form'   => $form->createView(),
+        ));
+    }
+
     public function createAction(Request $request) {
         $entity = new Departamento();
         $form = $this->createCreateForm($entity);
@@ -52,17 +63,6 @@ class DepartamentoController extends Controller
 
         $form->add('submit', 'submit', array('label' => 'Create'));
         return $form;
-    }
-
-    public function newAction() {
-        $entity = new Departamento();
-        $form   = $this->createCreateForm($entity);
-
-        return $this->render(
-            'CidetsiDepartamentoBundle:Departamento:new.html.twig', array(
-                'entity' => $entity,
-                'form'   => $form->createView(),
-        ));
     }
 
     public function showAction($id) {

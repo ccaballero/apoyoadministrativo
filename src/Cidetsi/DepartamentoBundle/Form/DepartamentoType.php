@@ -13,9 +13,9 @@ class DepartamentoType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name')
-                ->add('abbreviation')
-                ->add('facultad');
+        $builder->add('name', 'text', array('required' => true))
+                ->add('abbreviation', 'text', array('required' => true))
+                ->add('facultad', 'text', array('required' => true));
     }
 
     /**
