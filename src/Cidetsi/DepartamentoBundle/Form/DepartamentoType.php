@@ -13,9 +13,15 @@ class DepartamentoType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name', 'text', array('required' => true))
-                ->add('abbreviation', 'text', array('required' => true))
-                ->add('facultad', 'text', array('required' => true));
+        $builder->add('name', 'text', array(
+                    'required' => true,
+                    'label' => 'Nombre:'))
+                ->add('abbreviation', 'text', array(
+                    'required' => true,
+                    'label' => 'Abreviatura:'))
+                ->add('facultad', 'text', array(
+                    'required' => true,
+                    'label' => 'Facultad:'));
     }
 
     /**
@@ -31,6 +37,6 @@ class DepartamentoType extends AbstractType
      * @return string
      */
     public function getName() {
-        return 'cidetsi_departamentobundle_departamento';
+        return 'departamento';
     }
 }

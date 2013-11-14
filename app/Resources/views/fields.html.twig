@@ -1,0 +1,43 @@
+{% block form_start %}
+{% spaceless %}
+    {% set method = method|upper %}
+    {% if method in ["GET", "POST"] %}
+        {% set form_method = method %}
+    {% else %}
+        {% set form_method = "POST" %}
+    {% endif %}
+    <form method="{{ form_method|lower }}"
+          action="{{ action }}"
+        {% for attrname, attrvalue in attr %}
+            {{ attrname }}="{{ attrvalue }}"
+        {% endfor %}
+        {% if multipart %} enctype="multipart/form-data"{% endif %}
+        class="form-horizontal" role="form">
+    {% if form_method != method %}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {% endif %}
+{% endspaceless %}
+{% endblock form_start %}
+
+{% block button_row %}
+{% spaceless %}
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+            {{ form_widget(form, { 'attr': {'class': 'btn btn-primary'} }) }}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock button_row %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group">
+        {{ form_label(form, null, {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+        <div class="col-sm-4">
+            {{ form_widget(form, {'attr': {'class': 'form-control'}}) }}
+            {# {{ form_errors(form) }} #}
+            {# <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> #}
+        </div>
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
