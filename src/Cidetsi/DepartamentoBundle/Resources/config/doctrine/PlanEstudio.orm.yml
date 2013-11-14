@@ -27,5 +27,16 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
             joinColumn:
                 name: carrera
                 referencedColumnName: id
+    manyToMany:
+        materias:
+            targetEntity: Materia
+            joinTable:
+                name: plan_materia
+                joinColumns:
+                    plan_id:
+                      referencedColumnName: id
+                inverseJoinColumns:
+                    materia_id:
+                      referencedColumnName: id
     lifecycleCallbacks: {}
 #    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

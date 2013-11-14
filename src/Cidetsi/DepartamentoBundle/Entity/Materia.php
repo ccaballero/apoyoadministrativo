@@ -5,9 +5,9 @@ namespace Cidetsi\DepartamentoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PlanEstudio
+ * Materia
  */
-class PlanEstudio
+class Materia
 {
     /**
      * @var integer
@@ -30,23 +30,16 @@ class PlanEstudio
     private $status;
 
     /**
-     * @var \Cidetsi\DepartamentoBundle\Entity\Carrera
+     * @var string
      */
-    private $carrera;
+    private $type;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      */
-    private $materias;
+    private $level;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
+
     /**
      * Get id
      *
@@ -61,7 +54,7 @@ class PlanEstudio
      * Set name
      *
      * @param string $name
-     * @return PlanEstudio
+     * @return Materia
      */
     public function setName($name)
     {
@@ -84,7 +77,7 @@ class PlanEstudio
      * Set code
      *
      * @param string $code
-     * @return PlanEstudio
+     * @return Materia
      */
     public function setCode($code)
     {
@@ -107,7 +100,7 @@ class PlanEstudio
      * Set status
      *
      * @param string $status
-     * @return PlanEstudio
+     * @return Materia
      */
     public function setStatus($status)
     {
@@ -127,58 +120,48 @@ class PlanEstudio
     }
 
     /**
-     * Set carrera
+     * Set type
      *
-     * @param \Cidetsi\DepartamentoBundle\Entity\Carrera $carrera
-     * @return PlanEstudio
+     * @param string $type
+     * @return Materia
      */
-    public function setCarrera(\Cidetsi\DepartamentoBundle\Entity\Carrera $carrera = null)
+    public function setType($type)
     {
-        $this->carrera = $carrera;
+        $this->type = $type;
     
         return $this;
     }
 
     /**
-     * Get carrera
+     * Get type
      *
-     * @return \Cidetsi\DepartamentoBundle\Entity\Carrera 
+     * @return string 
      */
-    public function getCarrera()
+    public function getType()
     {
-        return $this->carrera;
+        return $this->type;
     }
 
     /**
-     * Add materias
+     * Set level
      *
-     * @param \Cidetsi\DepartamentoBundle\Entity\Materia $materias
-     * @return PlanEstudio
+     * @param string $level
+     * @return Materia
      */
-    public function addMateria(\Cidetsi\DepartamentoBundle\Entity\Materia $materias)
+    public function setLevel($level)
     {
-        $this->materias[] = $materias;
+        $this->level = $level;
     
         return $this;
     }
 
     /**
-     * Remove materias
+     * Get level
      *
-     * @param \Cidetsi\DepartamentoBundle\Entity\Materia $materias
+     * @return string 
      */
-    public function removeMateria(\Cidetsi\DepartamentoBundle\Entity\Materia $materias)
+    public function getLevel()
     {
-        $this->materias->removeElement($materias);
-    }
-
-    /**
-     * Get materias
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMaterias()
-    {
-        return $this->materias;
+        return $this->level;
     }
 }

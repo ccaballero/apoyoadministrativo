@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Cidetsi\DepartamentoBundle\Entity\Departamento;
-use Cidetsi\DepartamentoBundle\Form\DepartamentoType;
+use Cidetsi\DepartamentoBundle\Form\DepartamentoForm;
 
 class DepartamentoController extends Controller
 {
@@ -56,7 +56,7 @@ class DepartamentoController extends Controller
     }
 
     private function createCreateForm(Departamento $entity) {
-        $form = $this->createForm(new DepartamentoType(), $entity, array(
+        $form = $this->createForm(new DepartamentoForm(), $entity, array(
             'action' => $this->generateUrl('departamento_create'),
             'method' => 'POST',
         ));
@@ -108,7 +108,7 @@ class DepartamentoController extends Controller
     }
 
     private function createEditForm(Departamento $entity) {
-        $form = $this->createForm(new DepartamentoType(), $entity, array(
+        $form = $this->createForm(new DepartamentoForm(), $entity, array(
             'action' => $this->generateUrl(
                 'departamento_update', array('id' => $entity->getId())),
             'method' => 'PUT',
