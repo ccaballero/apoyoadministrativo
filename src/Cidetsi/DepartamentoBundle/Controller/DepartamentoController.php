@@ -21,7 +21,27 @@ class DepartamentoController extends Controller
         ));
     }
 
-    public function newAction() {
+
+    public function showAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('CidetsiDepartamentoBundle:Departamento')
+                     ->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException(
+                'Unable to find Departamento entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render(
+            'CidetsiDepartamentoBundle:Departamento:show.html.twig', array(
+                'entity'      => $entity,
+                'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    public function createGetAction() {
         $entity = new Departamento();
         $form   = $this->createCreateForm($entity);
 
@@ -32,11 +52,11 @@ class DepartamentoController extends Controller
         ));
     }
 
-    public function createAction(Request $request) {
+    public function createPostAction(Request $request) {
         $entity = new Departamento();
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
 
+        $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -57,32 +77,13 @@ class DepartamentoController extends Controller
 
     private function createCreateForm(Departamento $entity) {
         $form = $this->createForm(new DepartamentoForm(), $entity, array(
-            'action' => $this->generateUrl('departamento_create'),
+            'action' => $this->generateUrl('departamento_create_post'),
             'method' => 'POST',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Agregar'));
 
         return $form;
-    }
-
-    public function showAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('CidetsiDepartamentoBundle:Departamento')
-                     ->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException(
-                'Unable to find Departamento entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render(
-            'CidetsiDepartamentoBundle:Departamento:show.html.twig', array(
-                'entity'      => $entity,
-                'delete_form' => $deleteForm->createView(),
-        ));
     }
 
     public function editAction($id) {

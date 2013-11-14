@@ -2,18 +2,19 @@ departamento:
     pattern:  /
     defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:index" }
 
+departamento_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:createGet" }
+    requirements: { _method: get }
+
+departamento_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:createPost" }
+    requirements: { _method: post }
+
 departamento_show:
     pattern:  /{id}/ver
     defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:show" }
-
-departamento_new:
-    pattern:  /agregar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:new" }
-
-departamento_create:
-    pattern:  /crear
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:create" }
-    requirements: { _method: post }
 
 departamento_edit:
     pattern:  /{id}/editar
@@ -23,6 +24,11 @@ departamento_update:
     pattern:  /{id}/actualizar
     defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:update" }
     requirements: { _method: post|put }
+
+departamento_drop:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:delete" }
+    requirements: { _method: post|delete }
 
 departamento_delete:
     pattern:  /{id}/eliminar

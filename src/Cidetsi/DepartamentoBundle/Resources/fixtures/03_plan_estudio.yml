@@ -46,7 +46,7 @@ planEstudio:
             name: Ingeniería Electrónica
             code: 429701
             status: active
-            carrera: "@carrera:ing_electrica"
+            carrera: "@carrera:ing_electronica"
         lic_fisica:
             name: Licenciatura en Física
             code: 359201
@@ -65,7 +65,7 @@ planEstudio:
         lic_informatica:
             name: Licenciatura en Informática
             code: 378501
-            status: active
+            status: inactive
             carrera: "@carrera:ing_informatica"
         lic_matematicas:
             name: Licenciatura en Matemáticas

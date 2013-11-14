@@ -13,15 +13,7 @@
         <p>Estos son los departamentos en la facultad de ciencias y tecnologia,
         para los que este sistema gestiona información.</p>
 
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="btn-group">
-                    <a class="btn btn-default"
-                       href="{{ path('departamento_new') }}">Agregar</a>
-                </div>
-            </div>
-        </div>
-
+        {{ include('CidetsiDepartamentoBundle:Departamento:_tasks_departamentos.html.twig') }}
         <div class="panel-group" id="accordion">
         {% for entity in entities %}
             <div class="panel panel-default">
@@ -38,14 +30,11 @@
                     <div class="panel-body">
                         <h3>Carreras</h3>
                         {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
-                        <div class="btn-group">
-                            <a class="btn btn-primary"
-                               href="{{ path('departamento_show', {
-                                'id': entity.id }) }}">Ver detalles</a>
-                            <a class="btn btn-default"
-                               href="{{ path('departamento_edit', {
-                                'id': entity.id }) }}">Editar</a>
-                        </div>
+                        {{ include('CidetsiDepartamentoBundle:Departamento:_tasks_departamento.html.twig', {
+                            'view': true,
+                            'edit': true,
+                            'delete': true
+                        }) }}
                     </div>
                 </div>
             </div>

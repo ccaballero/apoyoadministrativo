@@ -4,12 +4,7 @@
 <ol class="breadcrumb">
     <li>
         <a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li class="active">
-        <a href="{{ path('departamento_show', {'id': entity.id }) }}">{{ entity.name }}</a>
-    </li>
-    <li>
-        <a href="{{ path('departamento_edit', {'id': entity.id }) }}">Editar</a>
-    </li>
+    <li><span>{{ entity.name }}</span></a></li>
 </ol>
 {% endblock %}
 
@@ -19,10 +14,11 @@
         <h1>{{ entity.name }}</h1>
         <div class="btn-group">
             <a class="btn btn-default" href="">Editar</a>
-            {{ form(delete_form) }}
+            <a class="btn btn-default" href="">Eliminar</a>
         </div>
         <h2>Carreras:</h2>
         {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
+        {{ form(delete_form) }}
     </div>
 </section>
 {% endblock %}

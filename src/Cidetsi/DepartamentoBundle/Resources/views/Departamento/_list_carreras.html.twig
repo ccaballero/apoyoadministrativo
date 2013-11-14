@@ -1,7 +1,12 @@
 <ul class="list-group">
 {% for carrera in entity.carreras %}
     <li class="list-group-item">
-        {{ carrera.name }} ({{ carrera.abbreviation}})
+        <span>{{ carrera.name }} ({{ carrera.abbreviation}})</span>
+    {% for plan in carrera.planes %}
+        {% if plan.active %}
+            <span class="badge pull-right">{{ plan.materias|length }}</span>
+        {% endif %}
+    {% endfor %}
     </li>
 {% endfor %}
 </ul>
