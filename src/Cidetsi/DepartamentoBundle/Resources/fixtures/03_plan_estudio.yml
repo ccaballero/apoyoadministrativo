@@ -97,3 +97,5 @@ planEstudio:
             code: 419701
             status: active
             carrera: "@carrera:ing_sistemas"
+            materias:
+                - "@materia:inf135"

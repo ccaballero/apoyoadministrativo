@@ -1,0 +1,10 @@
+materia:
+    properties:
+        class: "Cidetsi\DepartamentoBundle\Entity\Materia"
+    data:
+        inf135:
+            name: Introducción a la programación
+            code: 2010010
+            status: active
+            level: A
+            type: curricular
