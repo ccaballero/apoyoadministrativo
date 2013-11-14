@@ -2,8 +2,14 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-    <li class="active"><a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li><a href="{{ path('departamento_new') }}">Crear nuevo</a></li>
+    <li>
+        <a href="{{ path('departamento') }}">Departamentos</a></li>
+    <li class="active">
+        <a href="{{ path('departamento_show', {'id': entity.id }) }}">{{ entity.name }}</a>
+    </li>
+    <li>
+        <a href="{{ path('departamento_edit', {'id': entity.id }) }}">Editar</a>
+    </li>
 </ol>
 {% endblock %}
 
@@ -12,11 +18,11 @@
     <div class="container">
         <h1>{{ entity.name }}</h1>
         <div class="btn-group">
-            <a class="btn btn-default"
-               href="{{ path('departamento_edit', {
-                'id': entity.id }) }}">Editar</a>
+            <a class="btn btn-default" href="">Editar</a>
             {{ form(delete_form) }}
         </div>
+        <h2>Carreras:</h2>
+        {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
     </div>
 </section>
 {% endblock %}

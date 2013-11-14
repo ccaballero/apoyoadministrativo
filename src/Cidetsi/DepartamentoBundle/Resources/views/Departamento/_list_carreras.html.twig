@@ -1,0 +1,7 @@
+<ul class="list-group">
+{% for carrera in entity.carreras %}
+    <li class="list-group-item">
+        {{ carrera.name }} ({{ carrera.abbreviation}})
+    </li>
+{% endfor %}
+</ul>

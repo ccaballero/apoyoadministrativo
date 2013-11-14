@@ -2,8 +2,7 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-    <li class="active"><a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li><a href="{{ path('departamento_new') }}">Agregar</a></li>
+    <li><span>Departamentos</span></li>
 </ol>
 {% endblock %}
 
@@ -13,6 +12,16 @@
         <h1>Departamentos</h1>
         <p>Estos son los departamentos en la facultad de ciencias y tecnologia,
         para los que este sistema gestiona información.</p>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <a class="btn btn-default"
+                       href="{{ path('departamento_new') }}">Agregar</a>
+                </div>
+            </div>
+        </div>
+
         <div class="panel-group" id="accordion">
         {% for entity in entities %}
             <div class="panel panel-default">
@@ -24,16 +33,11 @@
                         </a>
                     </h2>
                 </div>
-                <div id="collapse{{ entity.id }}" class="panel-collapse collapse">
+                <div id="collapse{{ entity.id }}"
+                     class="panel-collapse collapse">
                     <div class="panel-body">
                         <h3>Carreras</h3>
-                        <ul class="list-group">
-                        {% for carrera in entity.carreras %}
-                            <li class="list-group-item">
-                                {{ carrera.name }} ({{ carrera.abbreviation}})
-                            </li>
-                        {% endfor %}
-                        </ul>
+                        {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
                         <div class="btn-group">
                             <a class="btn btn-primary"
                                href="{{ path('departamento_show', {

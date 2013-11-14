@@ -29,10 +29,8 @@
         </header>
         {% block breadcrumb %}{% endblock %}
         {% block body %}{% endblock %}
-        <footer>
-            <nav role="navigation">
-                {{ render(controller('CidetsiBaseBundle:Default:footer')) }}
-            </nav>
+        <footer class="container">
+            {{ render(controller('CidetsiBaseBundle:Default:footer')) }}
         </footer>
     </body>
 </html>
