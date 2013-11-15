@@ -33,10 +33,10 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
             joinTable:
                 name: plan_materia
                 joinColumns:
-                    plan_id:
+                    plan:
                       referencedColumnName: id
                 inverseJoinColumns:
-                    materia_id:
+                    materia:
                       referencedColumnName: id
     lifecycleCallbacks: {}
 #    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

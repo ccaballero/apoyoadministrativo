@@ -17,14 +17,25 @@ Cidetsi\DepartamentoBundle\Entity\Materia:
         code:
             type: string
             length: 16
-        status:
-            type: string
-            columnDefinition: ENUM('active', 'inactive')
         type:
             type: string
             columnDefinition: ENUM('curricular', 'no curricular')
         level:
             type: string
             length: 1
+    manyToMany:
+        materias:
+            targetEntity: Materia
+            joinTable:
+                name: prerequisito
+                joinColumns:
+                    materia:
+                      referencedColumnName: id
+                inverseJoinColumns:
+                    prerequisito:
+                      referencedColumnName: id
+#        status:
+#            type: string
+#            columnDefinition: ENUM('active', 'inactive')
 #    lifecycleCallbacks: {}
 #    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

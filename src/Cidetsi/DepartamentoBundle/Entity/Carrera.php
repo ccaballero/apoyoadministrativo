@@ -13,7 +13,7 @@ class Carrera
     public function __construct() {
         $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -36,13 +36,13 @@ class Carrera
         return $this->abbreviation;
     }
 
-    public function addPlan(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes) {
-        $this->planes[] = $planes;
+    public function addPlan(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $plan) {
+        $this->planes[] = $plan;
         return $this;
     }
 
-    public function removePlan(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes) {
-        $this->planes->removeElement($planes);
+    public function removePlan(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $plan) {
+        $this->planes->removeElement($plan);
     }
 
     public function getPlanes() {
@@ -56,28 +56,5 @@ class Carrera
 
     public function getDepartamento() {
         return $this->departamento;
-    }
-
-    /**
-     * Add planes
-     *
-     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
-     * @return Carrera
-     */
-    public function addPlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
-    {
-        $this->planes[] = $planes;
-    
-        return $this;
-    }
-
-    /**
-     * Remove planes
-     *
-     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
-     */
-    public function removePlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
-    {
-        $this->planes->removeElement($planes);
     }
 }
