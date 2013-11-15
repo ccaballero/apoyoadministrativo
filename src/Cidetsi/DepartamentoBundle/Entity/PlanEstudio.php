@@ -7,7 +7,6 @@ class PlanEstudio
     private $id;
     private $name;
     private $code;
-    private $status;
     private $carrera;
     private $materias;
 
@@ -37,15 +36,6 @@ class PlanEstudio
         return $this->code;
     }
 
-    public function setStatus($status) {
-        $this->status = $status;
-        return $this;
-    }
-
-    public function getStatus() {
-        return $this->status;
-    }
-
     public function setCarrera(\Cidetsi\DepartamentoBundle\Entity\Carrera $carrera = null) {
         $this->carrera = $carrera;
         return $this;
@@ -66,10 +56,6 @@ class PlanEstudio
 
     public function getMaterias() {
         return $this->materias;
-    }
-
-    public function isActive() {
-        return $this->status == 'active';
     }
 
     public function __toString() {

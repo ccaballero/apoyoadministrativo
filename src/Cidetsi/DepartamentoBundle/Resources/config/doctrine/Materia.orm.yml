@@ -34,8 +34,5 @@ Cidetsi\DepartamentoBundle\Entity\Materia:
                 inverseJoinColumns:
                     prerequisito:
                       referencedColumnName: id
-#        status:
-#            type: string
-#            columnDefinition: ENUM('active', 'inactive')
 #    lifecycleCallbacks: {}
 #    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

@@ -17,9 +17,6 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
         code:
             type: string
             length: 16
-        status:
-            type: string
-            columnDefinition: ENUM('active', 'inactive')
     manyToOne:
         carrera:
             targetEntity: Carrera

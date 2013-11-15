@@ -8,6 +8,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use Cidetsi\DepartamentoBundle\Entity\Materia;
+
 // fetch the list of courses and registry in the database
 class TestCommand extends ContainerAwareCommand
 {
@@ -37,11 +39,44 @@ class TestCommand extends ContainerAwareCommand
 
         if ($input->getOption('db')) {
             // database insertion
-            $repository = $this->em->getRepository(
-                'CidetsiDepartamentoBundle:PlanEstudio');
-            $entity = $repository->findOneByCode($plan['code']);
+            $plan_estudio = $this->em->getRepository(
+                'CidetsiDepartamentoBundle:PlanEstudio')
+                ->findOneByCode($plan['code']);
 
-            echo $entity . PHP_EOL;
+            $db_materia = $this->em->getRepository(
+                'CidetsiDepartamentoBundle:Materia');
+
+            $materias = array();
+
+            // Filling of basic information
+            foreach ($collection as $item) {
+                $materia = new Materia();
+
+                $materia->setName($item->name);
+                $materia->setLevel($item->level);
+                $materia->setCode($item->code);
+                $materia->setType($item->type);
+
+                $materias[$materia->getCode()] = $materia;
+            }
+
+            // Filling the prerequisitos
+            foreach ($materias as $materia) {
+                $pres = $collection[$materia->getCode()]->pre;
+                if (!empty($pres)) {
+                    foreach ($pres as $pre) {
+                        if (array_key_exists($pre, $materia)) {
+                            $materia->addPrerequisito($materias[$pre]);
+                        }
+                    }
+                }
+                
+                $plan_estudio->addMateria($materia);
+                $this->em->persist($materia);
+            }
+            
+            $this->em->persist($plan_estudio);
+            $this->em->flush();
         } else {
             // simple printing
             $output->writeln($plan['name'] . ' (' . $plan['code'] . ')');
@@ -56,6 +91,7 @@ class TestCommand extends ContainerAwareCommand
 
                 $output->writeln($line);
             }
+            $output->writeln('');
         }
     }
 
@@ -117,7 +153,7 @@ class TestCommand extends ContainerAwareCommand
                     $count++;
                 }
 
-                $return[] = $stdClass;
+                $return[$stdClass->code] = $stdClass;
             }
         }
 

@@ -3,9 +3,7 @@
     <li class="list-group-item">
         <span>{{ carrera.name }} ({{ carrera.abbreviation}})</span>
     {% for plan in carrera.planes %}
-        {% if plan.active %}
-            <span class="badge pull-right">{{ plan.materias|length }}</span>
-        {% endif %}
+        <span class="badge pull-right">{{ plan.materias|length }}</span>
     {% endfor %}
     </li>
 {% endfor %}

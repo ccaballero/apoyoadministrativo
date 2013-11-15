@@ -7,7 +7,6 @@ class Materia
     private $id;
     private $name;
     private $code;
-    private $status;
     private $type;
     private $level;
     private $prerequisitos;
@@ -36,15 +35,6 @@ class Materia
 
     public function getCode() {
         return $this->code;
-    }
-
-    public function setStatus($status) {
-        $this->status = $status;
-        return $this;
-    }
-
-    public function getStatus() {
-        return $this->status;
     }
 
     public function setType($type) {
