@@ -10,6 +10,11 @@ class Materia
     private $status;
     private $type;
     private $level;
+    private $prerequisitos;
+
+    public function __construct() {
+        $this->prerequisitos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     public function getId() {
         return $this->id;
@@ -58,5 +63,18 @@ class Materia
 
     public function getLevel() {
         return $this->level;
+    }
+
+    public function addPrerequisito(\Cidetsi\DepartamentoBundle\Entity\Materia $prerequisitos) {
+        $this->prerequisitos[] = $prerequisitos;
+        return $this;
+    }
+
+    public function removePrerequisito(\Cidetsi\DepartamentoBundle\Entity\Materia $prerequisitos) {
+        $this->prerequisitos->removeElement($prerequisitos);
+    }
+
+    public function getPrerequisitos() {
+        return $this->prerequisitos;
     }
 }

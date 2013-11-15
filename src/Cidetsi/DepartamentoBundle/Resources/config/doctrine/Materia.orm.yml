@@ -24,7 +24,7 @@ Cidetsi\DepartamentoBundle\Entity\Materia:
             type: string
             length: 1
     manyToMany:
-        materias:
+        prerequisitos:
             targetEntity: Materia
             joinTable:
                 name: prerequisito

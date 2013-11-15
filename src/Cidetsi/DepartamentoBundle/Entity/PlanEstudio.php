@@ -14,7 +14,7 @@ class PlanEstudio
     public function __construct() {
         $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -67,8 +67,12 @@ class PlanEstudio
     public function getMaterias() {
         return $this->materias;
     }
-    
+
     public function isActive() {
         return $this->status == 'active';
+    }
+
+    public function __toString() {
+        return $this->name . ' (' . $this->code . ')';
     }
 }
