@@ -17,6 +17,7 @@ Cidetsi\DepartamentoBundle\Entity\Materia:
         code:
             type: string
             length: 16
+            unique: true
         type:
             type: string
             columnDefinition: ENUM('curricular', 'no curricular')

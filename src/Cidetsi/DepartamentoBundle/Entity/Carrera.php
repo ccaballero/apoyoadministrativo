@@ -2,6 +2,8 @@
 
 namespace Cidetsi\DepartamentoBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Carrera
 {
     private $id;

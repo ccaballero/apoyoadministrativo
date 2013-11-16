@@ -1,8 +1,0 @@
-cidetsi_departamento_homepage:
-    pattern:  /departamento
-    defaults:
-        _controller: CidetsiDepartamentoBundle:Departamento:index
-cidetsi_carrera_homepage:
-    pattern: /carreras
-    defaults:
-        _controller: CidetsiDepartamentoBundle:Carrera:index

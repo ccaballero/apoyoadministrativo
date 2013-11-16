@@ -21,7 +21,6 @@ class DepartamentoController extends Controller
         ));
     }
 
-
     public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('CidetsiDepartamentoBundle:Departamento')

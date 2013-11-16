@@ -1,0 +1,36 @@
+carrera:
+    pattern:  /
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:index" }
+
+carrera_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:createGet" }
+    requirements: { _method: get }
+
+carrera_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:createPost" }
+    requirements: { _method: post }
+
+carrera_show:
+    pattern:  /{id}/ver
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:show" }
+
+carrera_edit:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:edit" }
+
+carrera_update:
+    pattern:  /{id}/actualizar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:update" }
+    requirements: { _method: post|put }
+
+carrera_drop:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:delete" }
+    requirements: { _method: post|delete }
+
+carrera_delete:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:delete" }
+    requirements: { _method: post|delete }

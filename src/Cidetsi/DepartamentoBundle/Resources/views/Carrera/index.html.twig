@@ -2,7 +2,7 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-    <li class="active">Carreras</li>
+    <li><span>Carreras</span></li>
 </ol>
 {% endblock %}
 
@@ -12,13 +12,33 @@
         <h1>Carreras</h1>
         <p>Estas son las carreras que posee la facultad de ciencias y
         tecnologia.</p>
-        <ul class="list-group">
-        {% for carrera in list %}
-            <li class="list-group-item">
-                {{ carrera.name }} ({{ carrera.abbreviation}})
-            </li>
+
+        {# include('CidetsiDepartamentoBundle:Departamento:_tasks_departamentos.html.twig') #}
+        <div class="panel-group" id="accordion">
+        {% for entity in entities %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapse{{ entity.id }}">
+                            {{ entity.name }}
+                        </a>
+                    </h2>
+                </div>
+                <div id="collapse{{ entity.id }}"
+                     class="panel-collapse collapse">
+                    <div class="panel-body">
+                        {{ include('CidetsiDepartamentoBundle:Departamento:_list_materias.html.twig') }}
+                        {# include('CidetsiDepartamentoBundle:Departamento:_tasks_departamento.html.twig', {
+                            'view': true,
+                            'edit': true,
+                            'delete': true
+                        }) #}
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-        </ul>
+        </div>
     </div>
 </section>
 {% endblock %}

@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Cidetsi\DepartamentoBundle\Entity\Materia;
 
 // fetch the list of courses and registry in the database
-class TestCommand extends ContainerAwareCommand
+class MateriasCommand extends ContainerAwareCommand
 {
     protected function initialize(
             InputInterface $input, OutputInterface $output) {
@@ -36,6 +36,8 @@ class TestCommand extends ContainerAwareCommand
         $url = $input->getArgument('url');
         $html = $this->getPage($url);
         list($plan, $collection) = $this->parse($html);
+
+        $output->writeln('Extrayendo materias de ' . $url);
 
         if ($input->getOption('db')) {
             // database insertion
@@ -70,11 +72,11 @@ class TestCommand extends ContainerAwareCommand
                         }
                     }
                 }
-                
+
                 $plan_estudio->addMateria($materia);
                 $this->em->persist($materia);
             }
-            
+
             $this->em->persist($plan_estudio);
             $this->em->flush();
         } else {
