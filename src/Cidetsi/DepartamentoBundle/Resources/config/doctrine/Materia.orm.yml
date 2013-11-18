@@ -24,6 +24,9 @@ Cidetsi\DepartamentoBundle\Entity\Materia:
         level:
             type: string
             length: 1
+    uniqueConstraints:
+        code:
+            columns: [ code ]
     manyToMany:
         prerequisitos:
             targetEntity: Materia

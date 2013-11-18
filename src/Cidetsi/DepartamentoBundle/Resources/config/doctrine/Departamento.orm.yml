@@ -20,9 +20,13 @@ Cidetsi\DepartamentoBundle\Entity\Departamento:
         facultad:
             type: string
             length: 128
+    uniqueConstraints:
+        abbreviation:
+            columns: [ abbreviation ]
     oneToMany:
         carreras:
             targetEntity: Carrera
             mappedBy: departamento
+            cascade: ["remove"]
     lifecycleCallbacks: {}
 #    repositoryClass: Cidetsi\BaseBundle\Entity\DepartamentoRepository

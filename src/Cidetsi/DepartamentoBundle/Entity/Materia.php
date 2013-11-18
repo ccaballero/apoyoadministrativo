@@ -2,8 +2,6 @@
 
 namespace Cidetsi\DepartamentoBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 class Materia
 {
     private $id;

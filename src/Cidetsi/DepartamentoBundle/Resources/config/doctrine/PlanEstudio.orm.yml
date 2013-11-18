@@ -17,6 +17,9 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
         code:
             type: string
             length: 16
+    uniqueConstraints:
+        code:
+            columns: [ code ]
     manyToOne:
         carrera:
             targetEntity: Carrera
