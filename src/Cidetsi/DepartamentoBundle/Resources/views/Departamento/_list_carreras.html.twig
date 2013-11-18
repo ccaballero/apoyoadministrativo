@@ -1,7 +1,7 @@
 <ul class="list-group">
 {% for carrera in entity.carreras %}
     <li class="list-group-item">
-        <span>{{ carrera.name }} ({{ carrera.abbreviation}})</span>
+        <span>{{ carrera.name }} ({{ carrera.abbreviation }})</span>
     {% for plan in carrera.planes %}
         <span class="badge pull-right">{{ plan.materias|length }}</span>
     {% endfor %}

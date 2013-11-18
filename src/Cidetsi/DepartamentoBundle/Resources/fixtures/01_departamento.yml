@@ -4,37 +4,37 @@ departamento:
     data:
         biologia:
             name: Departamento de Biología
-            abbreviation: biología
-            facultad: ciencias y tecnología
+            abbreviation: Biología
+            facultad: Ciencias y Tecnología
         civil:
             name: Departamento de Civil
-            abbreviation: civil
-            facultad: ciencias y tecnología
+            abbreviation: Civil
+            facultad: Ciencias y Tecnología
         electrica:
             name: Departamento de Eléctrica
-            abbreviation: eléctrica
-            facultad: ciencias y tecnología
+            abbreviation: Eléctrica
+            facultad: Ciencias y Tecnología
         fisica:
             name: Departamento de Física
-            abbreviation: física
-            facultad: ciencias y tecnología
+            abbreviation: Física
+            facultad: Ciencias y Tecnología
         industrias:
             name: Departamento de Industrias
-            abbreviation: industrias
-            facultad: ciencias y tecnología
+            abbreviation: Industrias
+            facultad: Ciencias y Tecnología
         infsis:
             name: Departamento de Informática-Sistemas
-            abbreviation: informática-sistemas
-            facultad: ciencias y tecnología
+            abbreviation: Informática-Sistemas
+            facultad: Ciencias y Tecnología
         matematicas:
             name: Departamento de Matemáticas
-            abbreviation: matemáticas
-            facultad: ciencias y tecnología
+            abbreviation: Matemáticas
+            facultad: Ciencias y Tecnología
         mecanica:
             name: Departamento de Mecánica
-            abbreviation: mecánica
-            facultad: ciencias y tecnología
+            abbreviation: Mecánica
+            facultad: Ciencias y Tecnología
         quimica:
             name: Departamento de Química
-            abbreviation: química
-            facultad: ciencias y tecnología
+            abbreviation: Química
+            facultad: Ciencias y Tecnología

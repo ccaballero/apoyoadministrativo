@@ -12,25 +12,26 @@ departamento_create_post:
     defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:createPost" }
     requirements: { _method: post }
 
-departamento_show:
+departamento_read:
     pattern:  /{id}/ver
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:show" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:read" }
 
-departamento_edit:
+departamento_update_get:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:edit" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:editGet" }
+    requirements: { _method: get }
 
-departamento_update:
-    pattern:  /{id}/actualizar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:update" }
+departamento_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:editPost" }
     requirements: { _method: post|put }
 
-departamento_drop:
+departamento_delete_get:
     pattern:  /{id}/eliminar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:delete" }
-    requirements: { _method: post|delete }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:deleteGet" }
+    requirements: { _method: get }
 
-departamento_delete:
+departamento_delete_post:
     pattern:  /{id}/eliminar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:delete" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:deletePost" }
     requirements: { _method: post|delete }

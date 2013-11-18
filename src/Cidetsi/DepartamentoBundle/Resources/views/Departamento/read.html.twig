@@ -8,17 +8,16 @@
 </ol>
 {% endblock %}
 
-{% block body -%}
+{% block body %}
 <section>
     <div class="container">
         <h1>{{ entity.name }}</h1>
-        <div class="btn-group">
-            <a class="btn btn-default" href="">Editar</a>
-            <a class="btn btn-default" href="">Eliminar</a>
-        </div>
+        {{ include('CidetsiDepartamentoBundle:Departamento:_tasks_departamento.html.twig', {
+            'view': false,  'edit': true, 'delete': true
+        }) }}
         <h2>Carreras:</h2>
         {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
-        {{ form(delete_form) }}
+        {# { form(delete_form) } #}
     </div>
 </section>
 {% endblock %}

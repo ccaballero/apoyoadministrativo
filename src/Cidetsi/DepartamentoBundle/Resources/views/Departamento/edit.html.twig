@@ -3,7 +3,8 @@
 {% block breadcrumb %}
 <ol class="breadcrumb">
     <li><a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li class="active"><a href="{{ path('departamento_new') }}">Crear nuevo</a></li>
+    <li><a href="{{ path('departamento_read', { 'id' : entity.id }) }}">{{ entity.name }}</a></li>
+    <li><span>Edición</span></li>
 </ol>
 {% endblock %}
 
@@ -13,6 +14,5 @@
         <h1>Editar departamento</h1>
         {{ form(edit_form) }}
     </div>
-    {#{ form(delete_form) }#}
 </section>
 {% endblock %}

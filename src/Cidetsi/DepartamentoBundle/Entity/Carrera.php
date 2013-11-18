@@ -59,4 +59,27 @@ class Carrera
     public function getDepartamento() {
         return $this->departamento;
     }
+
+    /**
+     * Add planes
+     *
+     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
+     * @return Carrera
+     */
+    public function addPlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
+    {
+        $this->planes[] = $planes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove planes
+     *
+     * @param \Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes
+     */
+    public function removePlane(\Cidetsi\DepartamentoBundle\Entity\PlanEstudio $planes)
+    {
+        $this->planes->removeElement($planes);
+    }
 }

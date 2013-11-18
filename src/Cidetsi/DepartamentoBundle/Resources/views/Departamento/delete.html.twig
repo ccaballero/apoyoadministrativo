@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{ path('departamento') }}">Departamentos</a></li>
+    <li><a href="{{ path('departamento_read', { 'id' : entity.id }) }}">{{ entity.name }}</a></li>
+    <li><span>Eliminar</span></li>
+</ol>
+{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        <h1>Eliminar departamento</h1>
+        <p>Eliminar un recurso de la aplicación, implica la desaparición
+            inherente de todos los recursos que esten por debajo de sus
+            jerarquia. Lo que a veces puede no ser deseado. Si todavia quiere
+            eliminar el recurso, por favor presione el boton que se muestra a
+            continuación.</p>
+        {{ form(delete_form) }}
+    </div>
+</section>
+{% endblock %}
