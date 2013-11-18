@@ -22,6 +22,7 @@
         </div>
     </div>
     <div class="container">
+        {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
         <div class="row">
             {% for url, details in items %}
                 {{ include('CidetsiBaseBundle:Default:items.html.twig') }}

@@ -9,6 +9,7 @@
 {% block body %}
 <section>
     <div class="container">
+        {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
         {% block preamble %}
             <h1>{{ title_list }}</h1>
         {% endblock %}

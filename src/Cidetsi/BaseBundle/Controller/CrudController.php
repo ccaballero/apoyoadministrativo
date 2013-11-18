@@ -11,6 +11,7 @@ class CrudController extends Controller
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository($this->repository)
                        ->findBy(array(), $this->orderBy);
+
         return $this->render($this->repository . ':index.html.twig',
             array_merge(
                 $this->tpl_commons, array(
@@ -24,16 +25,18 @@ class CrudController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
+
         return $this->render($this->repository . ':read.html.twig',
             array_merge(
                 $this->tpl_commons, array(
                     'entity' => $entity,
         )));
     }
-    
+
     public function createGetAction() {
         $entity = new $this->entity();
         $form   = $this->createCreateForm($entity);
+
         return $this->render($this->repository . ':create.html.twig',
             array_merge(
                 $this->tpl_commons, array(
@@ -49,6 +52,7 @@ class CrudController extends Controller
             throw $this->createNotFoundException('Unable to find entity.');
         }
         $editForm = $this->createEditForm($entity);
+
         return $this->render($this->repository . ':update.html.twig',
             array_merge(
                 $this->tpl_commons, array(
@@ -64,6 +68,7 @@ class CrudController extends Controller
             throw $this->createNotFoundException('Unable to find entity.');
         }
         $deleteForm = $this->createDeleteForm($id);
+
         return $this->render(
             $this->repository . ':delete.html.twig',
                 array_merge(
@@ -110,15 +115,25 @@ class CrudController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+
+            $this->get('session')->getFlashBag()
+                 ->add('success', 'El recurso fue creado exitosamente');
             return $this->redirect(
                 $this->generateUrl($this->resource . '_read', array(
                     'id' => $entity->getId())
             ));
+        } else {
+            $this->get('session')->getFlashBag()
+                 ->add('warning',
+                       'Se encontraron algunos errores en su formulario');
         }
-        return $this->render($this->repository . ':create.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
+
+        return $this->render($this->repository . ':create.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity' => $entity,
+                    'form'   => $form->createView(),
+        )));
     }
 
     public function editPostAction(Request $request, $id) {
@@ -131,15 +146,20 @@ class CrudController extends Controller
         $editForm->handleRequest($request);
         if ($editForm->isValid()) {
             $em->flush();
+            $this->get('session')->getFlashBag()
+                 ->add('success', 'El recurso fue editado exitosamente');
             return $this->redirect(
                 $this->generateUrl($this->resource . '_read', array(
                     'id' => $id)
             ));
         }
-        return $this->render($this->repository . ':update.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        ));
+
+        return $this->render($this->repository . ':update.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity'      => $entity,
+                    'edit_form'   => $editForm->createView(),
+        )));
     }
 
     public function deletePostAction(Request $request, $id) {
