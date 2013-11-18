@@ -1,6 +1,14 @@
 base_homepage:
     pattern:  /
     defaults: { _controller: CidetsiBaseBundle:Default:index }
+
+base_login:
+    pattern:  /acceder
+    defaults: { _controller: CidetsiBaseBundle:Sign:in }
+
+base_login_check:
+    pattern: /login_check
+
 #tcpdf_test:
 #    pattern: /pdf
 #    defaults: { _controller: CidetsiBaseBundle:Default:pdf }
