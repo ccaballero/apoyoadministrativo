@@ -1,0 +1,19 @@
+<div class="btn-toolbar">
+    <div class="btn-group">
+    {% if view %}
+        <a class="btn btn-primary"
+           href="{{ path('carrera_read', {
+            'id': entity.id }) }}">Ver detalles</a>
+    {% endif %}
+    {% if edit %}
+        <a class="btn btn-default"
+           href="{{ path('carrera_update_get', {
+            'id': entity.id }) }}">Editar</a>
+    {% endif %}
+    {% if delete %}
+        <a class="btn btn-default"
+           href="{{ path('carrera_delete_get', {
+            'id': entity.id }) }}">Eliminar</a>
+    {% endif %}
+    </div>
+</div>

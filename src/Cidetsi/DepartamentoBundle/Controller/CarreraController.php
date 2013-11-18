@@ -14,5 +14,9 @@ class CarreraController extends CrudController
 
     public $tpl_commons = array(
         'title_list' => 'Carreras',
+        'title_create' => 'Agregar carrera',
+        'title_delete' => 'Eliminar carrera',
+        'url_list'     => 'carrera',
+        'url_element'  => 'carrera_read',
     );
 }

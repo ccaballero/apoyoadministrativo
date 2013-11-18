@@ -1,44 +1,28 @@
-{% extends '::base.html.twig' %}
+{% extends 'CidetsiBaseBundle:Crud:index.html.twig' %}
 
-{% block breadcrumb %}
-<ol class="breadcrumb">
-    <li><span>Carreras</span></li>
-</ol>
+{% block preamble %}
+    {{ parent() }}
+    <p>Estas son las carreras que posee la facultad de ciencias y
+    tecnologia.</p>
+    {{ include('CidetsiDepartamentoBundle:Carrera:Tasks/collection.html.twig') }}
 {% endblock %}
 
-{% block body %}
-<section>
-    <div class="container">
-        <h1>Carreras</h1>
-        <p>Estas son las carreras que posee la facultad de ciencias y
-        tecnologia.</p>
-
-        {# include('CidetsiDepartamentoBundle:Departamento:_tasks_departamentos.html.twig') #}
-        <div class="panel-group" id="accordion">
-        {% for entity in entities %}
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapse{{ entity.id }}">
-                            {{ entity.name }}
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse{{ entity.id }}"
-                     class="panel-collapse collapse">
-                    <div class="panel-body">
-                        {{ include('CidetsiDepartamentoBundle:Departamento:_list_materias.html.twig') }}
-                        {# include('CidetsiDepartamentoBundle:Departamento:_tasks_departamento.html.twig', {
-                            'view': true,
-                            'edit': true,
-                            'delete': true
-                        }) #}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-        </div>
-    </div>
-</section>
+{% block items %}
+<h3>Planes de estudio</h3>
+<ul class="list-group">
+{% for plan in entity.planes %}
+    <h4>{{ plan.name }}</h4>
+    <table class="table table-condensed">
+    {% for materia in plan.materias %}
+        <tr>
+            <td>{{ materia.name }}</td>
+            <td>{{ materia.code }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endfor %}
+</ul>
+{{ include('CidetsiDepartamentoBundle:Carrera:Tasks/element.html.twig', {
+    'view': true, 'edit': true, 'delete': true
+}) }}
 {% endblock %}

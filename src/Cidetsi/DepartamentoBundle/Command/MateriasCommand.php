@@ -52,9 +52,10 @@ class MateriasCommand extends ContainerAwareCommand
 
             // Filling of basic information
             foreach ($collection as $item) {
-                $materia = $db_materia->findByCode();
-                
-                $materia = new Materia();
+                $materia = $db_materia->findOneByCode($item->code);
+                if (!$materia) {
+                    $materia = new Materia();
+                }
 
                 $materia->setName($item->name);
                 $materia->setLevel($item->level);

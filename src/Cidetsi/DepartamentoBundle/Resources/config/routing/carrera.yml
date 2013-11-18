@@ -16,21 +16,22 @@ carrera_read:
     pattern:  /{id}/ver
     defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:read" }
 
-carrera_edit:
+carrera_update_get:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:edit" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:editGet" }
+    requirements: { _method: get }
 
-carrera_update:
-    pattern:  /{id}/actualizar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:update" }
+carrera_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:editPost" }
     requirements: { _method: post|put }
 
-carrera_drop:
+carrera_delete_get:
     pattern:  /{id}/eliminar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:delete" }
-    requirements: { _method: post|delete }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:deleteGet" }
+    requirements: { _method: get }
 
-carrera_delete:
+carrera_delete_post:
     pattern:  /{id}/eliminar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:delete" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:deletePost" }
     requirements: { _method: post|delete }
