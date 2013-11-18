@@ -24,13 +24,13 @@
     <body>
         <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
             <div class="container">
-                {{ render(controller('CidetsiBaseBundle:Default:menu')) }}
+                {{ render(controller('CidetsiBaseBundle:Block:menu')) }}
             </div>
         </header>
         {% block breadcrumb %}{% endblock %}
         {% block body %}{% endblock %}
         <footer class="container">
-            {{ render(controller('CidetsiBaseBundle:Default:footer')) }}
+            {{ render(controller('CidetsiBaseBundle:Block:footer')) }}
         </footer>
     </body>
 </html>
