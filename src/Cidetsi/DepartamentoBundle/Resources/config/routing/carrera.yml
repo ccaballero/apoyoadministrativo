@@ -12,9 +12,9 @@ carrera_create_post:
     defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:createPost" }
     requirements: { _method: post }
 
-carrera_show:
+carrera_read:
     pattern:  /{id}/ver
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:show" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:read" }
 
 carrera_edit:
     pattern:  /{id}/editar

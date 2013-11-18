@@ -1,4 +1,6 @@
 Cidetsi\DepartamentoBundle\Entity\Departamento:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
     properties:
         name:
             - NotBlank: ~

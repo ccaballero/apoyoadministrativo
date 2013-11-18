@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{ path(url_list) }}">{{ title_list }}</a></li>
+    <li><span>{{ entity.name }}</span></a></li>
+</ol>
+{% endblock %}

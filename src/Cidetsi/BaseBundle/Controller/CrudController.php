@@ -11,9 +11,11 @@ class CrudController extends Controller
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository($this->repository)
                        ->findBy(array(), $this->orderBy);
-        return $this->render($this->repository . ':index.html.twig', array(
-            'entities' => $entities,
-        ));
+        return $this->render($this->repository . ':index.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entities' => $entities,
+        )));
     }
 
     public function readAction($id) {
@@ -22,9 +24,53 @@ class CrudController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
-        return $this->render($this->repository . ':read.html.twig', array(
-            'entity'      => $entity,
-        ));
+        return $this->render($this->repository . ':read.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity' => $entity,
+        )));
+    }
+    
+    public function createGetAction() {
+        $entity = new $this->entity();
+        $form   = $this->createCreateForm($entity);
+        return $this->render($this->repository . ':create.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity' => $entity,
+                    'form'   => $form->createView(),
+        )));
+    }
+
+    public function editGetAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository($this->repository)->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find entity.');
+        }
+        $editForm = $this->createEditForm($entity);
+        return $this->render($this->repository . ':update.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity'      => $entity,
+                    'edit_form'   => $editForm->createView(),
+        )));
+    }
+
+    public function deleteGetAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository($this->repository)->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find entity.');
+        }
+        $deleteForm = $this->createDeleteForm($id);
+        return $this->render(
+            $this->repository . ':delete.html.twig',
+                array_merge(
+                    $this->tpl_commons, array(
+                        'entity'      => $entity,
+                        'delete_form' => $deleteForm->createView(),
+        )));
     }
 
     protected function createCreateForm($entity) {
@@ -56,43 +102,6 @@ class CrudController extends Controller
             ->getForm();
     }
 
-    public function createGetAction() {
-        $entity = new $this->entity();
-        $form   = $this->createCreateForm($entity);
-        return $this->render($this->repository . ':new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        ));
-    }
-
-    public function editGetAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository($this->repository)->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
-        $editForm = $this->createEditForm($entity);
-        return $this->render(
-            $this->repository . ':edit.html.twig', array(
-                'entity'      => $entity,
-                'edit_form'   => $editForm->createView(),
-        ));
-    }
-
-    public function deleteGetAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository($this->repository)->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
-        $deleteForm = $this->createDeleteForm($id);
-        return $this->render(
-            $this->repository . ':delete.html.twig', array(
-                'entity'      => $entity,
-                'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
     public function createPostAction(Request $request) {
         $entity = new $this->entity();
         $form = $this->createCreateForm($entity);
@@ -102,11 +111,11 @@ class CrudController extends Controller
             $em->persist($entity);
             $em->flush();
             return $this->redirect(
-                $this->generateUrl($this->resource . '_show', array(
+                $this->generateUrl($this->resource . '_read', array(
                     'id' => $entity->getId())
             ));
         }
-        return $this->render($this->repository . ':new.html.twig', array(
+        return $this->render($this->repository . ':create.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -127,7 +136,7 @@ class CrudController extends Controller
                     'id' => $id)
             ));
         }
-        return $this->render($this->repository . ':edit.html.twig', array(
+        return $this->render($this->repository . ':update.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
         ));

@@ -2,15 +2,15 @@
 
 {% block breadcrumb %}
 <ol class="breadcrumb">
-    <li><a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li><span>Agregar departamento</span></li>
+    <li><a href="{{ path(url_list) }}">{{ title_list }}</a></li>
+    <li><span>{{ title_create }}</span></li>
 </ol>
 {% endblock %}
 
 {% block body %}
 <section>
     <div class="container">
-        <h1>Agregar departamento</h1>
+        <h1>{{ title_create }}</h1>
         {{ form(form) }}
     </div>
 </section>

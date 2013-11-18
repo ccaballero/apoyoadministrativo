@@ -2,37 +2,17 @@
 
 namespace Cidetsi\DepartamentoBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Cidetsi\BaseBundle\Controller\CrudController;
 
-class CarreraController extends Controller
+class CarreraController extends CrudController
 {
-    public function indexAction() {
-        $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('CidetsiDepartamentoBundle:Carrera')
-                       ->findBy(array(), array('name' => 'asc'));
+    public $resource = 'carrera';
+    public $repository = 'CidetsiDepartamentoBundle:Carrera';
+    public $orderBy = array('name' => 'asc');
+    public $form = 'Cidetsi\DepartamentoBundle\Form\CarreraForm';
+    public $entity = 'Cidetsi\DepartamentoBundle\Entity\Carrera';
 
-        return $this->render(
-            'CidetsiDepartamentoBundle:Carrera:index.html.twig', array(
-                'entities' => $entities,
-        ));
-    }
-
-    public function showAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('CidetsiDepartamentoBundle:Carrera')
-                     ->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException(
-                'Unable to find Carrera entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render(
-            'CidetsiDepartamentoBundle:Departamento:show.html.twig', array(
-                'entity'      => $entity,
-                'delete_form' => $deleteForm->createView(),
-        ));
-    }
+    public $tpl_commons = array(
+        'title_list' => 'Carreras',
+    );
 }

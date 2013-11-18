@@ -1,23 +1,12 @@
-{% extends '::base.html.twig' %}
-
-{% block breadcrumb %}
-<ol class="breadcrumb">
-    <li>
-        <a href="{{ path('departamento') }}">Departamentos</a></li>
-    <li><span>{{ entity.name }}</span></a></li>
-</ol>
-{% endblock %}
+{% extends 'CidetsiBaseBundle:Crud:read.html.twig' %}
 
 {% block body %}
 <section>
     <div class="container">
         <h1>{{ entity.name }}</h1>
-        {{ include('CidetsiDepartamentoBundle:Departamento:_tasks_departamento.html.twig', {
+        {{ include('CidetsiDepartamentoBundle:Departamento:Tasks/element.html.twig', {
             'view': false,  'edit': true, 'delete': true
         }) }}
-        <h2>Carreras:</h2>
-        {{ include('CidetsiDepartamentoBundle:Departamento:_list_carreras.html.twig') }}
-        {# { form(delete_form) } #}
     </div>
 </section>
 {% endblock %}
