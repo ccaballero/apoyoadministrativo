@@ -13,7 +13,7 @@ departamento_create_post:
     requirements: { _method: post }
 
 departamento_read:
-    pattern:  /{id}/ver
+    pattern:  /{id}
     defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:read" }
 
 departamento_update_get:

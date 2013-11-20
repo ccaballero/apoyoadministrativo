@@ -13,7 +13,9 @@ class CarreraForm extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('name', 'text', array(
+        $builder->add('departamento', 'entity', array(
+                    'class' => 'CidetsiDepartamentoBundle:Departamento'))
+                ->add('name', 'text', array(
                     'required' => true,
                     'label' => 'Nombre:'))
                 ->add('abbreviation', 'text', array(

@@ -27,6 +27,9 @@ class CrudController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
+        if ($entity->getStatus() == 'disabled') {
+            throw $this->createNotFoundException('The entity is disabled.');
+        }
 
         return $this->render($this->repository . ':read.html.twig',
             array_merge(

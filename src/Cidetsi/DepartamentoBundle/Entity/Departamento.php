@@ -67,8 +67,12 @@ class Departamento
     public function getCarreras() {
         return $this->carreras;
     }
-    
+
     public function isEmpty() {
         return count($this->getCarreras()) == 0;
+    }
+
+    public function __toString() {
+        return $this->getName();
     }
 }

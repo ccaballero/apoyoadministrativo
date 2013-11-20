@@ -13,7 +13,7 @@ carrera_create_post:
     requirements: { _method: post }
 
 carrera_read:
-    pattern:  /{id}/ver
+    pattern:  /{id}
     defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:read" }
 
 carrera_update_get:

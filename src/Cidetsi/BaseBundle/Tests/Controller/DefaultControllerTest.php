@@ -6,12 +6,35 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DefaultControllerTest extends WebTestCase
 {
-    public function testIndex()
-    {
-        $client = static::createClient();
+    protected $client;
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+    protected function setUp() {
+        $this->client = static::createClient();
+    }
 
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+    /**
+     * @dataProvider getRoutes
+     */
+    public function testRouting($request) {
+        $this->client->request('GET', $request);
+        $response = $this->client->getResponse();
+
+        $this->assertTrue($this->isSuccessful($response));
+        $this->assertEquals(200, $this->getStatusCode($response));
+    }
+
+    protected function isSuccessful($response) {
+        return $response->isSuccessful();
+    }
+
+    protected function getStatusCode($response) {
+        return $response->getStatusCode();
+    }
+
+    public function getRoutes() {
+        return array(
+            array('/'),
+            array('/acceder'),
+        );
     }
 }
