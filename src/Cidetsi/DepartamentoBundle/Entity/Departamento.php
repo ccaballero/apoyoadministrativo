@@ -6,7 +6,7 @@ class Departamento
 {
     private $id;
     private $name;
-    private $status;
+    private $status = 'enabled';
     private $abbreviation;
     private $facultad;
     private $carreras;
@@ -69,6 +69,6 @@ class Departamento
     }
     
     public function isEmpty() {
-        return false;
+        return count($this->getCarreras()) == 0;
     }
 }

@@ -10,7 +10,9 @@ class CrudController extends Controller
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository($this->repository)
-                       ->findBy(array(), $this->orderBy);
+                       ->findBy(
+                            array('status' => 'enabled'),
+                            $this->orderBy);
 
         return $this->render($this->repository . ':index.html.twig',
             array_merge(
@@ -173,7 +175,13 @@ class CrudController extends Controller
                 $entity->setStatus('disabled');
             }
             $em->flush();
+            $this->get('session')->getFlashBag()
+                 ->add('success', 'El recurso fue eliminado exitosamente');
+        } else {
+            $this->get('session')->getFlashBag()
+                 ->add('warning', 'El recurso no pudo ser eliminado');
         }
+
         return $this->redirect($this->generateUrl($this->resource));
     }
 }
