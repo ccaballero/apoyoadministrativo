@@ -6,7 +6,7 @@ class Carrera
 {
     private $id;
     private $name;
-    private $status;
+    private $status = 'enabled';
     private $abbreviation;
     private $planes;
     private $departamento;

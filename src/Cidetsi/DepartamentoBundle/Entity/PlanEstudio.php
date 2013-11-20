@@ -6,7 +6,7 @@ class PlanEstudio
 {
     private $id;
     private $name;
-    private $status;
+    private $status = 'enabled';
     private $code;
     private $carrera;
     private $materias;

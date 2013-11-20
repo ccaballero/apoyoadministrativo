@@ -26,7 +26,7 @@ Cidetsi\DepartamentoBundle\Entity\Departamento:
             columnDefinition: ENUM('enabled', 'disabled')
             nullable: false
             options:
-                default: enabled
+                default: 'enabled'
     indexes:
         name_index:
             columns: [ name ]
