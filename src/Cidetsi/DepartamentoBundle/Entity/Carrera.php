@@ -6,6 +6,7 @@ class Carrera
 {
     private $id;
     private $name;
+    private $status;
     private $abbreviation;
     private $planes;
     private $departamento;
@@ -25,6 +26,15 @@ class Carrera
 
     public function getName() {
         return $this->name;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getStatus() {
+        return $this->status;
     }
 
     public function setAbbreviation($abbreviation) {

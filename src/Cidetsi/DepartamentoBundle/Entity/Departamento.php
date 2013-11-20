@@ -6,6 +6,7 @@ class Departamento
 {
     private $id;
     private $name;
+    private $status;
     private $abbreviation;
     private $facultad;
     private $carreras;
@@ -13,7 +14,7 @@ class Departamento
     public function __construct() {
         $this->carreras = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -25,6 +26,15 @@ class Departamento
 
     public function getName() {
         return $this->name;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getStatus() {
+        return $this->status;
     }
 
     public function setAbbreviation($abbreviation) {
@@ -56,5 +66,9 @@ class Departamento
 
     public function getCarreras() {
         return $this->carreras;
+    }
+    
+    public function isEmpty() {
+        return false;
     }
 }

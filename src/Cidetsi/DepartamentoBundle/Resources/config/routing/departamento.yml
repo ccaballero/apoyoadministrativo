@@ -18,12 +18,12 @@ departamento_read:
 
 departamento_update_get:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:editGet" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:updateGet" }
     requirements: { _method: get }
 
 departamento_update_post:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:editPost" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Departamento:updatePost" }
     requirements: { _method: post|put }
 
 departamento_delete_get:

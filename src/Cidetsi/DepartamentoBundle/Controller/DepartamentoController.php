@@ -15,6 +15,7 @@ class DepartamentoController extends CrudController
     public $tpl_commons = array(
         'title_list'   => 'Departamentos',
         'title_create' => 'Agregar departamento',
+        'title_update' => 'Editar departamento',
         'title_delete' => 'Eliminar departamento',
         'url_list'     => 'departamento',
         'url_element'  => 'departamento_read',

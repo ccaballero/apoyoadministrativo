@@ -1,9 +1,6 @@
 Cidetsi\DepartamentoBundle\Entity\Carrera:
     type: entity
     table: carrera
-    indexes:
-        name_index:
-            columns: [ name ]
     id:
         id:
             type: integer
@@ -17,6 +14,12 @@ Cidetsi\DepartamentoBundle\Entity\Carrera:
         abbreviation:
             type: string
             length: 64
+        status:
+            type: string
+            columnDefinition: ENUM('enabled', 'disabled')
+    indexes:
+        name_index:
+            columns: [ name ]
     manyToOne:
         departamento:
             targetEntity: Departamento
@@ -30,4 +33,3 @@ Cidetsi\DepartamentoBundle\Entity\Carrera:
             targetEntity: PlanEstudio
             mappedBy: carrera
     lifecycleCallbacks: {}
-#    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository

@@ -1,9 +1,6 @@
 Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
     type: entity
     table: plan_estudio
-    indexes:
-        name_index:
-            columns: [ name ]
     id:
         id:
             type: integer
@@ -17,6 +14,12 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
         code:
             type: string
             length: 16
+        status:
+            type: string
+            columnDefinition: ENUM('enabled', 'disabled')
+    indexes:
+        name_index:
+            columns: [ name ]
     uniqueConstraints:
         code:
             columns: [ code ]
@@ -27,16 +30,16 @@ Cidetsi\DepartamentoBundle\Entity\PlanEstudio:
             joinColumn:
                 name: carrera
                 referencedColumnName: id
-    manyToMany:
-        materias:
-            targetEntity: Materia
-            joinTable:
-                name: plan_materia
-                joinColumns:
-                    plan:
-                      referencedColumnName: id
-                inverseJoinColumns:
-                    materia:
-                      referencedColumnName: id
     lifecycleCallbacks: {}
-#    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository
+#
+#    manyToMany:
+#        materias:
+#            targetEntity: Materia
+#            joinTable:
+#                name: plan_materia
+#                joinColumns:
+#                    plan:
+#                      referencedColumnName: id
+#                inverseJoinColumns:
+#                    materia:
+#                      referencedColumnName: id

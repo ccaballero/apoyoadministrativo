@@ -11,8 +11,9 @@
 {% block body %}
 <section>
     <div class="container">
-        <h1>Editar departamento</h1>
-        {{ form(edit_form) }}
+        <h1>{{ title_update }}</h1>
+        {{ form(update_form) }}
     </div>
 </section>
+<script>$(document).ready(function(){$('input[type="text"]:first').focus()})</script>
 {% endblock %}

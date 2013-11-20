@@ -35,29 +35,29 @@ class CrudController extends Controller
 
     public function createGetAction() {
         $entity = new $this->entity();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render($this->repository . ':create.html.twig',
             array_merge(
                 $this->tpl_commons, array(
                     'entity' => $entity,
-                    'form'   => $form->createView(),
+                    'form' => $form->createView(),
         )));
     }
 
-    public function editGetAction($id) {
+    public function updateGetAction($id) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository($this->repository)->find($id);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
-        $editForm = $this->createEditForm($entity);
+        $updateForm = $this->createUpdateForm($entity);
 
         return $this->render($this->repository . ':update.html.twig',
             array_merge(
                 $this->tpl_commons, array(
-                    'entity'      => $entity,
-                    'edit_form'   => $editForm->createView(),
+                    'entity' => $entity,
+                    'update_form' => $updateForm->createView(),
         )));
     }
 
@@ -73,7 +73,7 @@ class CrudController extends Controller
             $this->repository . ':delete.html.twig',
                 array_merge(
                     $this->tpl_commons, array(
-                        'entity'      => $entity,
+                        'entity' => $entity,
                         'delete_form' => $deleteForm->createView(),
         )));
     }
@@ -87,7 +87,7 @@ class CrudController extends Controller
         return $form;
     }
 
-    protected function createEditForm($entity) {
+    protected function createUpdateForm($entity) {
         $form = $this->createForm(new $this->form(), $entity, array(
             'action' => $this->generateUrl(
                 $this->resource . '_update_post', array(
@@ -122,29 +122,25 @@ class CrudController extends Controller
                 $this->generateUrl($this->resource . '_read', array(
                     'id' => $entity->getId())
             ));
-        } else {
-            $this->get('session')->getFlashBag()
-                 ->add('warning',
-                       'Se encontraron algunos errores en su formulario');
         }
 
         return $this->render($this->repository . ':create.html.twig',
             array_merge(
                 $this->tpl_commons, array(
                     'entity' => $entity,
-                    'form'   => $form->createView(),
+                    'form' => $form->createView(),
         )));
     }
 
-    public function editPostAction(Request $request, $id) {
+    public function updatePostAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository($this->repository)->find($id);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find entity.');
         }
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-        if ($editForm->isValid()) {
+        $updateForm = $this->createUpdateForm($entity);
+        $updateForm->handleRequest($request);
+        if ($updateForm->isValid()) {
             $em->flush();
             $this->get('session')->getFlashBag()
                  ->add('success', 'El recurso fue editado exitosamente');
@@ -157,8 +153,8 @@ class CrudController extends Controller
         return $this->render($this->repository . ':update.html.twig',
             array_merge(
                 $this->tpl_commons, array(
-                    'entity'      => $entity,
-                    'edit_form'   => $editForm->createView(),
+                    'entity' => $entity,
+                    'update_form' => $updateForm->createView(),
         )));
     }
 
@@ -171,9 +167,13 @@ class CrudController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find entity.');
             }
-            $em->remove($entity);
+            if ($entity->isEmpty()) {
+                $em->remove($entity);
+            } else {
+                $entity->setStatus('disabled');
+            }
             $em->flush();
         }
-        return $this->redirect($this->generateUrl('departamento'));
+        return $this->redirect($this->generateUrl($this->resource));
     }
 }

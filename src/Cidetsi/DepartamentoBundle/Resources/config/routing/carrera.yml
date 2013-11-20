@@ -18,12 +18,12 @@ carrera_read:
 
 carrera_update_get:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:editGet" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:updateGet" }
     requirements: { _method: get }
 
 carrera_update_post:
     pattern:  /{id}/editar
-    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:editPost" }
+    defaults: { _controller: "CidetsiDepartamentoBundle:Carrera:updatePost" }
     requirements: { _method: post|put }
 
 carrera_delete_get:

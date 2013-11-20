@@ -6,6 +6,7 @@ class PlanEstudio
 {
     private $id;
     private $name;
+    private $status;
     private $code;
     private $carrera;
     private $materias;
@@ -25,6 +26,15 @@ class PlanEstudio
 
     public function getName() {
         return $this->name;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getStatus() {
+        return $this->status;
     }
 
     public function setCode($code) {
