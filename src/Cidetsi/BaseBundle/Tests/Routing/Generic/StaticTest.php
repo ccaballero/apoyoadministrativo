@@ -1,15 +1,36 @@
 <?php
 
-namespace Cidetsi\TestBundle\Tests\Controller;
+namespace Cidetsi\TestBundle\Tests\Routing\Generic;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+abstract class StaticTest extends WebTestCase
 {
     protected $client;
 
+    /**
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
+    /**
+     * {@inheritDoc}
+     */
     protected function setUp() {
         $this->client = static::createClient();
+
+        static::$kernel = static::createKernel();
+        static::$kernel->boot();
+        $this->em = static::$kernel->getContainer()
+             ->get('doctrine')->getManager();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function tearDown() {
+        parent::tearDown();
+        $this->em->close();
     }
 
     /**
@@ -31,10 +52,5 @@ class DefaultControllerTest extends WebTestCase
         return $response->getStatusCode();
     }
 
-    public function getRoutes() {
-        return array(
-            array('/'),
-            array('/acceder'),
-        );
-    }
+    abstract public function getRoutes();
 }

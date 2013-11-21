@@ -89,6 +89,7 @@ class CrudController extends Controller
             'method' => 'POST',
         ));
         $form->add('submit', 'submit', array('label' => 'Agregar'));
+
         return $form;
     }
 
@@ -100,13 +101,15 @@ class CrudController extends Controller
             'method' => 'PUT',
         ));
         $form->add('submit', 'submit', array('label' => 'Editar'));
+
         return $form;
     }
 
     protected function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl($this->resource . '_delete_post', array(
-                'id' => $id)))
+            ->setAction($this->generateUrl(
+                $this->resource . '_delete_post', array(
+                    'id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Eliminar'))
             ->getForm();
@@ -145,10 +148,12 @@ class CrudController extends Controller
         }
         $updateForm = $this->createUpdateForm($entity);
         $updateForm->handleRequest($request);
+
         if ($updateForm->isValid()) {
             $em->flush();
             $this->get('session')->getFlashBag()
                  ->add('success', 'El recurso fue editado exitosamente');
+
             return $this->redirect(
                 $this->generateUrl($this->resource . '_read', array(
                     'id' => $id)
