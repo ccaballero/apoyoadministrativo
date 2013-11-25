@@ -5,3 +5,7 @@ pdf_test:
 pdf_seguimiento:
     pattern: /seguimiento
     defaults: { _controller: CidetsiPdfReportBundle:Default:seguimiento }
+
+pdf_nombramiento:
+    pattern: /nombramiento
+    defaults: { _controller: CidetsiPdfReportBundle:Default:nombramiento }

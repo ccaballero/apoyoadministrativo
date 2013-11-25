@@ -6,11 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    protected function factoryTCPDF($orientation) {
+    protected function factoryTCPDF($o, $lm, $tm, $rm) {
         $pdf = $this->get('white_october.tcpdf')
-                    ->create($orientation, 'mm', 'LETTER', true, 'UTF-8');
+                    ->create($o, 'mm', 'LETTER', true, 'UTF-8');
 
-        // set document information
         $pdf->setCreator(PDF_CREATOR);
         $pdf->setAuthor('Bushido');
         $pdf->setTitle('TCPDF html test');
@@ -21,9 +20,11 @@ class DefaultController extends Controller
         $pdf->setPrintHeader(false);
         $pdf->setPrintFooter(false);
 
-//        $pdf->setFont('times', '', '11');
-//        $pdf->addPage();
+        $pdf->setFontSubsetting(true);
+        $pdf->setFont('Helvetica', '', 8, '', 'default', true);
+        $pdf->setMargins($lm, $tm, $rm, true);
 
+        $pdf->addPage();
         return $pdf;
     }
 
@@ -37,19 +38,19 @@ class DefaultController extends Controller
     }
 
     public function seguimientoAction() {
-        $pdf = $this->factoryTCPDF('L');
-
-        $pdf->setFontSubsetting(true);
-        $pdf->setFont('Helvetica', '', 8, '', 'default', true);
-
-        $pdf->setMargins(7, 7, 7, true);
-        $pdf->addPage();
-
+        $pdf = $this->factoryTCPDF('L', 7, 7, 7);
         $html = $this->renderView(
             'CidetsiPdfReportBundle:Default:seguimiento.pdf.twig');
 
-//        return $this->render('CidetsiPdfReportBundle:Default:seguimiento.pdf.twig');
-        
+        $pdf->writeHTML($html, true, false, true, false, '');
+        $pdf->output('seguimiento.pdf');
+    }
+
+    public function nombramientoAction() {
+        $pdf = $this->factoryTCPDF('P', 22, 22, 22);
+        $html = $this->renderView(
+            'CidetsiPdfReportBundle:Default:nombramiento.pdf.twig');
+
         $pdf->writeHTML($html, true, false, true, false, '');
         $pdf->output('seguimiento.pdf');
     }
