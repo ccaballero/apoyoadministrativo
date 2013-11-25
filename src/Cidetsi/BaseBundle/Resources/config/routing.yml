@@ -11,7 +11,3 @@ base_login_check:
 
 base_logout:
     pattern: /salir
-
-#tcpdf_test:
-#    pattern: /pdf
-#    defaults: { _controller: CidetsiBaseBundle:Default:pdf }

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
 
             new Cidetsi\BaseBundle\CidetsiBaseBundle(),
             new Cidetsi\DepartamentoBundle\CidetsiDepartamentoBundle(),
+            new Cidetsi\PdfReportBundle\CidetsiPdfReportBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

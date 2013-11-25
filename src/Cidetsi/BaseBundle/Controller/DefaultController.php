@@ -36,21 +36,4 @@ class DefaultController extends Controller
     public function footerAction() {
         return $this->render('CidetsiBaseBundle:Default:footer.html.twig');
     }
-
-    public function pdfAction() {
-        $html = $this->renderView('CidetsiBaseBundle:Default:test.pdf.twig');
-        $pdf = $this->get('white_october.tcpdf')->create();
-
-//        $pdf = new TCPDF($orientation, 'mm', 'LETTER', true, 'UTF-8');
-        $pdf->setMargins(10, 20, 10, true);
-        $pdf->setAutoPageBreak(true, 13);
-        $pdf->setPrintHeader(false);
-        $pdf->setPrintFooter(false);
-
-        $pdf->setFont('times', '', '11');
-        $pdf->addPage();
-
-        $pdf->writeHTML($html, true, false, true, false, '');
-        $pdf->output('asdf.pdf');
-    }
 }

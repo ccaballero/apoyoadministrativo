@@ -1,0 +1,7 @@
+pdf_test:
+    pattern: /test
+    defaults: { _controller: CidetsiPdfReportBundle:Default:test }
+
+pdf_seguimiento:
+    pattern: /seguimiento
+    defaults: { _controller: CidetsiPdfReportBundle:Default:seguimiento }
