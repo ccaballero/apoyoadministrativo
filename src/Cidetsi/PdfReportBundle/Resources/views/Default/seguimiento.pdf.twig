@@ -1,228 +1,140 @@
 <style>
-    * {
-        font-size: 8px;
-    }
+    * { font-size: 8px; }
     table {
         width: 100%;
         border-collapse: collapse;
+        margin-bottom: 6px;
     }
-    td {
-        vertical-align: top;
-    }
-    table.grid, table.grid tr>td {
-        border: 1px solid #000000;
-    }
-    th {
-        font-size: 0.90em;
-        font-weight: normal;
-    }
+    td.top { vertical-align: top; }
+    table.grid, table.grid td { border: 1px solid #000000; }
+    th { font-weight: normal; }
     
     .left { text-align: left; }
     .center { text-align: center; }
     .right { text-align: right; }
 
-    .size1 { font-size: 8px; }
-    .size2 { font-size: 10px; }
-    .size3 { font-size: 7px; }
-    .size4 { font-size: 5px; }
+    .size5 { font-size: 5px; }
+    .size7 { font-size: 7px; }
+    .size8 { font-size: 8px; }
+    .size10 { font-size: 10px; }
+    .size15 { font-size: 15px; }
     
-    .stretch {
-        line-height: 0.975em;
-    }
-    
+    .stretch { line-height: 0.975em; }
     .field { border-bottom: 1px solid #000000; }
+    .square { border: 1px solid #000000; }
+    .box { width: 100%; height: 5px;}
 </style>
-
 <table>
     <tr>
-        <td class="left" width="200px">UNIVERSIDAD MAYOR DE SAN SIMON<br />VICE RECTORADO</td>
-        <td class="center" width="250px">
-            <strong class="size2">SEGUIMIENTO ACADEMICO AUXILIAR</strong>
+        <td width="200" class="size8">UNIVERSIDAD MAYOR DE SAN SIMON<br />VICE RECTORADO</td>
+        <td width="250" class="center size10">
+            <strong>SEGUIMIENTO ACADEMICO AUXILIAR</strong>
         </td>
-        <td class="left" width="193px">
-            <strong class="size2">II/2013</strong>
+        <td width="193" class="size10">
+            <strong>II/2013</strong>
         </td>
-        <td class="right stretch" width="110px">
+        <td class="right stretch size8" width="110">
             D.I.C. Y T.-D.P.A.-D.I.S.U.<br />
             DCA-15-02/02<br />Periodo Académico II/2013
         </td>
     </tr>
 </table>
-<div class="space size2">&nbsp;</div>
 <table>
     <tr>
-        <td class="center" rowspan="2" width="70px">AUXILIAR:</td>
-        <td class="center size2 field" width="138px">CARLOS EDUARDO</td>
-        <td class="center size2 field" width="138px">CABALLERO</td>
-        <td class="center size2 field" width="138px">BURGOA</td>
-        <td class="center size2 field" width="138px">&nbsp;</td>
-        <td rowspan="2" width="21px">C.I.:</td>
-        <td class="center size2 field" width="110px">5907402-Cbba</td>
+        <td class="center size8 top" rowspan="2" width="70">AUXILIAR:</td>
+        <td class="center size10 field" width="138">&nbsp;</td>
+        <td class="center size10 field" width="138">&nbsp;</td>
+        <td class="center size10 field" width="138">&nbsp;</td>
+        <td class="center size10 field" width="138">&nbsp;</td>
+        <td class="center size8 top" rowspan="2" width="21">C.I.:</td>
+        <td class="center size10 field" width="110">&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">NOMBRE(S)</td>
-        <td class="center">AP. PATERNO</td>
-        <td class="center">AP. MATERNO</td>
-        <td class="center">AP. DEL ESPOSO</td>
-        <td class="center">&nbsp;</td>
+        <td class="center size8">NOMBRE(S)</td>
+        <td class="center size8">AP. PATERNO</td>
+        <td class="center size8">AP. MATERNO</td>
+        <td class="center size8">AP. DEL ESPOSO</td>
+        <td class="center size8">&nbsp;</td>
     </tr>
 </table>
-<div class="space size2">&nbsp;</div>
 <table>
     <tr>
-        <th width="15px">&nbsp;</th>
-        <th width="150px">FACULTAD</th>
-        <th width="15px">&nbsp;</th>
-        <th width="120px">CARRERA</th>
-        <th width="15px">&nbsp;</th>
-        <th width="110px">DEPARTAMENTO</th>
-        <th width="15px">&nbsp;</th>
-        <th width="145px">MATERIAS</th>
-        <th width="28px">SIGLA</th>
-        <th width="30px">H.teor.</th>
-        <th width="30px">H.prac.</th>
-        <th width="40px" class="center" colspan="3">Anual</th>
-        <th width="40px" class="center" colspan="3">Semestral</th>
+        <th style="width:1.9920%;">&nbsp;</th>
+        <th style="width:19.9203%;">FACULTAD</th>
+        <th style="width:1.9920%;">&nbsp;</th>
+        <th style="width:15.9362%;">CARRERA</th>
+        <th style="width:1.9920%;">&nbsp;</th>
+        <th style="width:14.6082%;">DEPARTAMENTO</th>
+        <th style="width:1.9920%;">&nbsp;</th>
+        <th style="width:19.2583%;">MATERIAS</th>
+        <th style="width:3.7184%;">SIGLA</th>
+        <th style="width:3.9840%;">H.teor.</th>
+        <th style="width:3.9840%;">H.prac.</th>
+        <th style="width:5.3120%;" class="center" colspan="3">Anual</th>
+        <th style="width:5.3120%;" class="center" colspan="3">Semestral</th>
     </tr>
+{% for i in 1..8 %}
     <tr>
-        <td>1.</td><td class="field size3">CIENCIAS Y TECNOLOGIA</td>
-        <td>1.</td><td class="field size3">INF-SIS</td>
-        <td>1.</td><td class="field size3">INFORMATICA-SISTEMAS</td>
-        <td>1.</td><td class="field size3">Laboratorio de Desarrollo de Software</td>
-                   <td class="field">LAB</td>
-                   <td class="field">0</td>
-                   <td class="field">1</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
+        <th class="size7">{{ i }}.</th>
+        <td class="field size7">&nbsp;</td>
+        <th class="size7">{{ i }}.</th>
+        <td class="field size7">&nbsp;</td>
+        <th class="size7">{{ i }}.</th>
+        <td class="field size7">&nbsp;</td>
+        <th class="size7">{{ i }}.</th>
+        <td class="field size7">&nbsp;</td>
+        <td class="field size7 center">&nbsp;</td>
+        <td class="field size7 center">&nbsp;</td>
+        <td class="field size7 center">&nbsp;</td>
+        <td style="width:1.9920%;" class="size7">&nbsp;</td>
+        <td style="width:1.3280%;" class="square size7 center">&#10003;</td>
+        <td style="width:1.9920%;" class="size7">&nbsp;</td>
+        <td style="width:1.9920%;" class="size7">&nbsp;</td>
+        <td style="width:1.3280%;" class="square size7 center">&nbsp;</td>
+        <td style="width:1.9920%;" class="size7">&nbsp;</td>
     </tr>
-    <tr>
-        <td>2.</td><td class="field">&nbsp;</td>
-        <td>2.</td><td class="field">&nbsp;</td>
-        <td>2.</td><td class="field">&nbsp;</td>
-        <td>2.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>3.</td><td class="field">&nbsp;</td>
-        <td>3.</td><td class="field">&nbsp;</td>
-        <td>3.</td><td class="field">&nbsp;</td>
-        <td>3.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>4.</td><td class="field">&nbsp;</td>
-        <td>4.</td><td class="field">&nbsp;</td>
-        <td>4.</td><td class="field">&nbsp;</td>
-        <td>4.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>5.</td><td class="field">&nbsp;</td>
-        <td>5.</td><td class="field">&nbsp;</td>
-        <td>5.</td><td class="field">&nbsp;</td>
-        <td>5.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>6.</td><td class="field">&nbsp;</td>
-        <td>6.</td><td class="field">&nbsp;</td>
-        <td>6.</td><td class="field">&nbsp;</td>
-        <td>6.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>7.</td><td class="field">&nbsp;</td>
-        <td>7.</td><td class="field">&nbsp;</td>
-        <td>7.</td><td class="field">&nbsp;</td>
-        <td>7.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
-    <tr>
-        <td>8.</td><td class="field">&nbsp;</td>
-        <td>8.</td><td class="field">&nbsp;</td>
-        <td>8.</td><td class="field">&nbsp;</td>
-        <td>8.</td><td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td class="field">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-                   <td width="14px">&nbsp;</td><td width="12px" style="border: 1px solid #000000;">X</td><td width="14px">&nbsp;</td>
-    </tr>
+{% endfor %}
 </table>
-<div class="space size2">&nbsp;</div>
 <table>
     <tr>
         <td width="130px">CATEGORIA DOCENTE</td>
-        <td width="60px">A(Catedratico)</td>
-        <td width="12px" style="border: 1px solid #000000;">X</td>
+        <td width="60px" class="right">A (Catedratico)</td>
+        <td width="10px" class="size15">&#9745;</td>
         <td width="40px">&nbsp;</td>
-        <td width="50px">B(Docente)</td>
-        <td width="12px" style="border: 1px solid #000000;">X</td>
+        <td width="50px" class="right">B (Docente)</td>
+        <td width="10px" class="size15">&#9744;</td>
         <td width="40px">&nbsp;</td>
-        <td width="55px">C(Asistente)</td>
-        <td width="12px" style="border: 1px solid #000000;">X</td>
+        <td width="55px" class="right">C (Asistente)</td>
+        <td width="10px" class="size15">&#9744;</td>
         <td width="40px">&nbsp;</td>
-        <td width="70px">Auxiliar docencia</td>
-        <td width="12px" style="border: 1px solid #000000;">X</td>
+        <td width="70px" class="right">Auxiliar docencia</td>
+        <td width="10px" class="size15">&#9744;</td>
         <td width="40px">&nbsp;</td>
-        <td width="80px">Otro cargo UMSS</td>
+        <td width="80px" class="right">Otro cargo UMSS&nbsp;</td>
         <td width="101px" class="field">&nbsp;</td>
     </tr>
 </table>
-<div class="space size2">&nbsp;</div>
 <table class="grid">
     <tr>
-        <td rowspan="2" class="center" width="51px">HORAS</td>
-        <td colspan="5" class="center" width="117px">LUNES</td>
-        <td colspan="5" class="center" width="117px">MARTES</td>
-        <td colspan="5" class="center" width="117px">MIERCOLES</td>
-        <td colspan="5" class="center" width="117px">JUEVES</td>
-        <td colspan="5" class="center" width="117px">VIERNES</td>
-        <td colspan="5" class="center" width="117px">SABADO</td>
+        <td rowspan="2" class="center size8" style="width:5%;">HORAS</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">LUNES</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">MARTES</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">MIERCOLES</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">JUEVES</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">VIERNES</td>
+        <td colspan="5" class="center size8" style="width:15.8333%;">SABADO</td>
     </tr>
     <tr>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
-        <td class="center" width="45px">Materia</td><td width="19px">GR</td><td width="19px">T-P</td><td width="17px">AL</td><td width="17px">AU</td>
+    {% for i in 0..5 %}
+        <td class="center size7" style="">Materia</td>
+        <td class="center size7" style="width:1.8%">GR</td>
+        <td class="center size7" style="width:1.8%">T-P</td>
+        <td class="center size7" style="width:1.8%">AL</td>
+        <td class="center size7" style="width:1.8%">AU</td>
+    {% endfor %}
     </tr>
     <tr>
-        <td class="center">06:45-07:00</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="center">07:00-08:15</td>
+        <td class="center size7">06:45-07:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -231,7 +143,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">08:15-09:00</td>
+        <td class="center size7">07:00-08:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -240,7 +152,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">09:00-09:45</td>
+        <td class="center size7">08:15-09:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -249,7 +161,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">09:45-11:00</td>
+        <td class="center size7">09:00-09:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -258,7 +170,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">11:00-11:15</td>
+        <td class="center size7">09:45-11:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -267,7 +179,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">11:15-11:45</td>
+        <td class="center size7">11:00-11:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -276,7 +188,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">11:45-12:15</td>
+        <td class="center size7">11:15-11:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -285,7 +197,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">12:15-12:45</td>
+        <td class="center size7">11:45-12:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -294,7 +206,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">12:45-13:00</td>
+        <td class="center size7">12:15-12:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -303,7 +215,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">13:00-14:15</td>
+        <td class="center size7">12:45-13:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -312,7 +224,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">14:15-15:00</td>
+        <td class="center size7">13:00-14:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -321,7 +233,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">15:00-15:45</td>
+        <td class="center size7">14:15-15:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -330,7 +242,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">15:45-16:45</td>
+        <td class="center size7">15:00-15:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -339,7 +251,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">16:45-17:00</td>
+        <td class="center size7">15:45-16:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -348,7 +260,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">17:00-17:15</td>
+        <td class="center size7">16:45-17:00</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -357,7 +269,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">17:15-18:15</td>
+        <td class="center size7">17:00-17:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -366,7 +278,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">18:15-18:45</td>
+        <td class="center size7">17:15-18:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -375,7 +287,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">18:45-19:30</td>
+        <td class="center size7">18:15-18:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -384,7 +296,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">19:30-20:15</td>
+        <td class="center size7">18:45-19:30</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -393,7 +305,7 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">20:15-21:00</td>
+        <td class="center size7">19:30-20:15</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -402,7 +314,16 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
     <tr>
-        <td class="center">21:00-21:45</td>
+        <td class="center size7">20:15-21:00</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+        <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="center size7">21:00-21:45</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
@@ -411,7 +332,6 @@
         <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
     </tr>
 </table>
-<div class="space size4">&nbsp;</div>
 <table>
     <tr>
         <td width="80px">Hrs. Teoria</td>
@@ -473,8 +393,7 @@
         <td>&nbsp;</td>
     </tr>
 </table>
-<div class="space size1">&nbsp;</div>
-<div class="space size1">&nbsp;</div>
+<div style="width:100%;height:40px;">&nbsp;</div>
 <table>
     <tr>
         <td width="20px">&nbsp;</td>
