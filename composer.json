@@ -22,9 +22,7 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
         "davidbadura/fixtures-bundle": "1.0.*",
-        "tecnick.com/tcpdf": "dev-master",
-        "whiteoctober/tcpdf-bundle": "dev-master",
-        "mpdf/mpdf": "dev-master"
+        "tfox/mpdf-port-bundle": "1.1.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

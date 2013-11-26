@@ -6,52 +6,57 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    protected function factoryTCPDF($o, $lm, $tm, $rm) {
-        $pdf = $this->get('white_october.tcpdf')
-                    ->create($o, 'mm', 'LETTER', true, 'UTF-8');
-
-        $pdf->setCreator(PDF_CREATOR);
-        $pdf->setAuthor('Bushido');
-        $pdf->setTitle('TCPDF html test');
-        $pdf->setSubject('Bushido');
-        $pdf->setKeywords('TCPDF, PDF, TEST');
-
-        $pdf->setAutoPageBreak(true, 13);
-        $pdf->setPrintHeader(false);
-        $pdf->setPrintFooter(false);
-
-        $pdf->setFontSubsetting(true);
-        $pdf->setFont('Helvetica', '', 8, '', 'default', true);
-        $pdf->setMargins($lm, $tm, $rm, true);
-
-        $pdf->addPage();
-        return $pdf;
-    }
-
     public function testAction() {
-        $pdf = $this->factoryTCPDF('P');
+        $mpdfService = $this->get('tfox.mpdfport');
+        $mpdfService->setAddDefaultConstructorArgs(false);
+
         $html = $this->renderView(
             'CidetsiPdfReportBundle:Default:test.pdf.twig');
+        $arguments = array(
+            'constructorArgs' => array('UTF-8', 'Letter-L', '8', 'Helvetica', 20, 10, 10, 10, 30, 140, 'L'),
+            'writeHtmlMode' => null,
+            'writeHtmlInitialise' => null,
+            'writeHtmlClose' => null,
+            'outputFilename' => null,
+            'outputDest' => null,
+        );
 
-        $pdf->writeHTML($html, true, false, true, false, '');
-        $pdf->output('pdftest.pdf');
+        $mpdfService->generatePdfResponse($html, $arguments);
     }
 
     public function seguimientoAction() {
-        $pdf = $this->factoryTCPDF('L', 7, 7, 7);
+        $mpdfService = $this->get('tfox.mpdfport');
+        $mpdfService->setAddDefaultConstructorArgs(false);
+
         $html = $this->renderView(
             'CidetsiPdfReportBundle:Default:seguimiento.pdf.twig');
+        $arguments = array(
+            'constructorArgs' => array('UTF-8', 'Letter-L', '8', 'Helvetica', 7, 7, 7, 7, 0, 0, 'L'),
+            'writeHtmlMode' => null,
+            'writeHtmlInitialise' => null,
+            'writeHtmlClose' => null,
+            'outputFilename' => null,
+            'outputDest' => null,
+        );
 
-        $pdf->writeHTML($html, true, false, true, false, '');
-        $pdf->output('seguimiento.pdf');
+        $mpdfService->generatePdfResponse($html, $arguments);
     }
 
     public function nombramientoAction() {
-        $pdf = $this->factoryTCPDF('P', 22, 22, 22);
+        $mpdfService = $this->get('tfox.mpdfport');
+        $mpdfService->setAddDefaultConstructorArgs(false);
+
         $html = $this->renderView(
             'CidetsiPdfReportBundle:Default:nombramiento.pdf.twig');
+        $arguments = array(
+            'constructorArgs' => array('UTF-8', 'Letter', '8', 'Helvetica', 22, 22, 22, 22, 0, 0, 'P'),
+            'writeHtmlMode' => null,
+            'writeHtmlInitialise' => null,
+            'writeHtmlClose' => null,
+            'outputFilename' => null,
+            'outputDest' => null,
+        );
 
-        $pdf->writeHTML($html, true, false, true, false, '');
-        $pdf->output('seguimiento.pdf');
+        $mpdfService->generatePdfResponse($html, $arguments);
     }
 }
