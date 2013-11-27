@@ -7,8 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     public function testAction() {
-        return $this->render('CidetsiPdfReportBundle:Default:test.pdf.twig');
-
         $mpdfService = $this->get('tfox.mpdfport');
         $mpdfService->setAddDefaultConstructorArgs(false);
 
@@ -16,7 +14,7 @@ class DefaultController extends Controller
             'CidetsiPdfReportBundle:Default:test.pdf.twig');
         $arguments = array(
             'constructorArgs' => array(
-                'UTF-8', 'Letter-L', '8', 'Helvetica',
+                'UTF-8', 'Letter-L', '8', 'Arial',
                 20, 10, 10, 10, 30, 140, 'L'),
             'writeHtmlMode' => null,
             'writeHtmlInitialise' => null,
@@ -29,14 +27,11 @@ class DefaultController extends Controller
     }
 
     public function seguimientoAction() {
-//        return $this->render('CidetsiPdfReportBundle:Default:seguimiento.pdf.twig');
-
         $mpdfService = $this->get('tfox.mpdfport');
         $mpdfService->setAddDefaultConstructorArgs(false);
 
         $html = $this->renderView(
             'CidetsiPdfReportBundle:Default:seguimiento.pdf.twig');
-
         $arguments = array(
             'constructorArgs' => array(
                 'UTF-8', 'Letter-L', '8', 'Arial',
@@ -52,6 +47,8 @@ class DefaultController extends Controller
     }
 
     public function nombramientoAction() {
+//        return $this->render('CidetsiPdfReportBundle:Default:nombramiento.pdf.twig');
+
         $mpdfService = $this->get('tfox.mpdfport');
         $mpdfService->setAddDefaultConstructorArgs(false);
 
@@ -59,7 +56,7 @@ class DefaultController extends Controller
             'CidetsiPdfReportBundle:Default:nombramiento.pdf.twig');
         $arguments = array(
             'constructorArgs' => array(
-                'UTF-8', 'Letter', '8', 'Helvetica',
+                'UTF-8', 'Letter', '8', 'Arial',
                 22, 22, 22, 22, 0, 0, 'P'),
             'writeHtmlMode' => null,
             'writeHtmlInitialise' => null,
