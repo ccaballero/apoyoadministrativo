@@ -1,6 +1,6 @@
 <?php
 
-namespace Cidetsi\DepartamentoBundle\Command;
+namespace Cidetsi\MateriaBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Cidetsi\DepartamentoBundle\Entity\Materia;
+use Cidetsi\MateriaBundle\Entity\Materia;
 
 // fetch the list of courses and registry in the database
 class MateriasCommand extends ContainerAwareCommand
