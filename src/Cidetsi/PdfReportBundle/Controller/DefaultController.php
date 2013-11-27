@@ -57,7 +57,7 @@ class DefaultController extends Controller
         $arguments = array(
             'constructorArgs' => array(
                 'UTF-8', 'Letter', '8', 'Arial',
-                22, 22, 22, 22, 0, 0, 'P'),
+                22, 22, 15, 22, 0, 0, 'P'),
             'writeHtmlMode' => null,
             'writeHtmlInitialise' => null,
             'writeHtmlClose' => null,
