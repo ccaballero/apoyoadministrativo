@@ -9,11 +9,24 @@ class CrudController extends Controller
 {
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($this->repository)
-                       ->findBy(
-                            array('status' => 'enabled'),
-                            $this->orderBy);
+//        $entities = $em->getRepository($this->repository)
+//                       ->findBy(
+//                            array('status' => 'enabled'),
+//                            $this->orderBy);
 
+        $orderBy = array();
+        foreach ($this->orderBy as $key => $criteria) {
+            $orderBy[] = 'e.' . $key . ' ' . $criteria;
+        }
+        
+        $query = $em->createQuery(
+            'SELECT e ' .
+            'FROM ' . $this->repository . ' e ' .
+            'WHERE e.status <> :status ' .
+            'ORDER BY ' . implode(',', $orderBy)
+        )->setParameter('status', 'disabled');
+        $entities = $query->getResult();
+        
         return $this->render($this->repository . ':index.html.twig',
             array_merge(
                 $this->tpl_commons, array(

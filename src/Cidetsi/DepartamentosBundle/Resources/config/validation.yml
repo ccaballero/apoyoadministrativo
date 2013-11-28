@@ -1,0 +1,35 @@
+Cidetsi\DepartamentosBundle\Entity\Departamento:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length: { min: 8, max: 128 }
+        abbreviation:
+            - NotBlank: ~
+            - Length: { min: 3, max: 64 }
+        facultad:
+            - NotBlank: ~
+            - Length: { min: 4, max: 128 }
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
+
+Cidetsi\DepartamentosBundle\Entity\Carrera:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length: { min: 8, max: 128 }
+        abbreviation:
+            - NotBlank: ~
+            - Length: { min: 3, max: 64 }
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
+
+Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length: { min: 8, max: 128 }
+        code:
+            - NotBlank: ~
+            - Length: { min: 4, max: 16 }
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code

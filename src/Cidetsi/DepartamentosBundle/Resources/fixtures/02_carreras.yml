@@ -1,0 +1,72 @@
+carrera:
+    properties:
+        class: "Cidetsi\DepartamentosBundle\Entity\Carrera"
+    data:
+        ing_alimentos:
+            name: Ingeniería de Alimentos
+            abbreviation: ALM
+            departamento: "@departamento:quimica"
+        lic_biologia:
+            name: Licenciatura en Biología
+            abbreviation: BIO
+            departamento: "@departamento:biologia"
+        ing_civil:
+            name: Ingeniería Civil
+            abbreviation: CIV
+            departamento: "@departamento:civil"
+        lic_didactica_fisica:
+            name: Licenciatura en Didáctica de la Física
+            abbreviation: FIS
+            departamento: "@departamento:fisica"
+        lic_didactica_matematica:
+            name: Licenciatura en Didáctica de la Matemática
+            abbreviation: MAT
+            departamento: "@departamento:matematicas"
+        ing_electrica:
+            name: Ingeniería Eléctrica
+            abbreviation: ELC
+            departamento: "@departamento:electrica"
+        ing_electromecanica:
+            name: Ingeniería Electromecánica
+            abbreviation: EMC
+            departamento: "@departamento:mecanica"
+        ing_electronica:
+            name: Ingeniería Electrónica
+            abbreviation: ELC
+            departamento: "@departamento:electrica"
+        lic_fisica:
+            name: Licenciatura en Física
+            abbreviation: FIS
+            departamento: "@departamento:fisica"
+        ing_industrial:
+            name: Ingeniería Industrial
+            abbreviation: IND
+            departamento: "@departamento:industrias"
+        ing_informatica:
+            name: Ingeniería en Informática
+            abbreviation: INF
+            departamento: "@departamento:infsis"
+        lic_matematicas:
+            name: Licenciatura en Matemáticas
+            abbreviation: MAT
+            departamento: "@departamento:matematicas"
+        ing_matematica:
+            name: Ingeniería Matemática
+            abbreviation: MAT
+            departamento: "@departamento:matematicas"
+        ing_mecanica:
+            name: Ingeniería Mecánica
+            abbreviation: MEC
+            departamento: "@departamento:mecanica"
+        lic_quimica:
+            name: Licenciatura en Química
+            abbreviation: QUI
+            departamento: "@departamento:quimica"
+        ing_quimica:
+            name: Ingeniería Química
+            abbreviation: QUI
+            departamento: "@departamento:quimica"
+        ing_sistemas:
+            name: Ingeniería de Sistemas
+            abbreviation: SIS
+            departamento: "@departamento:infsis"

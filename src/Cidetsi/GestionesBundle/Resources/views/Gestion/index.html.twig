@@ -1,0 +1,14 @@
+{% extends 'CidetsiBaseBundle:Crud:index.html.twig' %}
+
+{% block preamble %}
+    {{ parent() }}
+    <p>Estos son los departamentos en la facultad de ciencias y tecnologia, para
+    los que este sistema gestiona información.</p>
+    {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/collection.html.twig') }}
+{% endblock %}
+
+{% block items %}
+{{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
+    'view': true, 'edit': true, 'delete': true
+}) }}
+{% endblock %}

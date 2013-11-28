@@ -1,0 +1,13 @@
+parameters:
+#    cidetsi_departamento.example.class: Cidetsi\DepartamentosBundle\Example
+
+services:
+
+#    cidetsi_departamento.example:
+#        class: %cidetsi_departamento.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+#    departamento_bundle.form.type.departamento:
+#        class: Cidetsi\DepartamentosBundle\Form\DepartamentoType
+#        tags:
+#            - { name: form.type, alias: departamento }

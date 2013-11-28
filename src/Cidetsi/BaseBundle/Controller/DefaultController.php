@@ -18,6 +18,11 @@ class DefaultController extends Controller
                 'description' =>
                     'Lista de las diferentes carreras que comprenden la FCyT',
             ),
+            'gestion' => array(
+                'label' => 'Gestiones',
+                'description' =>
+                    'Lista de las diferentes gestiones registradas en la FCyT',
+            ),
         );
 
         return $this->render('CidetsiBaseBundle:Default:index.html.twig', array(

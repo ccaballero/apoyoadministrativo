@@ -1,0 +1,37 @@
+gestion:
+    pattern:  /
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:index" }
+
+gestion_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:createGet" }
+    requirements: { _method: get }
+
+gestion_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:createPost" }
+    requirements: { _method: post }
+
+gestion_read:
+    pattern:  /{id}
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:read" }
+
+gestion_update_get:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:updateGet" }
+    requirements: { _method: get }
+
+gestion_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:updatePost" }
+    requirements: { _method: post|put }
+
+gestion_delete_get:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:deleteGet" }
+    requirements: { _method: get }
+
+gestion_delete_post:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiGestionesBundle:Gestion:deletePost" }
+    requirements: { _method: post|delete }

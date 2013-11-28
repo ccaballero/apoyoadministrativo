@@ -1,0 +1,37 @@
+departamento:
+    pattern:  /
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:index" }
+
+departamento_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createGet" }
+    requirements: { _method: get }
+
+departamento_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createPost" }
+    requirements: { _method: post }
+
+departamento_read:
+    pattern:  /{id}
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:read" }
+
+departamento_update_get:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:updateGet" }
+    requirements: { _method: get }
+
+departamento_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:updatePost" }
+    requirements: { _method: post|put }
+
+departamento_delete_get:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:deleteGet" }
+    requirements: { _method: get }
+
+departamento_delete_post:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:deletePost" }
+    requirements: { _method: post|delete }

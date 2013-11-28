@@ -19,8 +19,9 @@ class AppKernel extends Kernel
             new TFox\MpdfPortBundle\TFoxMpdfPortBundle(),
 
             new Cidetsi\BaseBundle\CidetsiBaseBundle(),
-            new Cidetsi\DepartamentoBundle\CidetsiDepartamentoBundle(),
-            new Cidetsi\PdfReportBundle\CidetsiPdfReportBundle(),
+            new Cidetsi\DepartamentosBundle\CidetsiDepartamentosBundle(),
+            new Cidetsi\GestionesBundle\CidetsiGestionesBundle(),
+            new Cidetsi\PdfReportsBundle\CidetsiPdfReportsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
