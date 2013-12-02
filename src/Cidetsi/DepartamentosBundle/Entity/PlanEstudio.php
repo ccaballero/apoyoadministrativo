@@ -9,11 +9,6 @@ class PlanEstudio
     private $status = 'enabled';
     private $code;
     private $carrera;
-    private $materias;
-
-    public function __construct() {
-        $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     public function getId() {
         return $this->id;
@@ -53,19 +48,6 @@ class PlanEstudio
 
     public function getCarrera() {
         return $this->carrera;
-    }
-
-    public function addMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias) {
-        $this->materias[] = $materias;
-        return $this;
-    }
-
-    public function removeMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias) {
-        $this->materias->removeElement($materias);
-    }
-
-    public function getMaterias() {
-        return $this->materias;
     }
 
     public function __toString() {

@@ -37,7 +37,6 @@ Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
                 name: carrera
                 referencedColumnName: id
     lifecycleCallbacks: {}
-#
 #    manyToMany:
 #        materias:
 #            targetEntity: Materia
@@ -49,3 +48,13 @@ Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
 #                inverseJoinColumns:
 #                    materia:
 #                      referencedColumnName: id
+#
+#Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
+#    type: entity
+#    table: plan_estudio
+#    id:
+#        id:
+#            type: integer
+#            id: true
+#            generator:
+#                strategy: AUTO

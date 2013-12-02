@@ -22,7 +22,8 @@ syntax: glob
 /app/cache/*
 /app/logs/*
 /vendor/
-/app/config/parameters.yml
+/app/config/parameters_dev.yml
+/app/config/parameters_prod.yml
 
 LICENSE
 README.md
