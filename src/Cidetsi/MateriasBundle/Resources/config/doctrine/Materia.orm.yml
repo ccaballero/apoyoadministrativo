@@ -1,9 +1,6 @@
 Cidetsi\MateriasBundle\Entity\Materia:
     type: entity
     table: materia
-    indexes:
-        name_index:
-            columns: [ name ]
     id:
         id:
             type: integer
@@ -18,25 +15,10 @@ Cidetsi\MateriasBundle\Entity\Materia:
             type: string
             length: 16
             unique: true
-        type:
-            type: string
-            columnDefinition: ENUM('curricular', 'no curricular')
-        level:
-            type: string
-            length: 1
+    indexes:
+        name_index:
+            columns: [ name ]
     uniqueConstraints:
         code:
             columns: [ code ]
-    manyToMany:
-        prerequisitos:
-            targetEntity: Materia
-            joinTable:
-                name: prerequisito
-                joinColumns:
-                    materia:
-                      referencedColumnName: id
-                inverseJoinColumns:
-                    prerequisito:
-                      referencedColumnName: id
-#    lifecycleCallbacks: {}
-#    repositoryClass: Cidetsi\BaseBundle\Entity\CarreraRepository
+    lifecycleCallbacks: {}

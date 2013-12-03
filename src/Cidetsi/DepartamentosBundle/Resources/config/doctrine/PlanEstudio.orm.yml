@@ -36,25 +36,19 @@ Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
             joinColumn:
                 name: carrera
                 referencedColumnName: id
+    manyToMany:
+        materias:
+            targetEntity: Cidetsi\MateriasBundle\Entity\Materia
+            joinTable:
+                name: plan_materia
+                joinColumns:
+                    plan:
+                      referencedColumnName: id
+                inverseJoinColumns:
+                    materia:
+                      referencedColumnName: id
     lifecycleCallbacks: {}
-#    manyToMany:
-#        materias:
-#            targetEntity: Materia
-#            joinTable:
-#                name: plan_materia
-#                joinColumns:
-#                    plan:
-#                      referencedColumnName: id
-#                inverseJoinColumns:
-#                    materia:
-#                      referencedColumnName: id
-#
-#Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
-#    type: entity
-#    table: plan_estudio
-#    id:
-#        id:
-#            type: integer
-#            id: true
-#            generator:
-#                strategy: AUTO
+#    oneToMany:
+#        plan_materias:
+#            targetEntity: Cidetsi\MateriasBundle\Entity\PlanMateria
+#            mappedBy: plan_materia

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
 
             new Cidetsi\BaseBundle\CidetsiBaseBundle(),
             new Cidetsi\DepartamentosBundle\CidetsiDepartamentosBundle(),
+            new Cidetsi\MateriasBundle\CidetsiMateriasBundle(),
             new Cidetsi\GestionesBundle\CidetsiGestionesBundle(),
             new Cidetsi\PdfReportsBundle\CidetsiPdfReportsBundle(),
         );

@@ -1,0 +1,40 @@
+Cidetsi\MateriasBundle\Entity\PlanMateria:
+    type: entity
+    table: plan_materia
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            columnDefinition: ENUM('curricular', 'no curricular')
+        level:
+            type: string
+            length: 1
+    manyToMany:
+        prerequisitos:
+            targetEntity: Materia
+            joinTable:
+                name: prerequisito
+                joinColumns:
+                    materia:
+                      referencedColumnName: id
+                inverseJoinColumns:
+                    prerequisito:
+                      referencedColumnName: id
+#    manyToOne:
+#        plan_estudio:
+#            targetEntity: Cidetsi\DepartamentosBundle\Entity\PlanEstudio
+#            inversedBy: plan_materias
+#            joinColumn:
+#                name: plan
+#                referencedColumnName: id
+#        materia:
+#            targetEntity: Materia
+#            inversedBy: plan_materias
+#            joinColumn:
+#                name: materia
+#                referencedColumnName: id

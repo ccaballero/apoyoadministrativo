@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Cidetsi\MateriaBundle\Entity\Materia;
 
 // fetch the list of courses and registry in the database
-class MateriasCommand extends ContainerAwareCommand
+class FetchCommand extends ContainerAwareCommand
 {
     protected function initialize(
             InputInterface $input, OutputInterface $output) {
