@@ -1,0 +1,21 @@
+INSERT plan_estudio (`departamento`, `carrera`, `name`, `code`)
+VALUES
+(1,  1, 'Licenciatura en Biología', '399501'),
+(2,  2, 'Ingeniería Civil', '329201'),
+(2,  2, 'Ingeniería Civil (nuevo)', '329202'),
+(3,  3, 'Ingeniería Eléctrica', '299701'),
+(3,  4, 'Ingeniería Electrónica', '429701'),
+(4,  5, 'Licenciatura en Didáctica de la Física', '760101'),
+(4,  6, 'Licenciatura en Física', '359201'),
+(5,  7, 'Ingeniería Industrial', '309801'),
+(6,  8, 'Ingeniería en Informática', '134111'),
+(6,  8, 'Licenciatura en Informática', '378501'),
+(6,  9, 'Ingeniería de Sistemas', '419701'),
+(7, 10, 'Licenciatura en Didáctica de la Matemática', '114071'),
+(7, 11, 'Licenciatura en Matemáticas', '349701'),
+(7, 12, 'Ingeniería Matemática', '439801'),
+(8, 13, 'Ingeniería Electromecánica', '650001'),
+(8, 14, 'Ingeniería Mecánica', '319801'),
+(9, 15, 'Licenciatura en Química', '389701'),
+(9, 16, 'Ingeniería Química', '339701'),
+(9, 17, 'Ingeniería de Alimentos', '409701');

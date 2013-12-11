@@ -28,7 +28,7 @@ class FetchCommand extends ContainerAwareCommand
              ->addArgument(
                 'url', InputArgument::REQUIRED,
                 'Url from fetch the information')
-             ->addOption('db', null, InputOption::VALUE_NONE,
+             ->addOption('sql', null, InputOption::VALUE_NONE,
                 'If set, the task will insert the information in database');
     }
 
@@ -39,49 +39,56 @@ class FetchCommand extends ContainerAwareCommand
 
         $output->writeln('Extrayendo materias de ' . $url);
 
-        if ($input->getOption('db')) {
+        if ($input->getOption('sql')) {
+            $output->writeln('TODO');
+            
+            // extraccion de materias
+            // calculo del departamento
+            // calculo de malla_curricular
+            // calculo de prerequisitos
+            
             // database insertion
-            $plan_estudio = $this->em->getRepository(
-                'CidetsiDepartamentosBundle:PlanEstudio')
-                ->findOneByCode($plan['code']);
-
-            $db_materia = $this->em->getRepository(
-                'CidetsiDepartamentosBundle:Materia');
-
-            $materias = array();
+//            $plan_estudio = $this->em->getRepository(
+//                'CidetsiDepartamentosBundle:PlanEstudio')
+//                ->findOneByCode($plan['code']);
+//
+//            $db_materia = $this->em->getRepository(
+//                'CidetsiDepartamentosBundle:Materia');
+//
+//            $materias = array();
 
             // Filling of basic information
-            foreach ($collection as $item) {
-                $materia = $db_materia->findOneByCode($item->code);
-                if (!$materia) {
-                    $materia = new Materia();
-                }
-
-                $materia->setName($item->name);
-                $materia->setLevel($item->level);
-                $materia->setCode($item->code);
-                $materia->setType($item->type);
-
-                $materias[$materia->getCode()] = $materia;
-            }
+//            foreach ($collection as $item) {
+//                $materia = $db_materia->findOneByCode($item->code);
+//                if (!$materia) {
+//                    $materia = new Materia();
+//                }
+//
+//                $materia->setName($item->name);
+//                $materia->setLevel($item->level);
+//                $materia->setCode($item->code);
+//                $materia->setType($item->type);
+//
+//                $materias[$materia->getCode()] = $materia;
+//            }
 
             // Filling the prerequisitos
-            foreach ($materias as $materia) {
-                $pres = $collection[$materia->getCode()]->pre;
-                if (!empty($pres)) {
-                    foreach ($pres as $pre) {
-                        if (array_key_exists($pre, $materia)) {
-                            $materia->addPrerequisito($materias[$pre]);
-                        }
-                    }
-                }
+//            foreach ($materias as $materia) {
+//                $pres = $collection[$materia->getCode()]->pre;
+//                if (!empty($pres)) {
+//                    foreach ($pres as $pre) {
+//                        if (array_key_exists($pre, $materia)) {
+//                            $materia->addPrerequisito($materias[$pre]);
+//                        }
+//                    }
+//                }
+//
+//                $plan_estudio->addMateria($materia);
+//                $this->em->persist($materia);
+//            }
 
-                $plan_estudio->addMateria($materia);
-                $this->em->persist($materia);
-            }
-
-            $this->em->persist($plan_estudio);
-            $this->em->flush();
+//            $this->em->persist($plan_estudio);
+//            $this->em->flush();
         } else {
             // simple printing
             $output->writeln($plan['name'] . ' (' . $plan['code'] . ')');

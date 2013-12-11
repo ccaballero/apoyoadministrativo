@@ -1,26 +1,3 @@
-
-DROP TABLE IF EXISTS item;
-DROP TABLE IF EXISTS laboratorio;
-
-DROP TABLE IF EXISTS prerequisito;
-DROP TABLE IF EXISTS malla_curricular;
-
-DROP TABLE IF EXISTS grupo;
-DROP TABLE IF EXISTS materia;
-
-DROP TABLE IF EXISTS auxiliar;
-
-DROP TABLE IF EXISTS docente;
-
-DROP TABLE IF EXISTS periodo;
-DROP TABLE IF EXISTS horario;
-
-DROP TABLE IF EXISTS gestion;
-
-DROP TABLE IF EXISTS `plan_estudio`;
-DROP TABLE IF EXISTS `carrera`;
-DROP TABLE IF EXISTS `departamento`;
-
 CREATE TABLE `departamento` (
     `ident`             int unsigned               NOT NULL auto_increment,
     `name`              varchar(128)               NOT NULL,
@@ -29,7 +6,8 @@ CREATE TABLE `departamento` (
     `facultad`          varchar(64)                NOT NULL DEFAULT '',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ident`),
-    UNIQUE KEY (`name`)
+    UNIQUE KEY (`name`),
+    UNIQUE KEY (`abbreviation`)
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
 CREATE TABLE `carrera` (
@@ -67,32 +45,27 @@ CREATE TABLE `plan_estudio` (
 CREATE TABLE `gestion` (
     `ident`             int unsigned               NOT NULL auto_increment,
     `name`              varchar(128)               NOT NULL,
-    `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
+    `status`            enum('enabled','disabled','active') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ident`),
     UNIQUE KEY (`name`)
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
-CREATE TABLE `horario` (
+CREATE TABLE `materia` (
     `ident`             int unsigned               NOT NULL auto_increment,
+    `departamento`      int unsigned               NOT NULL,
+    `name`              varchar(128)               NOT NULL,
+    `code`              varchar(16)                NOT NULL,
+    `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`ident`)
-) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
-
-CREATE TABLE `periodo` (
-    `ident`             int unsigned                  NOT NULL auto_increment,
-    `horario`           int unsigned                  NOT NULL,
-    `aula`              varchar(16)                   NOT NULL,
-    `dia`               enum('L','M','X','J','V','S') NOT NULL,
-    `hora`              int unsigned                  NOT NULL,
-    `duracion`          int unsigned                  NOT NULL,
-    `tsregister`        timestamp                     NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`ident`, `horario`),
-    INDEX (`horario`),
-    FOREIGN KEY (`horario`)
-    REFERENCES `horario`(`ident`)
+    PRIMARY KEY (`ident`, `departamento`),
+    UNIQUE KEY (`name`),
+    UNIQUE KEY (`code`),
+    INDEX (`departamento`),
+    FOREIGN KEY (`departamento`)
+    REFERENCES `departamento`(`ident`)
     ON UPDATE CASCADE ON DELETE RESTRICT
-);
+) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
 CREATE TABLE `docente` (
     `ident`             int unsigned               NOT NULL auto_increment,
@@ -119,21 +92,26 @@ CREATE TABLE `auxiliar` (
     UNIQUE KEY (`apellido_paterno`, `apellido_materno`, `nombres`)
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
-CREATE TABLE `materia` (
+CREATE TABLE `horario` (
     `ident`             int unsigned               NOT NULL auto_increment,
-    `departamento`      int unsigned               NOT NULL,
-    `name`              varchar(128)               NOT NULL,
-    `code`              varchar(16)                NOT NULL,
-    `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (`ident`, `departamento`),
-    UNIQUE KEY (`name`),
-    UNIQUE KEY (`code`),
-    INDEX (`departamento`),
-    FOREIGN KEY (`departamento`)
-    REFERENCES `departamento`(`ident`)
-    ON UPDATE CASCADE ON DELETE RESTRICT
+    PRIMARY KEY (`ident`)
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
+
+CREATE TABLE `periodo` (
+    `ident`             int unsigned                  NOT NULL auto_increment,
+    `horario`           int unsigned                  NOT NULL,
+    `aula`              varchar(16)                   NOT NULL,
+    `dia`               enum('L','M','X','J','V','S') NOT NULL,
+    `hora`              int unsigned                  NOT NULL,
+    `duracion`          int unsigned                  NOT NULL,
+    `tsregister`        timestamp                     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`ident`, `horario`),
+    INDEX (`horario`),
+    FOREIGN KEY (`horario`)
+    REFERENCES `horario`(`ident`)
+    ON UPDATE CASCADE ON DELETE RESTRICT
+);
 
 CREATE TABLE `grupo` (
     `ident`             int unsigned               NOT NULL auto_increment,
