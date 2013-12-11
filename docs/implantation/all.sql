@@ -10,3 +10,5 @@ SELECT 'plan_estudio';
 \. data/03-planes_estudio.sql
 SELECT 'gestion';
 \. data/04-gestiones.sql
+SELECT 'docente';
+\. data/05-docentes.sql

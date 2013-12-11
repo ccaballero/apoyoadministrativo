@@ -69,11 +69,12 @@ CREATE TABLE `materia` (
 
 CREATE TABLE `docente` (
     `ident`             int unsigned               NOT NULL auto_increment,
-    `ci`                varchar(64)                NOT NULL,
+    `ci`                varchar(64)                NULL,
     `apellido_paterno`  varchar(128)               NOT NULL,
     `apellido_materno`  varchar(128)               NOT NULL,
     `nombres`           varchar(128)               NOT NULL,
     `diploma`           varchar(128)               NOT NULL DEFAULT '',
+    `titulo`            varchar(128)               NOT NULL DEFAULT '',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ident`),
     UNIQUE KEY (`ci`),

@@ -1,16 +1,18 @@
-# CidetsiDepartamentoBundle routes
 base:
     resource: "@CidetsiBaseBundle/Resources/config/routing.yml"
     prefix:   /
-departamento:
+departamentos:
     resource: "@CidetsiDepartamentosBundle/Resources/config/routing/departamento.yml"
     prefix:   /departamentos
-carrera:
+carreras:
     resource: "@CidetsiDepartamentosBundle/Resources/config/routing/carrera.yml"
     prefix:   /carreras
-gestion:
+gestiones:
     resource: "@CidetsiGestionesBundle/Resources/config/routing/gestion.yml"
     prefix:   /gestiones
+docentes:
+    resource: "@CidetsiDocentesBundle/Resources/config/routing.yml"
+    prefix:   /
 pdf_report:
     resource: "@CidetsiPdfReportsBundle/Resources/config/routing.yml"
     prefix:   /pdf

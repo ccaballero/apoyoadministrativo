@@ -8,8 +8,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Cidetsi\MateriaBundle\Entity\Materia;
-
 // fetch the list of courses and registry in the database
 class FetchCommand extends ContainerAwareCommand
 {
@@ -23,30 +21,51 @@ class FetchCommand extends ContainerAwareCommand
     protected function configure() {
         parent::configure();
 
-        $this->setName('cidetsi:scrapping')
+        $this->setName('cidetsi:scrapping:materias')
              ->setDescription('Fetch courses information')
              ->addArgument(
                 'url', InputArgument::REQUIRED,
                 'Url from fetch the information')
+             ->addArgument(
+                'dict', InputArgument::REQUIRED,
+                'File with dict for the relation departamento-materia')
+             ->addArgument(
+                'filename', InputArgument::OPTIONAL,
+                'Filename in the register the sql content')
              ->addOption('sql', null, InputOption::VALUE_NONE,
-                'If set, the task will insert the information in database');
+                'If set, the task will create the sql with the information');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $url = $input->getArgument('url');
+
+        $output->writeln('Extrayendo materias de: ' . $url);
         $html = $this->getPage($url);
         list($plan, $collection) = $this->parse($html);
 
-        $output->writeln('Extrayendo materias de ' . $url);
+        $path = $input->getArgument('dict');
+        $materia_departamento = $this->readDepartamentoMateria($path);
+        
+        if (!$input->getOption('sql')) {
+            $output->writeln('Generando lista ... ');
+            $output->writeln('');
+            $output->writeln($plan['name'] . ' (' . $plan['code'] . ')');
+            $output->writeln('');
 
-        if ($input->getOption('sql')) {
-            $output->writeln('TODO');
-            
-            // extraccion de materias
-            // calculo del departamento
+            foreach ($collection as $item) {
+                $line = $materia_departamento[$item->code] . ' '
+                      . $item->level . ' '
+                      . str_pad($item->name, 50) . ' '
+                      . $item->code . ' '
+                      . ($item->type == 'curricular' ? ' ':'x') . ' '
+                      . '{' . implode(',', $item->pre) . '}';
+
+                $output->writeln($line);
+            }
+        } else {
             // calculo de malla_curricular
             // calculo de prerequisitos
-            
+
             // database insertion
 //            $plan_estudio = $this->em->getRepository(
 //                'CidetsiDepartamentosBundle:PlanEstudio')
@@ -89,21 +108,6 @@ class FetchCommand extends ContainerAwareCommand
 
 //            $this->em->persist($plan_estudio);
 //            $this->em->flush();
-        } else {
-            // simple printing
-            $output->writeln($plan['name'] . ' (' . $plan['code'] . ')');
-            $output->writeln('');
-
-            foreach ($collection as $item) {
-                $line = $item->level . ' '
-                      . str_pad($item->name, 45) . ' '
-                      . $item->code . ' '
-                      . ($item->type == 'curricular' ? ' ':'x') . ' '
-                      . '{' . implode(',', $item->pre) . '}';
-
-                $output->writeln($line);
-            }
-            $output->writeln('');
         }
     }
 
@@ -185,5 +189,23 @@ class FetchCommand extends ContainerAwareCommand
         curl_close($ch);
 
         return $output;
+    }
+
+    protected function readDepartamentoMateria($path) {
+        $dict = array();
+        
+        $handle = @fopen($path, 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                list($materia, $departamento) = explode(' ', $line);
+                $dict[$materia] = trim($departamento);
+            }
+            if (!feof($handle)) {
+                echo 'Error: unexpected fgets() fail' . PHP_EOL;
+            }
+            fclose($handle);
+        }
+        
+        return $dict;
     }
 }
