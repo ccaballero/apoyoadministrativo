@@ -26,14 +26,8 @@ class FetchCommand extends ContainerAwareCommand
              ->addArgument(
                 'url', InputArgument::REQUIRED,
                 'Url from fetch the information')
-             ->addArgument(
-                'dict', InputArgument::REQUIRED,
-                'File with dict for the relation departamento-materia')
-             ->addArgument(
-                'filename', InputArgument::OPTIONAL,
-                'Filename in the register the sql content')
-             ->addOption('sql', null, InputOption::VALUE_NONE,
-                'If set, the task will create the sql with the information');
+             ->addOption('buffer', null, InputOption::VALUE_NONE,
+                'Filename in the register the sql content');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
@@ -43,71 +37,30 @@ class FetchCommand extends ContainerAwareCommand
         $html = $this->getPage($url);
         list($plan, $collection) = $this->parse($html);
 
-        $path = $input->getArgument('dict');
+        $path = $this->getDictPath();
         $materia_departamento = $this->readDepartamentoMateria($path);
-        
-        if (!$input->getOption('sql')) {
+
+        $line = '';
+        foreach ($collection as $item) {
+            $line .= $materia_departamento[$item->code] . ' '
+                  . $item->level . ' '
+                  . str_pad($item->name, 50) . ' '
+                  . $item->code . ' '
+                  . ($item->type == 'curricular' ? ' ':'x') . ' '
+                  . '{' . implode(',', $item->pre) . '}' . PHP_EOL;
+        }
+
+        if (!$input->getOption('buffer')) {
             $output->writeln('Generando lista ... ');
             $output->writeln('');
             $output->writeln($plan['name'] . ' (' . $plan['code'] . ')');
             $output->writeln('');
-
-            foreach ($collection as $item) {
-                $line = $materia_departamento[$item->code] . ' '
-                      . $item->level . ' '
-                      . str_pad($item->name, 50) . ' '
-                      . $item->code . ' '
-                      . ($item->type == 'curricular' ? ' ':'x') . ' '
-                      . '{' . implode(',', $item->pre) . '}';
-
-                $output->writeln($line);
-            }
+            $output->writeln($line);
         } else {
-            // calculo de malla_curricular
-            // calculo de prerequisitos
-
-            // database insertion
-//            $plan_estudio = $this->em->getRepository(
-//                'CidetsiDepartamentosBundle:PlanEstudio')
-//                ->findOneByCode($plan['code']);
-//
-//            $db_materia = $this->em->getRepository(
-//                'CidetsiDepartamentosBundle:Materia');
-//
-//            $materias = array();
-
-            // Filling of basic information
-//            foreach ($collection as $item) {
-//                $materia = $db_materia->findOneByCode($item->code);
-//                if (!$materia) {
-//                    $materia = new Materia();
-//                }
-//
-//                $materia->setName($item->name);
-//                $materia->setLevel($item->level);
-//                $materia->setCode($item->code);
-//                $materia->setType($item->type);
-//
-//                $materias[$materia->getCode()] = $materia;
-//            }
-
-            // Filling the prerequisitos
-//            foreach ($materias as $materia) {
-//                $pres = $collection[$materia->getCode()]->pre;
-//                if (!empty($pres)) {
-//                    foreach ($pres as $pre) {
-//                        if (array_key_exists($pre, $materia)) {
-//                            $materia->addPrerequisito($materias[$pre]);
-//                        }
-//                    }
-//                }
-//
-//                $plan_estudio->addMateria($materia);
-//                $this->em->persist($materia);
-//            }
-
-//            $this->em->persist($plan_estudio);
-//            $this->em->flush();
+            $filename = $this->getScrappingPath()
+                      . '/' . $plan['code'] . '.txt';
+            $output->writeln('Guardando información en: ' . $filename);
+            file_put_contents($filename, $line);
         }
     }
 
@@ -191,9 +144,21 @@ class FetchCommand extends ContainerAwareCommand
         return $output;
     }
 
+    protected function getDictPath() {
+        $root = $this->getContainer()->get('kernel')->getRootDir();
+        return realpath($root
+                . '/../data/implantation/dicts/aux-departamento-materia.txt');
+    }
+
+    protected function getScrappingPath() {
+        $root = $this->getContainer()->get('kernel')->getRootDir();
+        return realpath($root
+                . '/../data/implantation/scrapping');
+    }
+
     protected function readDepartamentoMateria($path) {
         $dict = array();
-        
+
         $handle = @fopen($path, 'r');
         if ($handle) {
             while (($line = fgets($handle, 4096)) !== false) {
@@ -205,7 +170,7 @@ class FetchCommand extends ContainerAwareCommand
             }
             fclose($handle);
         }
-        
+
         return $dict;
     }
 }

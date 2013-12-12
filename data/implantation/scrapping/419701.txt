@@ -1,0 +1,58 @@
+6 A INGLES I                                           1803001   {}
+4 A FISICA BASICA I                                    2006018   {}
+7 A ALGEBRA I                                          2008019   {}
+7 A CALCULO I                                          2008054   {}
+6 A INTRODUCCION A LA PROGRAMACION                     2010010   {}
+6 B INGLES II                                          1803002   {1803001}
+4 B FISICA BASICA III                                  2006020   {2006018}
+7 B ALGEBRA II                                         2008022   {2008019}
+7 B CALCULO II                                         2008056   {2008054}
+6 B ELEM. DE PROGRAMACION Y ESTRUC. DE DATOS           2010003   {2010010}
+7 C MATEMATICA DISCRETA                                2008057   {2008022}
+7 C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+7 C ESTADISTICA I                                      2008059   {2008022}
+6 C METODOS TECNICAS Y TALLER DE PROGRAMACION          2010012   {1803002,2010003}
+3 C ELECTROTECNIA INDUSTRIAL                           2014087   {2006020}
+7 D CALCULO NUMERICO                                   2008060   {2008058}
+7 D ESTADISTICA II                                     2008061   {2008059}
+6 D ARQUITECTURA DE COMPUTADORAS I                     2010013   {2014087}
+6 D BASE DE DATOS I                                    2010015   {2010012}
+5 D CONTABILIDAD BASICA                                2016046   {2008057}
+6 E ARQUITECTURA DE COMPUTADORAS II                    2010014   {2010013}
+6 E BASE DE DATOS II                                   2010016   {2010015}
+5 E PLANIF. Y CONTROL DE LA PRODUCCION I               2016021   {2008061}
+5 E INVESTIGACION OPERATIVA I                          2016048   {2008060,2008061}
+5 E COSTOS INDUSTRIALES                                2016049   {2016046}
+6 F TALLER DE SISTEMAS OPERATIVOS                      2010017   {2010014}
+6 F SISTEMAS DE INFORMACION I                          2010018   {2010016}
+5 F PLANIF. Y CONTROL DE LA PRODUCCION II              2016027   {2016021}
+5 F INVESTIGACION OPERATIVA II                         2016051   {2016048}
+5 F MERCADOTECNIA                                      2016057   {2016049}
+6 G SIMULACION DE SISTEMAS                             2010019   {2016051}
+6 G SISTEMAS DE INFORMACION II                         2010022   {2010018}
+6 G APLICACION DE SISTEMAS OPERATIVOS                  2010035   {2010017}
+6 G TALLER DE BASE DE DATOS                            2010053   {2010018}
+5 G INGENIERIA ECONOMICA                               2016023   {2016027}
+5 G INGENIERIA DE METODOS Y REINGENIERIA               2016052   {2016057}
+6 H INGENIERIA DE SOFTWARE                             2010020   {2010022,2010053}
+6 H INTELIGENCIA ARTIFICIAL                            2010027   {2010053}
+6 H REDES DE COMPUTADORAS                              2010047   {2010035}
+6 H EVALUACION Y AUDITORIA DE SISTEMAS                 2010102   {2010019}
+6 H TALLER DE SIMULACION DE SISTEMAS                   2010116   {2010019}
+6 H ALGORITMOS AVANZADOS                               2010197 x {2010024}
+5 H PLANIFICACION Y EVALUACION DE PROYECTOS            2016092   {2016023,2016052}
+6 I TALLER DE INGENIERIA DE SOFTWARE                   2010024   {2010020}
+6 I SISTEMAS EXPERTOS                                  2010029   {2010027}
+6 I WEB SEMANTICAS                                     2010079 x {2010020}
+6 I METODOL. Y PLANIF. DE PROYECTO DE GRADO            2010119   {2010020,2016092}
+6 I ENTORNOS VIRTUALES DE APRENDIZAJE                  2010178 x {2010020}
+6 I TELECOMUNICACION I                                 2010181 x {2010047}
+6 I SERVICIOS TELEMATICOS                              2010188 x {2010047}
+6 J PROCESOS AGILES                                    2010066 x {2010020}
+6 J SEGUR Y AUDIT DE REDES DE COMPUTADORAS             2010067 x {2010102}
+6 J RECUPERACION DE LA INFORMACION                     2010085 x {2010053}
+6 J PROYECTO FINAL                                     2010122   {2010119}
+6 J PROGRAMACION DE SISTEMAS PARALELOS                 2010176 x {2010102}
+6 J RECONOCIMIENTO DE VOZ                              2010189 x {2010027}
+5 J GESTION ESTRATEGICA DE EMPRESAS                    2016059   {2016092}
+5 J TOPICOS SELECTOS II (PREP. EVAL. PROY II)          2016095 x {2016092}

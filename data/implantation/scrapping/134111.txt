@@ -1,0 +1,54 @@
+6 A INGLES I                                           1803001   {}
+4 A FISICA GENERAL                                     2006063   {}
+7 A ALGEBRA I                                          2008019   {}
+7 A CALCULO I                                          2008054   {}
+6 A INTRODUCCION A LA PROGRAMACION                     2010010   {}
+6 B INGLES II                                          1803002   {1803001}
+7 B ALGEBRA II                                         2008022   {2008019}
+7 B CALCULO II                                         2008056   {2008054}
+6 B ELEM. DE PROGRAMACION Y ESTRUC. DE DATOS           2010003   {2010010}
+6 B ARQUITECTURA DE COMPUTADORAS I                     2010013   {2006063}
+6 B PROGRAMACION                                       2010200   {2010010}
+7 C CALCULO NUMERICO                                   2008060   {2008056}
+7 C LOGICA                                             2008140   {2008022}
+6 C ARQUITECTURA DE COMPUTADORAS II                    2010014   {2010013}
+6 C TEORIA DE GRAFOS                                   2010037   {2010200}
+6 C ORGANIZACION Y METODOS                             2010041   {1803002}
+6 C METODOS Y TECNICAS DE PROGRAMACION                 2010206   {2010003}
+7 D PROBABILIDAD Y ESTADISTICA                         2008029   {2008060}
+6 D TALLER DE PROGRAMACION EN BAJO NIVEL               2010005   {2010014}
+6 D BASE DE DATOS I                                    2010015   {2010041}
+6 D SISTEMAS DE INFORMACION I                          2010018   {2010206}
+6 D PROGRAMACION FUNCIONAL                             2010038   {2008140}
+6 D ALGORITMOS AVANZADOS                               2010197   {2010037}
+6 E BASE DE DATOS II                                   2010016   {2010015}
+6 E TALLER DE SISTEMAS OPERATIVOS                      2010017   {2010005}
+6 E SISTEMAS DE INFORMACION II                         2010022   {2010018}
+6 E TEORIA DE AUTOMATAS Y LENG. FORMALES               2010040   {2010005}
+6 E GRAFICACION POR COMPUTADORA                        2010042   {2010197}
+6 E INTELIGENCIA ARTIFICIAL I                          2010201   {2008029,2010038}
+6 F INGENIERIA DE SOFTWARE                             2010020   {2010022}
+6 F REDES DE COMPUTADORAS                              2010047   {2010017}
+6 F ESTRUCTURA Y SEMANTICA DE LENGUAJES DE PROGRA      2010049   {2010040}
+6 F TALLER DE BASE DE DATOS                            2010053   {2010016}
+6 F INTELIGENCIA ARTIFICIAL II                         2010202   {2010201}
+6 F PROGRAMACION WEB                                   2010203   {2010042}
+6 G SIMULACION DE SISTEMAS                             2010019 x {2010049}
+6 G TALLER DE INGENIERIA DE SOFTWARE                   2010024   {2010020,2010053}
+6 G ARQUITECTURA DE SOFTWARE                           2010100   {2010203}
+6 G INTERACCION HUMANO COMPUTADOR                      2010204   {2010202}
+6 G TECNOLOGIA REDES AVANZADAS                         2010205   {2010047}
+6 H APLICACION DE SISTEMAS OPERATIVOS                  2010035 x {2010205}
+6 H EVALUACION Y AUDITORIA DE SISTEMAS                 2010102   {2010100}
+6 H TALLER DE GRADO                                    2010207   {2010024}
+5 H CONTABILIDAD BASICA                                2016046 x {2010024}
+5 H PLANIFICACION Y EVALUACION DE PROYECTOS            2016092 x {2010024}
+6 I ENTORNOS VIRTUALES DE APRENDIZAJE                  2010178 x {2010020}
+6 I TELECOMUNICACION I                                 2010181 x {2010205}
+6 I SERVICIOS TELEMATICOS                              2010188 x {2010047}
+6 I MODALIDAD DE TITULACION                            2010208   {2010102,2010207}
+6 J PROCESOS AGILES                                    2010066 x {2010020}
+6 J SEGUR Y AUDIT DE REDES DE COMPUTADORAS             2010067 x {2010102}
+6 J RECUPERACION DE LA INFORMACION                     2010085 x {2010053}
+6 J PROGRAMACION DE SISTEMAS PARALELOS                 2010176 x {2010102}
+6 J RECONOCIMIENTO DE VOZ                              2010189 x {2010204}

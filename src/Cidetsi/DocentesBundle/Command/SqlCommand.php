@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 // fetch the list of docentes and registry in the database
-class FetchCommand extends ContainerAwareCommand
+class SqlCommand extends ContainerAwareCommand
 {
     protected function initialize(
             InputInterface $input, OutputInterface $output) {
@@ -21,7 +21,7 @@ class FetchCommand extends ContainerAwareCommand
     protected function configure() {
         parent::configure();
 
-        $this->setName('cidetsi:scrapping:docentes')
+        $this->setName('cidetsi:sql:docentes')
              ->setDescription('Fetch teachers information')
              ->addArgument(
                 'params', InputArgument::REQUIRED,
