@@ -2,6 +2,7 @@
 
 namespace Cidetsi\DepartamentosBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,23 +27,30 @@ class Departamento
      * @ORM\Column(type="string",length=32,unique=true)
      */
     private $abbreviation;
-    
+
     /**
      * @ORM\Column(type="status")
      */
     private $status = 'enabled';
-    
+
     /**
      * @ORM\Column(type="string",length=64)
      */
     private $facultad = '';
-    
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $tsregister;
 
-    public function __construct() {}
+    /**
+     * @ORM\OneToMany(targetEntity="Carrera",mappedBy="departamento")
+     **/
+    private $carreras;
+
+    public function __construct() {
+        $this->carreras = new ArrayCollection();
+    }
 
     public function getIdent() {        return $this->ident; }
     public function getName() {         return $this->name; }
@@ -71,24 +79,25 @@ class Departamento
         return $this;
     }
 
-//    public function addCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carreras) {
-//        $this->carreras[] = $carreras;
-//        return $this;
-//    }
-//
-//    public function removeCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carreras) {
-//        $this->carreras->removeElement($carreras);
-//    }
-//
-//    public function getCarreras() {
-//        return $this->carreras;
-//    }
+    public function getCarreras() { return $this->carreras; }
+    public function setCarreras($carreras) {
+        $this->carreras = $carreras;
+    }
 
-//    public function isEmpty() {
-//        return count($this->getCarreras()) == 0;
-//    }
+    public function addCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
+        $this->carreras[] = $carrera;
+        return $this;
+    }
+
+    public function removeCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
+        $this->carreras->removeElement($carrera);
+    }
 
     public function __toString() {
         return $this->getName();
+    }
+
+    public function isEmpty() {
+        return count($this->getCarreras()) == 0;
     }
 }

@@ -9,16 +9,12 @@ class CrudController extends Controller
 {
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
-//        $entities = $em->getRepository($this->repository)
-//                       ->findBy(
-//                            array('status' => 'enabled'),
-//                            $this->orderBy);
 
         $orderBy = array();
         foreach ($this->orderBy as $key => $criteria) {
             $orderBy[] = 'e.' . $key . ' ' . $criteria;
         }
-        
+
         $query = $em->createQuery(
             'SELECT e ' .
             'FROM ' . $this->repository . ' e ' .
@@ -26,7 +22,7 @@ class CrudController extends Controller
             'ORDER BY ' . implode(',', $orderBy)
         )->setParameter('status', 'disabled');
         $entities = $query->getResult();
-        
+
         return $this->render($this->repository . ':index.html.twig',
             array_merge(
                 $this->tpl_commons, array(
@@ -110,7 +106,7 @@ class CrudController extends Controller
         $form = $this->createForm(new $this->form(), $entity, array(
             'action' => $this->generateUrl(
                 $this->resource . '_update_post', array(
-                    'id' => $entity->getId())),
+                    'id' => $entity->getIdent())),
             'method' => 'PUT',
         ));
         $form->add('submit', 'submit', array('label' => 'Editar'));
@@ -141,7 +137,7 @@ class CrudController extends Controller
                  ->add('success', 'El recurso fue creado exitosamente');
             return $this->redirect(
                 $this->generateUrl($this->resource . '_read', array(
-                    'id' => $entity->getId())
+                    'id' => $entity->getIdent())
             ));
         }
 

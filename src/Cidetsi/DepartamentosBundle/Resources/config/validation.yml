@@ -2,13 +2,28 @@ Cidetsi\DepartamentosBundle\Entity\Departamento:
     properties:
         name:
             - NotBlank: ~
-            - Length: { min: 8, max: 128 }
+            - Length:
+                min: 8
+                max: 128
+            - Regex:
+                pattern: "/^[A-Za-z áéíñóúüÁÉÍÑÓÚÜ-]*$/"
+                message: The value must be contain only letters and whitespaces
         abbreviation:
             - NotBlank: ~
-            - Length: { min: 3, max: 64 }
+            - Length:
+                min: 3
+                max: 32
+            - Regex:
+                pattern: "/^[A-Za-záéíñóúüÁÉÍÑÓÚÜ-]*$/"
+                message: The value must be contain only letters
         facultad:
             - NotBlank: ~
-            - Length: { min: 4, max: 128 }
+            - Length:
+                min: 4
+                max: 64
+            - Regex:
+                pattern: "/^[A-Za-z áéíñóúüÁÉÍÑÓÚÜ-]*$/"
+                message: The value must be contain only letters and whitespaces
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
 
@@ -19,7 +34,7 @@ Cidetsi\DepartamentosBundle\Entity\Carrera:
             - Length: { min: 8, max: 128 }
         abbreviation:
             - NotBlank: ~
-            - Length: { min: 3, max: 64 }
+            - Length: { min: 3, max: 32 }
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
 
