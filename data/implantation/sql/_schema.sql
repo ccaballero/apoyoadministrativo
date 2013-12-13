@@ -1,8 +1,8 @@
 CREATE TABLE `departamento` (
     `ident`             int unsigned               NOT NULL auto_increment,
     `name`              varchar(128)               NOT NULL,
-    `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `abbreviation`      varchar(32)                NOT NULL,
+    `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `facultad`          varchar(64)                NOT NULL DEFAULT '',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`ident`),

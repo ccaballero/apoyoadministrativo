@@ -9,14 +9,14 @@
 
 {% block items %}
 <ul class="list-group">
-{% for carrera in entity.carreras %}
+{# % for carrera in entity.carreras %}
     <li class="list-group-item">
         <a href="{{ path('carrera_read', { 'id': carrera.id }) }}">{{ carrera.name }} ({{ carrera.abbreviation }})</a>
     {% for plan in carrera.planes %}
         <span class="badge pull-right">{{ plan.materias|length }}</span>
     {% endfor %}
     </li>
-{% endfor %}
+{% endfor % #}
 </ul>
 {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
     'view': true, 'edit': true, 'delete': true
