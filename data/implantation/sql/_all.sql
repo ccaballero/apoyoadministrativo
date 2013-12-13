@@ -1,14 +1,16 @@
 SELECT 'schema';
-\. drop-schema.sql
-\. schema.sql
+\. _clean.sql
+\. _schema.sql
 
 SELECT 'departamento';
-\. data/01-departamentos.sql
+\. 01-departamentos.sql
 SELECT 'carrera';
-\. data/02-carreras.sql
+\. 02-carreras.sql
 SELECT 'plan_estudio';
-\. data/03-planes_estudio.sql
+\. 03-planes_estudio.sql
 SELECT 'gestion';
-\. data/04-gestiones.sql
-SELECT 'docente';
-\. data/05-docentes.sql
+\. 04-gestiones.sql
+SELECT 'materias';
+\. 05-materias.sql
+SELECT 'docentes';
+\. 06-docentes.sql
