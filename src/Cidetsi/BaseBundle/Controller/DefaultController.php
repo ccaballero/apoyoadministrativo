@@ -18,6 +18,11 @@ class DefaultController extends Controller
                 'description' =>
                     'Lista de las diferentes carreras que comprenden la FCyT',
             ),
+            'materia' => array(
+                'label' => 'Materias',
+                'description' =>
+                    'Lista de las diferentes materias que son dictadas en la FCyT',
+            ),
             'gestion' => array(
                 'label' => 'Gestiones',
                 'description' =>

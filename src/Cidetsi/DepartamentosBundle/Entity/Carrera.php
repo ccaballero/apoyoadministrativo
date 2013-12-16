@@ -29,7 +29,7 @@ class Carrera
     private $name;
 
     /**
-     * @ORM\Column(type="string",length=32,unique=true)
+     * @ORM\Column(type="string",length=32)
      */
     private $abbreviation;
 
@@ -102,5 +102,9 @@ class Carrera
 
     public function __toString() {
         return $this->getName();
+    }
+
+    public function isEmpty() {
+        return count($this->getPlanes()) == 0;
     }
 }

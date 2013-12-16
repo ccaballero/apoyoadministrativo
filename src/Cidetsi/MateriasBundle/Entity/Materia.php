@@ -5,79 +5,73 @@ namespace Cidetsi\MateriasBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Materia
- */
+* @ORM\Entity
+* @ORM\Table(name="materia")
+*/
 class Materia
 {
     /**
-     * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $ident;
 
     /**
-     * @var string
+     * @ORM\ManyToOne(targetEntity="\Cidetsi\DepartamentosBundle\Entity\Departamento",inversedBy="materias")
+     * @ORM\JoinColumn(name="departamento",referencedColumnName="ident")
+     **/
+    private $departamento;
+
+    /**
+     * @ORM\Column(type="string",length=128,unique=true)
      */
     private $name;
 
     /**
-     * @var string
+     * @ORM\Column(type="string",length=16,unique=true)
      */
     private $code;
 
+    /**
+     * @ORM\Column(type="status")
+     */
+    private $status = 'enabled';
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM\Column(type="datetime")
      */
-    public function getId()
-    {
-        return $this->id;
+    private $tsregister;
+
+    public function getIdent() { return $this->ident; }
+    public function getDepartamento() { return $this->departamento; }
+    public function getName() { return $this->name; }
+    public function getCode() { return $this->code; }
+    public function getStatus() { return $this->status; }
+    public function getTsregister() { return $this->tsregister; }
+
+    public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
+        $this->departamento = $departamento;
+        return $this;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Materia
-     */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
         return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Materia
-     */
-    public function setCode($code)
-    {
+    public function setCode($code) {
         $this->code = $code;
-    
         return $this;
     }
 
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
-    {
-        return $this->code;
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function setTsregister($tsregister) {
+        $this->tsregister = $tsregister;
+        return $this;
     }
 }

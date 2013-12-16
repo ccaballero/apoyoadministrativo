@@ -1,0 +1,37 @@
+planestudio:
+    pattern:  /
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:index" }
+
+planestudio_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:createGet" }
+    requirements: { _method: get }
+
+planestudio_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:createPost" }
+    requirements: { _method: post }
+
+planestudio_read:
+    pattern:  /{id}
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:read" }
+
+planestudio_update_get:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:updateGet" }
+    requirements: { _method: get }
+
+planestudio_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:updatePost" }
+    requirements: { _method: post|put }
+
+planestudio_delete_get:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:deleteGet" }
+    requirements: { _method: get }
+
+planestudio_delete_post:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDepartamentosBundle:PlanEstudio:deletePost" }
+    requirements: { _method: post|delete }

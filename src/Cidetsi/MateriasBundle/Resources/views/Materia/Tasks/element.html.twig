@@ -2,17 +2,17 @@
     <div class="btn-group">
     {% if view %}
         <a class="btn btn-primary"
-           href="{{ path('carrera_read', {
+           href="{{ path('materia_read', {
             'id': entity.ident }) }}">Ver detalles</a>
     {% endif %}
     {% if edit %}
         <a class="btn btn-default"
-           href="{{ path('carrera_update_get', {
+           href="{{ path('materia_update_get', {
             'id': entity.ident }) }}">Editar</a>
     {% endif %}
     {% if delete %}
         <a class="btn btn-default"
-           href="{{ path('carrera_delete_get', {
+           href="{{ path('materia_delete_get', {
             'id': entity.ident }) }}">Eliminar</a>
     {% endif %}
     </div>

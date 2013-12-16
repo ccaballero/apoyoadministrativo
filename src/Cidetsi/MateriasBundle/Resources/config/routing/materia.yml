@@ -1,0 +1,37 @@
+materia:
+    pattern:  /
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:index" }
+
+materia_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:createGet" }
+    requirements: { _method: get }
+
+materia_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:createPost" }
+    requirements: { _method: post }
+
+materia_read:
+    pattern:  /{id}
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:read" }
+
+materia_update_get:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:updateGet" }
+    requirements: { _method: get }
+
+materia_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:updatePost" }
+    requirements: { _method: post|put }
+
+materia_delete_get:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:deleteGet" }
+    requirements: { _method: get }
+
+materia_delete_post:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:deletePost" }
+    requirements: { _method: post|delete }

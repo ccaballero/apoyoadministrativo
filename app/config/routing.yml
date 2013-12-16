@@ -7,6 +7,12 @@ departamentos:
 carreras:
     resource: "@CidetsiDepartamentosBundle/Resources/config/routing/carrera.yml"
     prefix:   /carreras
+planes:
+    resource: "@CidetsiDepartamentosBundle/Resources/config/routing/plan_estudio.yml"
+    prefix:   /planes
+materias:
+    resource: "@CidetsiMateriasBundle/Resources/config/routing/materia.yml"
+    prefix:   /materias
 gestiones:
     resource: "@CidetsiGestionesBundle/Resources/config/routing/gestion.yml"
     prefix:   /gestiones

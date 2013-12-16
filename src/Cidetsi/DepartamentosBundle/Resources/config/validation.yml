@@ -25,7 +25,8 @@ Cidetsi\DepartamentosBundle\Entity\Departamento:
                 pattern: "/^[A-Za-z áéíñóúüÁÉÍÑÓÚÜ-]*$/"
                 message: The value must be contain only letters and whitespaces
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name, abbreviation]
 
 Cidetsi\DepartamentosBundle\Entity\Carrera:
     properties:
@@ -36,7 +37,8 @@ Cidetsi\DepartamentosBundle\Entity\Carrera:
             - NotBlank: ~
             - Length: { min: 3, max: 32 }
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: abbreviation
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
 
 Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
     properties:
@@ -47,4 +49,5 @@ Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
             - NotBlank: ~
             - Length: { min: 4, max: 16 }
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: code
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            field: [name, code]

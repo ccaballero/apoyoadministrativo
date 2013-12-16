@@ -8,18 +8,13 @@
 {% endblock %}
 
 {% block items %}
-<h3>Planes de estudio</h3>
 <ul class="list-group">
 {% for plan in entity.planes %}
-    <h4>{{ plan.name }}</h4>
-    <table class="table table-condensed">
-    {% for materia in plan.materias %}
-        <tr>
-            <td>{{ materia.name }}</td>
-            <td>{{ materia.code }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <li class="list-group-item">
+        <a href="{{ path('planestudio_read', { 'id': plan.ident }) }}">{{ plan.name }} ({{ plan.code }})</a>
+    </li>
+{% else %}
+    <li class="list-group-item"><em>No existen planes de estudio registrados.</em></li>
 {% endfor %}
 </ul>
 {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
