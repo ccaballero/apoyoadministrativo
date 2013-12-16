@@ -7,7 +7,17 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CrudController extends Controller
 {
+    public $filterType = '';
+
     public function indexAction() {
+        return $this->render($this->repository . ':index.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entities' => $this->getList(),
+        )));
+    }
+
+    protected function getList() {
         $em = $this->getDoctrine()->getManager();
 
         $orderBy = array();
@@ -15,19 +25,25 @@ class CrudController extends Controller
             $orderBy[] = 'e.' . $key . ' ' . $criteria;
         }
 
-        $query = $em->createQuery(
-            'SELECT e ' .
-            'FROM ' . $this->repository . ' e ' .
-            'WHERE e.status <> :status ' .
-            'ORDER BY ' . implode(',', $orderBy)
-        )->setParameter('status', 'disabled');
-        $entities = $query->getResult();
+        switch ($this->filterType) {
+            case 'status':
+                $query = $em->createQuery(
+                    'SELECT e ' .
+                    'FROM ' . $this->repository . ' e ' .
+                    'WHERE e.status <> :status ' .
+                    'ORDER BY ' . implode(',', $orderBy)
+                )->setParameter('status', 'disabled');
+                break;
+            default:
+                $query = $em->createQuery(
+                    'SELECT e ' .
+                    'FROM ' . $this->repository . ' e ' .
+                    'ORDER BY ' . implode(',', $orderBy)
+                );
+                break;
+        }
 
-        return $this->render($this->repository . ':index.html.twig',
-            array_merge(
-                $this->tpl_commons, array(
-                    'entities' => $entities,
-        )));
+        return $query->getResult();
     }
 
     public function readAction($id) {

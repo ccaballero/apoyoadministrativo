@@ -1,0 +1,37 @@
+docente:
+    pattern:  /
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:index" }
+
+docente_create_get:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:createGet" }
+    requirements: { _method: get }
+
+docente_create_post:
+    pattern:  /agregar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:createPost" }
+    requirements: { _method: post }
+
+docente_read:
+    pattern:  /{id}
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:read" }
+
+docente_update_get:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:updateGet" }
+    requirements: { _method: get }
+
+docente_update_post:
+    pattern:  /{id}/editar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:updatePost" }
+    requirements: { _method: post|put }
+
+docente_delete_get:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:deleteGet" }
+    requirements: { _method: get }
+
+docente_delete_post:
+    pattern:  /{id}/eliminar
+    defaults: { _controller: "CidetsiDocentesBundle:Docente:deletePost" }
+    requirements: { _method: post|delete }

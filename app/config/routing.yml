@@ -13,12 +13,12 @@ planes:
 materias:
     resource: "@CidetsiMateriasBundle/Resources/config/routing/materia.yml"
     prefix:   /materias
+docentes:
+    resource: "@CidetsiDocentesBundle/Resources/config/routing/docente.yml"
+    prefix:   /docentes
 gestiones:
     resource: "@CidetsiGestionesBundle/Resources/config/routing/gestion.yml"
     prefix:   /gestiones
-docentes:
-    resource: "@CidetsiDocentesBundle/Resources/config/routing.yml"
-    prefix:   /
 pdf_report:
     resource: "@CidetsiPdfReportsBundle/Resources/config/routing.yml"
     prefix:   /pdf

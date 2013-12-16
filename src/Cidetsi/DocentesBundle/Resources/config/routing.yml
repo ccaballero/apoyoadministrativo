@@ -1,3 +1,0 @@
-cidetsi_docentes_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: CidetsiDocentesBundle:Default:index }

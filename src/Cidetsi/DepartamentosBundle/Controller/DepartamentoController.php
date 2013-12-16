@@ -8,6 +8,7 @@ class DepartamentoController extends CrudController
 {
     public $resource = 'departamento';
     public $repository = 'CidetsiDepartamentosBundle:Departamento';
+    public $filterType = 'status';
     public $orderBy = array('name' => 'asc');
     public $form = 'Cidetsi\DepartamentosBundle\Form\DepartamentoForm';
     public $entity = 'Cidetsi\DepartamentosBundle\Entity\Departamento';
@@ -20,21 +21,4 @@ class DepartamentoController extends CrudController
         'url_list'     => 'departamento',
         'url_element'  => 'departamento_read',
     );
-
-//    public function readAction($id) {
-//        $em = $this->getDoctrine()->getManager();
-//        $entity = $em->getRepository($this->repository)->find($id);
-//        if (!$entity) {
-//            throw $this->createNotFoundException('Unable to find entity.');
-//        }
-//        if ($entity->getStatus() == 'disabled') {
-//            throw $this->createNotFoundException('The entity is disabled.');
-//        }
-//        
-//        return $this->render($this->repository . ':read.html.twig',
-//            array_merge(
-//                $this->tpl_commons, array(
-//                    'entity' => $entity,
-//        )));
-//    }
 }

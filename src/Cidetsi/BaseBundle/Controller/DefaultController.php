@@ -23,6 +23,11 @@ class DefaultController extends Controller
                 'description' =>
                     'Lista de las diferentes materias que son dictadas en la FCyT',
             ),
+            'docente' => array(
+                'label' => 'Docentes',
+                'description' =>
+                    'Lista de todo el personal docente que compone la FCyT',
+            ),
             'gestion' => array(
                 'label' => 'Gestiones',
                 'description' =>

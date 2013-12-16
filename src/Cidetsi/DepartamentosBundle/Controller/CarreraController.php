@@ -8,6 +8,7 @@ class CarreraController extends CrudController
 {
     public $resource = 'carrera';
     public $repository = 'CidetsiDepartamentosBundle:Carrera';
+    public $filterType = 'status';
     public $orderBy = array('name' => 'asc');
     public $form = 'Cidetsi\DepartamentosBundle\Form\CarreraForm';
     public $entity = 'Cidetsi\DepartamentosBundle\Entity\Carrera';
