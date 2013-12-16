@@ -2,43 +2,63 @@
 
 namespace Cidetsi\DepartamentosBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="plan_estudio")
+*/
 class PlanEstudio
 {
-    private $id;
-    private $name;
-    private $status = 'enabled';
-    private $code;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $ident;
+
+    /**
+     * @ORM\JoinColumn(name="departamento",referencedColumnName="ident")
+     **/
+    private $departamento;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Carrera",inversedBy="planes")
+     * @ORM\JoinColumn(name="carrera",referencedColumnName="ident")
+     **/
     private $carrera;
 
-    public function getId() {
-        return $this->id;
-    }
+    /**
+     * @ORM\Column(type="string",length=128,unique=true)
+     */
+    private $name;
 
-    public function setName($name) {
-        $this->name = $name;
+    /**
+     * @ORM\Column(type="string",length=16,unique=true)
+     */
+    private $code;
+
+    /**
+     * @ORM\Column(type="status")
+     */
+    private $status = 'enabled';
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $tsregister;
+
+    public function getIdent() { return $this->ident; }
+    public function getDepartamento() { return $this->departamento; }
+    public function getCarrera() { return $this->carrera; }
+    public function getName() { return $this->name; }
+    public function getCode() { return $this->code; }
+    public function getStatus() { return $this->status; }
+    public function getTsregister() { return $this->tsregister; }
+
+    public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
+        $this->departamento = $departamento;
         return $this;
-    }
-
-    public function getName() {
-        return $this->name;
-    }
-
-    public function setStatus($status) {
-        $this->status = $status;
-        return $this;
-    }
-
-    public function getStatus() {
-        return $this->status;
-    }
-
-    public function setCode($code) {
-        $this->code = $code;
-        return $this;
-    }
-
-    public function getCode() {
-        return $this->code;
     }
 
     public function setCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera = null) {
@@ -46,95 +66,69 @@ class PlanEstudio
         return $this;
     }
 
-    public function getCarrera() {
-        return $this->carrera;
+    public function setName($name) {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setCode($code) {
+        $this->code = $code;
+        return $this;
+    }
+
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function setTsregister($tsregister) {
+        $this->tsregister = $tsregister;
+        return $this;
     }
 
     public function __toString() {
-        return $this->name . ' (' . $this->code . ')';
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $plan_materias;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $materias;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->plan_materias = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add plan_materias
-     *
-     * @param \Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias
-     * @return PlanEstudio
-     */
-    public function addPlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
-    {
-        $this->plan_materias[] = $planMaterias;
-    
-        return $this;
+        return $this->getName() . ' (' . $this->getCode() . ')';
     }
 
-    /**
-     * Remove plan_materias
-     *
-     * @param \Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias
-     */
-    public function removePlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
-    {
-        $this->plan_materias->removeElement($planMaterias);
-    }
+//    private $plan_materias;
+//    private $materias;
 
-    /**
-     * Get plan_materias
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPlanMaterias()
-    {
-        return $this->plan_materias;
-    }
-
-    /**
-     * Add materias
-     *
-     * @param \Cidetsi\DepartamentosBundle\Entity\Materia $materias
-     * @return PlanEstudio
-     */
-    public function addMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
-    {
-        $this->materias[] = $materias;
-    
-        return $this;
-    }
-
-    /**
-     * Remove materias
-     *
-     * @param \Cidetsi\DepartamentosBundle\Entity\Materia $materias
-     */
-    public function removeMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
-    {
-        $this->materias->removeElement($materias);
-    }
-
-    /**
-     * Get materias
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMaterias()
-    {
-        return $this->materias;
-    }
+//    public function __construct()
+//    {
+//        $this->plan_materias = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
+//    }
+//
+//    public function addPlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
+//    {
+//        $this->plan_materias[] = $planMaterias;
+//
+//        return $this;
+//    }
+//
+//    public function removePlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
+//    {
+//        $this->plan_materias->removeElement($planMaterias);
+//    }
+//
+//    public function getPlanMaterias()
+//    {
+//        return $this->plan_materias;
+//    }
+//
+//    public function addMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
+//    {
+//        $this->materias[] = $materias;
+//        return $this;
+//    }
+//
+//    public function removeMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
+//    {
+//        $this->materias->removeElement($materias);
+//    }
+//
+//    public function getMaterias()
+//    {
+//        return $this->materias;
+//    }
 }

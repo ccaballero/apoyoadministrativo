@@ -59,6 +59,8 @@ class Departamento
     public function getFacultad() {     return $this->facultad; }
     public function getTsregister() {   return $this->tsregister; }
 
+    public function getCarreras() { return $this->carreras; }
+
     public function setName($name) {
         $this->name = $name;
         return $this;
@@ -79,7 +81,11 @@ class Departamento
         return $this;
     }
 
-    public function getCarreras() { return $this->carreras; }
+    public function setTsregister($tsregister) {
+        $this->tsregister = $tsregister;
+        return $this;
+    }
+
     public function setCarreras($carreras) {
         $this->carreras = $carreras;
     }

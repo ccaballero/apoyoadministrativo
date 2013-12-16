@@ -32,16 +32,21 @@ class Carrera
      * @ORM\Column(type="string",length=32,unique=true)
      */
     private $abbreviation;
-    
+
     /**
      * @ORM\Column(type="status")
      */
     private $status = 'enabled';
-    
+
     /**
      * @ORM\Column(type="datetime")
      */
     private $tsregister;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PlanEstudio",mappedBy="carrera")
+     **/
+    private $planes;
 
     public function __construct() {
         $this->planes = new \Doctrine\Common\Collections\ArrayCollection();
@@ -54,6 +59,8 @@ class Carrera
     public function getStatus() { return $this->status; }
     public function getTsregister() { return $this->tsregister; }
 
+    public function getPlanes() { return $this->planes; }
+
     public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
         $this->departamento = $departamento;
         return $this;
@@ -64,26 +71,36 @@ class Carrera
         return $this;
     }
 
-    public function setStatus($status) {
-        $this->status = $status;
-        return $this;
-    }
-
     public function setAbbreviation($abbreviation) {
         $this->abbreviation = $abbreviation;
         return $this;
     }
 
-//    public function addPlan(\Cidetsi\DepartamentosBundle\Entity\PlanEstudio $plan) {
-//        $this->planes[] = $plan;
-//        return $this;
-//    }
-//
-//    public function removePlan(\Cidetsi\DepartamentosBundle\Entity\PlanEstudio $plan) {
-//        $this->planes->removeElement($plan);
-//    }
-//
-//    public function getPlanes() {
-//        return $this->planes;
-//    }
+    public function setStatus($status) {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function setTsregister($tsregister) {
+        $this->tsregister = $tsregister;
+        return $this;
+    }
+
+    public function setPlanes($planes) {
+        $this->planes = $planes;
+        return $this;
+    }
+
+    public function addPlan(\Cidetsi\DepartamentosBundle\Entity\PlanEstudio $plan) {
+        $this->planes[] = $plan;
+        return $this;
+    }
+
+    public function removePlan(\Cidetsi\DepartamentosBundle\Entity\PlanEstudio $plan) {
+        $this->planes->removeElement($plan);
+    }
+
+    public function __toString() {
+        return $this->getName();
+    }
 }
