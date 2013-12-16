@@ -48,8 +48,14 @@ class Departamento
      **/
     private $carreras;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\Cidetsi\MateriasBundle\Entity\Materia",mappedBy="departamento")
+     **/
+    private $materias;
+
     public function __construct() {
         $this->carreras = new ArrayCollection();
+        $this->materias = new ArrayCollection();
     }
 
     public function getIdent() {        return $this->ident; }
@@ -60,6 +66,7 @@ class Departamento
     public function getTsregister() {   return $this->tsregister; }
 
     public function getCarreras() { return $this->carreras; }
+    public function getMaterias() { return $this->materias; }
 
     public function setName($name) {
         $this->name = $name;
@@ -88,6 +95,7 @@ class Departamento
 
     public function setCarreras($carreras) {
         $this->carreras = $carreras;
+        return $this;
     }
 
     public function addCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
@@ -97,6 +105,22 @@ class Departamento
 
     public function removeCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
         $this->carreras->removeElement($carrera);
+        return $this;
+    }
+    
+    public function setMaterias($materias) {
+        $this->materias = $materias;
+        return $this;
+    }
+    
+    public function addMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
+        $this->materias[] = $materia;
+        return $this;
+    }
+    
+    public function removeMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
+        $this->materias->removeElement($materia);
+        return $this;
     }
 
     public function __toString() {

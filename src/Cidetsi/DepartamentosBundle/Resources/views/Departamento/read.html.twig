@@ -8,6 +8,37 @@
         {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
             'view': false,  'edit': true, 'delete': true
         }) }}
+        <br />
+        <ul class="nav nav-tabs">
+            <li><a href="#home" data-toggle="tab">Información</a></li>
+            <li class="active"><a href="#courses" data-toggle="tab">Materias</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="home">
+                <br />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat accumsan interdum. Maecenas nec volutpat mi, nec auctor sapien. Proin non aliquam urna. Integer dapibus posuere placerat. Ut pretium erat sit amet volutpat suscipit. Vestibulum diam purus, molestie sit amet sem at, hendrerit adipiscing quam. In at sem arcu. Morbi ac nisi sit amet est pharetra molestie. Suspendisse id pharetra nisl. Nullam molestie odio non nulla sagittis, vitae sodales ante ornare. Nam fermentum diam et odio condimentum posuere. Nunc vel tellus ac nibh posuere placerat. Phasellus convallis, justo vitae ultrices feugiat, felis tortor rutrum nibh, at pretium risus ligula tempor lectus. Nam in iaculis sapien, quis rutrum justo. Ut sed elit lobortis, faucibus ligula et, pellentesque ipsum. Nam placerat accumsan cursus.</p>
+                <p>Aliquam euismod tincidunt dolor nec sodales. Ut molestie augue id ultrices pharetra. Mauris sapien est, consequat eu urna eget, lobortis porttitor ante. Ut vel arcu a felis convallis euismod. Vestibulum feugiat volutpat mi. Integer euismod posuere lorem eget euismod. Pellentesque ligula lorem, vehicula nec nibh sit amet, consectetur malesuada magna. Maecenas et dolor vel turpis varius convallis auctor sed lectus. In dignissim eget tortor commodo mollis.</p>
+                <p>Morbi luctus tellus in magna varius, in bibendum arcu tristique. Etiam vel augue accumsan, dignissim diam id, tempor sem. Fusce dapibus nisi eu elit commodo pellentesque. Quisque convallis, sem ac tempor viverra, nibh risus fermentum mauris, feugiat convallis dolor dui et massa. Etiam nunc sapien, aliquam non neque a, sagittis pulvinar neque. Vivamus consectetur justo ut ligula tincidunt lobortis. Duis blandit augue a porta euismod. Vestibulum varius cursus leo, sit amet sagittis metus tincidunt ut. Sed nec sodales ante, id interdum ante. Curabitur quis massa sed risus accumsan luctus ac nec felis. Quisque adipiscing luctus cursus. Fusce nulla dolor, tincidunt quis auctor lobortis, dapibus nec est. Nunc nec pharetra lacus. Vestibulum accumsan iaculis quam ornare elementum.</p>
+                <p>Aenean vel nulla vitae enim imperdiet vulputate. Nulla tempor, justo eu convallis mattis, leo libero luctus dui, et aliquet enim mi in neque. Cras dictum mattis viverra. Suspendisse ac lobortis leo, vitae sodales massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius tincidunt urna, sit amet ultricies diam egestas ac. Cras commodo ipsum lobortis, accumsan magna a, venenatis dolor. Curabitur massa erat, aliquam tempus nibh ac, bibendum sodales est. Sed velit sem, facilisis vel accumsan id, vulputate vel turpis.</p>
+                <p>Ut sed lacus ac metus lacinia ultrices id sed mi. Nam vitae metus ac erat facilisis porta ut eget quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque adipiscing ante eget eros tincidunt, pulvinar pulvinar odio dapibus. Pellentesque rutrum est elit, a ultricies lacus egestas nec. Sed tincidunt urna ac tortor sodales vehicula. Vivamus eget neque non libero facilisis suscipit. Sed rhoncus tristique erat eget eleifend. Quisque adipiscing sed quam quis aliquet. Morbi consectetur facilisis dolor, sed dignissim mauris. Donec vel dolor id elit molestie consectetur vitae id elit. Nullam id libero porttitor, accumsan urna in, cursus tellus. Ut aliquam semper ante, sed ullamcorper leo laoreet sollicitudin. Donec quis fermentum est. Mauris venenatis justo quis velit dapibus, eu consequat nibh lobortis. Nam commodo tellus justo, eget placerat lectus aliquam eget.</p>
+            </div>
+            <div class="tab-pane active" id="courses">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Código</th>
+                        <th>Materia</th>
+                        <th>Estado</th>
+                    </tr>
+                {% for materia in entity.materias %}
+                    <tr>
+                        <td>{{ materia.code }}</td>
+                        <td>{{ materia.name }}</td>
+                        <td>{{ materia.status }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

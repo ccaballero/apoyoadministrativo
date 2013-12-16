@@ -20,4 +20,21 @@ class DepartamentoController extends CrudController
         'url_list'     => 'departamento',
         'url_element'  => 'departamento_read',
     );
+
+//    public function readAction($id) {
+//        $em = $this->getDoctrine()->getManager();
+//        $entity = $em->getRepository($this->repository)->find($id);
+//        if (!$entity) {
+//            throw $this->createNotFoundException('Unable to find entity.');
+//        }
+//        if ($entity->getStatus() == 'disabled') {
+//            throw $this->createNotFoundException('The entity is disabled.');
+//        }
+//        
+//        return $this->render($this->repository . ':read.html.twig',
+//            array_merge(
+//                $this->tpl_commons, array(
+//                    'entity' => $entity,
+//        )));
+//    }
 }
