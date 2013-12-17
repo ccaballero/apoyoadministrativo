@@ -20,4 +20,5 @@ VALUES
 ('2012/I', 'enabled'),
 ('2012/II', 'enabled'),
 ('2013/I', 'enabled'),
-('2013/II', 'active');
+('2013/II', 'enabled'),
+('2014/I', 'active');

@@ -25,6 +25,9 @@ class SqlCommand extends ContainerAwareCommand
         $this->setName('cidetsi:sql:materias')
              ->setDescription('Fetch courses information')
              ->addArgument(
+                'params', InputArgument::OPTIONAL,
+                'Connection parameters in .pgpass style')
+              ->addArgument(
                 'filename', InputArgument::OPTIONAL,
                 'Filename in the register the sql content');
     }
@@ -32,30 +35,60 @@ class SqlCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output) {
         $output->writeln('Procesando la información de materias ... ');
         $filename = $input->getArgument('filename');
+        $params = $input->getArgument('params');
 
         $materias = $this->getData();
 
-        if (empty($filename)) {
+        if (!empty($filename) && !empty($params)) {
+            $in_array = array();
+            foreach ($materias as $code => $materia) {
+                $in_array[] = $code;
+            }
+
+            list($host, $port, $database, $user, $pass) = explode(':', $params);
+
+            $output->writeln('Conectando a la base de datos ... ' . $database);
+            $dbconn = pg_connect(
+                "host=$host dbname=$database user=$user password=$pass") or
+                die('No se puede conectar a la base de datos');
+
+            $output->writeln('Extrayendo la información de los materias ... ');
+            $query =
+                'SELECT codigo, sigla FROM materia WHERE sigla IN (\''
+                    . implode('\',\'', $in_array) . '\')';
+            $result = pg_query($query);
+            
+            $hash = array();
+            while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+                $hash[$line['sigla']] = $line['codigo'];
+            }
+            
+            pg_free_result($result);
+            pg_close($dbconn);
+
+            $sql = 'INSERT INTO `materia` (`ident`,`departamento`,`name`,`code`,`pg_id`)'
+                 . PHP_EOL . 'VALUES' . PHP_EOL;
+
+            $values = array();
+            $start = $this->start_sequence;
+            foreach ($materias as $code => $materia) {
+                $pg_id = isset($hash[$code]) ? $hash[$code] : '';
+                
+                $values[] = $start++ . ',' . $materia['departamento'] . ',\''
+                          . $materia['name'] . '\',\'' . $code . '\',\''
+                          . $pg_id . '\'';
+            }
+
+            $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
+            $output->writeln('registrando salida en: ' . $filename);
+            file_put_contents($filename, $sql);
+        } else {
             $output->writeln('Generando lista ... ');
             $output->writeln('');
 
             foreach ($materias as $code => $materia) {
                 $output->writeln($code . '  ' . $materia['name']);
             }
-        } else {
-            $sql = 'INSERT INTO `materia` (`ident`, `departamento`,`name`,`code`)'
-                 . PHP_EOL . 'VALUES' . PHP_EOL;
-
-            $values = array();
-            $start = $this->start_sequence;
-            foreach ($materias as $code => $materia) {
-                $values[] = $start++ . ',' . $materia['departamento'] . ',\''
-                          . $materia['name'] . '\',\'' . $code . '\'';
-            }
-
-            $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
-            $output->writeln('registrando salida en: ' . $filename);
-            file_put_contents($filename, $sql);
         }
     }
 

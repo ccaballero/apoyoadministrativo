@@ -2,8 +2,6 @@
 
 {% block preamble %}
     {{ parent() }}
-    <p>Estos son los departamentos en la facultad de ciencias y tecnologia, para
-    los que este sistema gestiona información.</p>
     {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/collection.html.twig') }}
 {% endblock %}
 

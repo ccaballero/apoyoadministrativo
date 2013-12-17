@@ -34,8 +34,8 @@ class SqlCommand extends ContainerAwareCommand
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
-        list($host, $port, $database, $user, $pass) =
-            explode(':', $input->getArgument('params'));
+        $params = $input->getArgument('params');
+        list($host, $port, $database, $user, $pass) = explode(':', $params);
 
         $output->writeln('Conectando a la base de datos ... ' . $database);
         $dbconn = pg_connect(

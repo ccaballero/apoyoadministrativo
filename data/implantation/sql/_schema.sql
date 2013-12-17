@@ -58,6 +58,7 @@ CREATE TABLE `materia` (
     `code`              varchar(16)                NOT NULL,
     `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`, `departamento`),
     UNIQUE KEY (`name`),
     UNIQUE KEY (`code`),

@@ -26,8 +26,9 @@ syntax: glob
 /app/config/parameters_prod.yml
 
 data/implantation/sql/05-materias.sql
-data/implantation/sql/06-docentes.sql
-data/implantation/sql/07-auxiliares.sql
+data/implantation/sql/06-grupos.sql
+data/implantation/sql/07-docentes.sql
+data/implantation/sql/08-auxiliares.sql
 
 LICENSE
 README.md

@@ -2,6 +2,7 @@
 
 namespace Cidetsi\MateriasBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,12 +44,23 @@ class Materia
      */
     private $tsregister;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Grupo",mappedBy="materia")
+     **/
+    private $grupos;
+
+    public function __construct() {
+        $this->grupos = new ArrayCollection();
+    }
+
     public function getIdent() { return $this->ident; }
     public function getDepartamento() { return $this->departamento; }
     public function getName() { return $this->name; }
     public function getCode() { return $this->code; }
     public function getStatus() { return $this->status; }
     public function getTsregister() { return $this->tsregister; }
+
+    public function getGrupos() { return $this->grupos; }
 
     public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
         $this->departamento = $departamento;
@@ -72,6 +84,21 @@ class Materia
 
     public function setTsregister($tsregister) {
         $this->tsregister = $tsregister;
+        return $this;
+    }
+
+    public function setGrupos($grupos) {
+        $this->grupos = $grupos;
+        return $this;
+    }
+
+    public function addGrupo(\Cidetsi\MateriasBundle\Entity\Grupo $grupo) {
+        $this->grupos[] = $grupo;
+        return $this;
+    }
+
+    public function removeGrupo(\Cidetsi\MateriasBundle\Entity\Grupo $grupo) {
+        $this->grupos->removeElement($grupo);
         return $this;
     }
 

@@ -12,5 +12,7 @@ SELECT 'gestion';
 \. 04-gestiones.sql
 SELECT 'materias';
 \. 05-materias.sql
+SELECT 'grupos';
+\. 06-grupos.sql
 SELECT 'docentes';
-\. 06-docentes.sql
+\. 07-docentes.sql
