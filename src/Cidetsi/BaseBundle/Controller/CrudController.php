@@ -46,7 +46,7 @@ class CrudController extends Controller
         return $query->getResult();
     }
 
-    public function readAction($id) {
+    protected function getEntity($id) {
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository($this->repository)->find($id);
         if (!$entity) {
@@ -55,6 +55,12 @@ class CrudController extends Controller
         if ($entity->getStatus() == 'disabled') {
             throw $this->createNotFoundException('The entity is disabled.');
         }
+
+        return $entity;
+    }
+
+    public function readAction($id) {
+        $entity = $this->getEntity($id);
 
         return $this->render($this->repository . ':read.html.twig',
             array_merge(
@@ -76,11 +82,7 @@ class CrudController extends Controller
     }
 
     public function updateGetAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository($this->repository)->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
+        $entity = $this->getEntity($id);
         $updateForm = $this->createUpdateForm($entity);
 
         return $this->render($this->repository . ':update.html.twig',
@@ -92,11 +94,7 @@ class CrudController extends Controller
     }
 
     public function deleteGetAction($id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository($this->repository)->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
+        $entity = $this->getEntity($id);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render(
@@ -166,16 +164,14 @@ class CrudController extends Controller
     }
 
     public function updatePostAction(Request $request, $id) {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository($this->repository)->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find entity.');
-        }
+        $entity = $this->getEntity($id);
         $updateForm = $this->createUpdateForm($entity);
         $updateForm->handleRequest($request);
 
         if ($updateForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->flush();
+
             $this->get('session')->getFlashBag()
                  ->add('success', 'El recurso fue editado exitosamente');
 

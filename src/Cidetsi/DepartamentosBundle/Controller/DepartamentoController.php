@@ -21,4 +21,19 @@ class DepartamentoController extends CrudController
         'url_list'     => 'departamento',
         'url_element'  => 'departamento_read',
     );
+
+    public function readAction($id) {
+        $entity = $this->getEntity($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $docentes = $em->getRepository($this->repository)
+                       ->findDocentes($entity);
+
+        return $this->render($this->repository . ':read.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity' => $entity,
+                    'docentes' => $docentes,
+        )));
+    }
 }

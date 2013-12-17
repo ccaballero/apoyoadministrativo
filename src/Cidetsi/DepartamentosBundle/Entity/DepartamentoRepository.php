@@ -10,11 +10,11 @@ class DepartamentoRepository extends EntityRepository
         $em = $this->getEntityManager();
         $qb = $em->createQueryBuilder();
 
-        $qb->select('u')
-           ->from('Grupo', 'g')
-           ->leftJoin('g.docentes', $alias)
-           ->where('u.id = ?1')
-           ->orderBy('u.name', 'ASC');
+        $qb->select('d')
+           ->from('\Cidetsi\DocentesBundle\Entity\Docente', 'd')
+           ->leftJoin('d.grupos', 'g')
+           ->where('g.departamento = :departamento')
+           ->setParameter('departamento', $departamento->getIdent());
 
         $query = $qb->getQuery();
         return $query->getResult();

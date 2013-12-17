@@ -42,17 +42,19 @@
             <div class="tab-pane active" id="teachers">
                 <table class="table table-striped">
                     <tr>
-                        <th>Código</th>
-                        <th>Materia</th>
-                        <th>Nº Grupos</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Nombres</th>
+                        <th>Grupos</th>
                     </tr>
-                {# % for docente in entity.docentes %}
+                {% for docente in docentes %}
                     <tr>
-                        <td>{{ materia.code }}</td>
-                        <td>{{ materia.name }}</td>
-                        <td>{{ materia.grupos|length }}</td>
+                        <td>{{ docente.apellidoPaterno }}</td>
+                        <td>{{ docente.apellidoMaterno }}</td>
+                        <td>{{ docente.nombres }}</td>
+                        <td>{{ docente.grupos|length }}</td>
                     </tr>
-                {% endfor % #}
+                {% endfor %}
                 </table>
             </div>
         </div>
