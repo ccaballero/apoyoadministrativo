@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity
+* @ORM\Entity(repositoryClass="\Cidetsi\DepartamentosBundle\Entity\DepartamentoRepository")
 * @ORM\Table(name="departamento")
 */
 class Departamento
@@ -107,17 +107,17 @@ class Departamento
         $this->carreras->removeElement($carrera);
         return $this;
     }
-    
+
     public function setMaterias($materias) {
         $this->materias = $materias;
         return $this;
     }
-    
+
     public function addMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
         $this->materias[] = $materia;
         return $this;
     }
-    
+
     public function removeMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
         $this->materias->removeElement($materia);
         return $this;

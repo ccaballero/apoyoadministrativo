@@ -57,6 +57,11 @@ class Docente
      */
     public $pg_id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="\Cidetsi\MateriasBundle\Entity\Grupo",mappedBy="docente")
+     **/
+    private $grupos;
+    
     public function getIdent() { return $this->ident; }
     public function getCi() { return $this->ci; }
     public function getApellidoPaterno() { return $this->apellido_paterno; }
@@ -66,6 +71,8 @@ class Docente
     public function getTitulo() { return $this->titulo; }
     public function getTsregister() { return $this->tsregister; }
 
+    public function getGrupos() { return $this->grupos; }
+    
     public function setCi($ci) {
         $this->ci = $ci;
         return $this;
@@ -101,6 +108,21 @@ class Docente
         return $this;
     }
 
+    public function setGrupos($grupos) {
+        $this->grupos = $grupos;
+        return $this;
+    }
+    
+    public function addGrupo(\Cidetsi\MateriasBundle\Entity\Grupo $grupo) {
+        $this->grupos[] = $grupo;
+        return $this;
+    }
+    
+    public function removeGrupo(\Cidetsi\MateriasBundle\Entity\Grupo $grupo) {
+        $this->grupos->removeElement($grupo);
+        return $this;
+    }
+    
     public function __toString() {
         return $this->getName();
     }

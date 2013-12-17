@@ -11,7 +11,8 @@
         <br />
         <ul class="nav nav-tabs">
             <li><a href="#home" data-toggle="tab">Información</a></li>
-            <li class="active"><a href="#courses" data-toggle="tab">Materias</a></li>
+            <li><a href="#courses" data-toggle="tab">Materias</a></li>
+            <li class="active"><a href="#teachers" data-toggle="tab">Docentes</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane" id="home">
@@ -22,7 +23,7 @@
                 <p>Aenean vel nulla vitae enim imperdiet vulputate. Nulla tempor, justo eu convallis mattis, leo libero luctus dui, et aliquet enim mi in neque. Cras dictum mattis viverra. Suspendisse ac lobortis leo, vitae sodales massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius tincidunt urna, sit amet ultricies diam egestas ac. Cras commodo ipsum lobortis, accumsan magna a, venenatis dolor. Curabitur massa erat, aliquam tempus nibh ac, bibendum sodales est. Sed velit sem, facilisis vel accumsan id, vulputate vel turpis.</p>
                 <p>Ut sed lacus ac metus lacinia ultrices id sed mi. Nam vitae metus ac erat facilisis porta ut eget quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Quisque adipiscing ante eget eros tincidunt, pulvinar pulvinar odio dapibus. Pellentesque rutrum est elit, a ultricies lacus egestas nec. Sed tincidunt urna ac tortor sodales vehicula. Vivamus eget neque non libero facilisis suscipit. Sed rhoncus tristique erat eget eleifend. Quisque adipiscing sed quam quis aliquet. Morbi consectetur facilisis dolor, sed dignissim mauris. Donec vel dolor id elit molestie consectetur vitae id elit. Nullam id libero porttitor, accumsan urna in, cursus tellus. Ut aliquam semper ante, sed ullamcorper leo laoreet sollicitudin. Donec quis fermentum est. Mauris venenatis justo quis velit dapibus, eu consequat nibh lobortis. Nam commodo tellus justo, eget placerat lectus aliquam eget.</p>
             </div>
-            <div class="tab-pane active" id="courses">
+            <div class="tab-pane" id="courses">
                 <table class="table table-striped">
                     <tr>
                         <th>Código</th>
@@ -36,6 +37,22 @@
                         <td>{{ materia.grupos|length }}</td>
                     </tr>
                 {% endfor %}
+                </table>
+            </div>
+            <div class="tab-pane active" id="teachers">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Código</th>
+                        <th>Materia</th>
+                        <th>Nº Grupos</th>
+                    </tr>
+                {# % for docente in entity.docentes %}
+                    <tr>
+                        <td>{{ materia.code }}</td>
+                        <td>{{ materia.name }}</td>
+                        <td>{{ materia.grupos|length }}</td>
+                    </tr>
+                {% endfor % #}
                 </table>
             </div>
         </div>
