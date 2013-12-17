@@ -43,6 +43,11 @@ class Grupo
      * @ORM\Column(type="datetime")
      */
     private $tsregister;
+    
+    /**
+     * @ORM\Column(type="string",length=15,unique=true)
+     */
+    public $pg_id;
 
     public function getIdent() { return $this->ident; }
     public function getMateria() { return $this->materia; }

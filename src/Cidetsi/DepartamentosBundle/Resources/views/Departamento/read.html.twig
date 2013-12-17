@@ -27,14 +27,12 @@
                     <tr>
                         <th>Código</th>
                         <th>Materia</th>
-                        <th>Estado</th>
                         <th>Nº Grupos</th>
                     </tr>
                 {% for materia in entity.materias %}
                     <tr>
                         <td>{{ materia.code }}</td>
                         <td>{{ materia.name }}</td>
-                        <td>{{ materia.status }}</td>
                         <td>{{ materia.grupos|length }}</td>
                     </tr>
                 {% endfor %}

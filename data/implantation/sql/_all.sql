@@ -16,3 +16,5 @@ SELECT 'grupos';
 \. 06-grupos.sql
 SELECT 'docentes';
 \. 07-docentes.sql
+SELECT 'grupo-docentes';
+\. 08-grupo-docentes.sql

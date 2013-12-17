@@ -1,6 +1,6 @@
 <?php
 
-namespace Cidetsi\MateriasBundle\Command;
+namespace Cidetsi\DocentesBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -10,8 +10,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 // fetch the list of docentes and registry in the database
 class GrupoSqlCommand extends ContainerAwareCommand
 {
-    protected $start_sequence = 500;
-
     protected function initialize(
             InputInterface $input, OutputInterface $output) {
         parent::initialize($input, $output);
@@ -22,10 +20,10 @@ class GrupoSqlCommand extends ContainerAwareCommand
     protected function configure() {
         parent::configure();
 
-        $this->setName('cidetsi:sql:grupos')
+        $this->setName('cidetsi:sql:grupo-docentes')
              ->setDescription('Fetch courses information')
              ->addArgument(
-                'params', InputArgument::OPTIONAL,
+                'params', InputArgument::REQUIRED,
                 'Connection parameters in .pgpass style')
               ->addArgument(
                 'filename', InputArgument::OPTIONAL,
@@ -37,9 +35,9 @@ class GrupoSqlCommand extends ContainerAwareCommand
         $filename = $input->getArgument('filename');
         $params = $input->getArgument('params');
 
-        $gestion = $this->getGestion();
-        $materias = $this->getMaterias();
-
+        $grupos = $this->getGrupos();
+        $docentes = $this->getDocentes();
+        
         if (!empty($filename) && !empty($params)) {
             list($host, $port, $database, $user, $pass) = explode(':', $params);
 
@@ -49,71 +47,62 @@ class GrupoSqlCommand extends ContainerAwareCommand
                 die('No se puede conectar a la base de datos');
 
             $output->writeln('Extrayendo la información de los materias ... ');
-            $query = 'SELECT codigo, sigla, grupo FROM materia_dicta ORDER BY sigla';
+            $query = 'SELECT m.codigo as grupo, d.codigo as docente '
+                   . 'FROM materia_dicta m '
+                   . 'LEFT JOIN segui_doc s ON m.fk_segui_doc = s.codigo '
+                   . 'LEFT JOIN docente d ON s.fk_docente = d.codigo';
             $result = pg_query($query);
 
             $array = array();
             while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
                 $array[] = array(
-                    'code' => $line['sigla'],
                     'grupo' => $line['grupo'],
-                    'pg_id' => $line['codigo'],
+                    'docente' => $line['docente'],
                 );
             }
 
             pg_free_result($result);
             pg_close($dbconn);
 
-            $sql = 'INSERT INTO `grupo` (`ident`,`departamento`,`materia`,'
-                    . '`gestion`,`name`,`pg_id`)' . PHP_EOL
-                    . 'VALUES' . PHP_EOL;
+            $sql = 'UPDATE grupo SET docente = %s WHERE ident = %s;' . PHP_EOL;
 
             $values = array();
-            $start = $this->start_sequence;
             foreach ($array as $item) {
-                if (isset($materias[$item['code']])) {
-                    $departamento =  $materias[$item['code']]['departamento'];
-                    $materia = $materias[$item['code']]['materia'];
-
-                    $values[] = $start++ . ',' . intval($departamento) . ','
-                        . intval($materia) . ',' . $gestion->getIdent() . ',\''
-                        . $item['grupo'] . '\',\'' . $item['pg_id'] . '\'';
+                if (isset($grupos[$item['grupo']])
+                        && isset($docentes[$item['docente']])) {
+                    $values[] = sprintf($sql, $docentes[$item['docente']], $grupos[$item['grupo']]);
                 }
             }
 
-            $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
+            $sql = implode('', $values);
             $output->writeln('registrando salida en: ' . $filename);
             file_put_contents($filename, $sql);
         } else {
             // TODO
-            $output->writeln('Generando lista ... ');
-            $output->writeln('');
-//
-//            foreach ($materias as $code => $materia) {
-//                $output->writeln($code . '  ' . $materia['name']);
-//            }
         }
     }
 
-    public function getGestion() {
+    public function getGrupos() {
         $query = $this->em->createQuery(
-                'SELECT g FROM \Cidetsi\GestionesBundle\Entity\Gestion g '
-                    . 'WHERE g.status = \'active\'');
-
-        return $query->getSingleResult();
-    }
-
-    public function getMaterias() {
-        $query = $this->em->createQuery(
-                'SELECT m FROM \Cidetsi\MateriasBundle\Entity\Materia m');
-        $materias = $query->getResult();
+                'SELECT g FROM \Cidetsi\MateriasBundle\Entity\Grupo g');
+        $grupos = $query->getResult();
 
         $result = array();
-        foreach ($materias as $materia) {
-            $result[$materia->getCode()] = array(
-                'departamento' => $materia->getDepartamento()->getIdent(),
-                'materia' => $materia->getIdent(),
-            );
+        foreach ($grupos as $grupo) {
+            $result[$grupo->pg_id] = $grupo->getIdent();
+        }
+
+        return $result;
+    }
+
+    public function getDocentes() {
+        $query = $this->em->createQuery(
+                'SELECT d FROM \Cidetsi\DocentesBundle\Entity\Docente d');
+        $docentes = $query->getResult();
+
+        $result = array();
+        foreach ($docentes as $docente) {
+            $result[$docente->pg_id] = $docente->getIdent();
         }
 
         return $result;

@@ -52,6 +52,11 @@ class Docente
      */
     private $tsregister;
 
+    /**
+     * @ORM\Column(type="string",length=15,unique=true)
+     */
+    public $pg_id;
+
     public function getIdent() { return $this->ident; }
     public function getCi() { return $this->ci; }
     public function getApellidoPaterno() { return $this->apellido_paterno; }
@@ -85,7 +90,7 @@ class Docente
         $this->diploma = $diploma;
         return $this;
     }
-    
+
     public function setTitulo($titulo) {
         $this->titulo = $titulo;
         return $this;

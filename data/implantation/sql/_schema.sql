@@ -77,6 +77,7 @@ CREATE TABLE `docente` (
     `diploma`           varchar(128)               NOT NULL DEFAULT '',
     `titulo`            varchar(128)               NOT NULL DEFAULT '',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`),
     UNIQUE KEY (`ci`),
     UNIQUE KEY (`apellido_paterno`, `apellido_materno`, `nombres`)
@@ -126,8 +127,8 @@ CREATE TABLE `grupo` (
     `name`              varchar(128)               NOT NULL,
     `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`, `departamento`, `materia`, `gestion`),
-    UNIQUE KEY (`name`),
     INDEX (`departamento`, `materia`),
     FOREIGN KEY (`departamento`, `materia`)
     REFERENCES `materia`(`departamento`, `ident`)
