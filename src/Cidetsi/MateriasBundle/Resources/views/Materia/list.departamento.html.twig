@@ -1,0 +1,26 @@
+<br />
+<div class="btn-group btn-group-sm">
+    <button type="button" class="btn btn-default">Agregar</button>
+</div>
+<br />
+<br />
+<table class="table table-condensed table-bordered table-hover">
+    <tr>
+        <th class="text-center">Código</th>
+        <th class="text-center">Materia</th>
+        <th class="text-center">Nº Grupos</th>
+        <th class="text-center">&nbsp;</th>
+    </tr>
+{% for materia in departamento.materias %}
+    <tr>
+        <td>{{ materia.code }}</td>
+        <td>{{ materia.name }}</td>
+        <td>{{ materia.grupos|length }}</td>
+        <td class="text-center">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
+        </td>
+    </tr>
+{% endfor %}
+</table>

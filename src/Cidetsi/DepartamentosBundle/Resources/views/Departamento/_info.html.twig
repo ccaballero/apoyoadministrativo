@@ -1,0 +1,21 @@
+<div class="col-md-6">
+    <h2>Carreras:</h2>
+    <div class="list-group">
+    {% for carrera in entity.carreras %}
+        <a href="{{ path('carrera_read', { 'id': carrera.ident }) }}"
+           class="list-group-item">{{ carrera.name }}</a>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="col-md-6">
+    <h2>Planes de estudio:</h2>
+    <div class="list-group">
+{% for carrera in entity.carreras %}
+    {% for plan in carrera.planes %}
+        <a href="{{ path('planestudio_read', { 'id': plan.ident }) }}"
+           class="list-group-item">{{ plan.name }}</a>
+    {% endfor %}
+{% endfor %}
+    </div>
+</div>
