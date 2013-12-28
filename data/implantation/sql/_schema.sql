@@ -53,14 +53,14 @@ CREATE TABLE `gestion` (
 
 CREATE TABLE `materia` (
     `ident`             int unsigned               NOT NULL auto_increment,
-    `departamento`      int unsigned               NOT NULL,
+    `departamento`      int unsigned               NULL,
     `name`              varchar(128)               NOT NULL,
     `code`              varchar(16)                NOT NULL,
     `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `pg_id`             varchar(15)                NOT NULL,
+--     `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`, `departamento`),
-    UNIQUE KEY (`name`),
+--     UNIQUE KEY (`name`),
     UNIQUE KEY (`code`),
     INDEX (`departamento`),
     FOREIGN KEY (`departamento`)
@@ -77,7 +77,7 @@ CREATE TABLE `docente` (
     `diploma`           varchar(128)               NOT NULL DEFAULT '',
     `titulo`            varchar(128)               NOT NULL DEFAULT '',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `pg_id`             varchar(15)                NOT NULL,
+--     `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`),
     UNIQUE KEY (`ci`),
     UNIQUE KEY (`apellido_paterno`, `apellido_materno`, `nombres`)

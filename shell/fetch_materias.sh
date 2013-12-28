@@ -30,5 +30,5 @@ ID=(
 
 for i in "${ID[@]}"
 do
-    php app/console cidetsi:scrapping --sql "http://websis.umss.edu.bo/umss_carrerasDesc.asp?codSer=UMSS&idCat=45&qual=${i}"
+    php app/console cidetsi:scrapping:materias --buffer "http://websis.umss.edu.bo/umss_carrerasDesc.asp?codSer=UMSS&idCat=45&qual=${i}"
 done

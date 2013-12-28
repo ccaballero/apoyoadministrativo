@@ -1,0 +1,57 @@
+A QUIMICA GENERAL                                    2004046   {}
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008019   {}
+A CALCULO I                                          2008054   {}
+A DIBUJO TECNICO COMPUTARIZADO                       2018015   {}
+B INGLES TECNICO                                     1803238   {2018015}
+B FISICA BASICA II                                   2006019   {2006018}
+B ALGEBRA II                                         2008022   {2008019}
+B ESTADISTICA                                        2008048   {2008019}
+B CALCULO II                                         2008056   {2008054}
+B DIBUJO MECANICO                                    2018016   {2018015}
+C FISICA BASICA III                                  2006020   {2006019}
+C ANALISIS VECTORIAL Y TENSORIAL                     2008014   {2008022}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+C COMPUTACION I                                      2010008   {2008022}
+C ESTATICA                                           2018017   {2006018}
+C TERMODINAMICA I                                    2018019   {2006019}
+D CALCULO NUMERICO                                   2008052   {2010008}
+D TRANSFORMADAS INTEGRALES                           2008157   {2008058}
+D RESISTENCIA DE MATERIALES                          2018002   {2018017}
+D DINAMICA                                           2018018   {2008014}
+D TERMODINAMICA II                                   2018020   {2018019}
+D CIENCIA DE LOS MATERIALES                          2018023   {2004046}
+E TECNOLOGIA MECANICA I                              2018008   {2018016}
+E MECANISMOS                                         2018022   {2018018}
+E CIENCIA DE LOS MATERIALES II                       2018026   {2018023}
+E TEORIA Y ENSAYO DE MATERIALES                      2018027   {2018002}
+E RESISTENCIA DE MATERIALES II                       2018028   {2018002}
+E TRANSFERENCIA DE CALOR                             2018033   {2018020}
+E MECANICA DE FLUIDOS                                2018135   {2006019}
+F ELECTROTECNIA INDUSTRIAL                           2014087   {2006020}
+F ORGANIZACION INDUSTRIAL                            2016091   {2018008}
+F TECNOLOGIA MECANICA II                             2018013   {2018008}
+F ELEMENTOS DE MAQUINAS I                            2018032   {2018028}
+F MAQUINAS TERMICAS I                                2018041   {2018033}
+G PRACTICA EN LA INDUSTRIA                           2018037   {2018013}
+G VIBRACIONES                                        2018038   {2018018}
+G ELEMENTOS DE MAQUINAS II                           2018039   {2018032}
+G MAQUINAS HIDRAULICAS                               2018040   {2018135}
+G MAQUINAS TERMICAS II                               2018044   {2018041}
+G INSTALACIONES ELECTROMECANICAS                     2018056   {2014087}
+H ESTRUCTURAS DE ACERO                               2018042   {2018028}
+H SISTEMAS HIDRAULICOS Y NEUMATICOS                  2018043   {2018040}
+H DISE�O DE MAQUINAS I                               2018045   {2018039}
+H PRACTICA PROFESIONALIZANTE                         2018047   {2018037}
+H MAQUINAS NEUMATICAS                                2018076   {2018040}
+H INGENIERIA AUTOMOTRIZ                              2018079   {2018044}
+I GESTION DE CALIDAD                                 2016022   {2016091}
+I INGENIERIA ASISTIDA POR COMPUTADORA                2018046   {2008052}
+I MAQUINAS DE ELEVACION Y TRANSPORTE                 2018048   {2018042}
+I PREPARACION DE PROYECTO DE GRADO                   2018049   {2018045}
+I REFRIGERACION Y AIRE ACONDICIONADO                 2018050   {2018021}
+I TEORIA DE LA LUBRICACION                           2018077   {2018135}
+J INGENIERIA ECONOMICA                               2016023   {2016022}
+J AUTOMATIZACION Y CONTROL                           2018053   {2018056}
+J MANTENIMIENTO INDUSTRIAL                           2018054   {2018047}
+J PROYECTO DE GRADO                                  2018055   {2018049}

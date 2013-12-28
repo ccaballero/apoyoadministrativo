@@ -1,0 +1,51 @@
+A QUIMICA GENERAL                                    2004046   {}
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008019   {}
+A CALCULO I                                          2008054   {}
+A DIBUJO TECNICO COMPUTARIZADO                       2018015   {}
+B FISICA BASICA II                                   2006019   {2006018}
+B ALGEBRA II                                         2008022   {2008019}
+B ESTADISTICA                                        2008048   {2008019}
+B CALCULO II                                         2008056   {2008054}
+B CIENCIA DE LOS MATERIALES                          2018023   {2004046}
+C FISICA BASICA III                                  2006020   {2006019}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+C COMPUTACION I                                      2010008   {2008022}
+C TERMODINAMICA                                      2018009   {2006019}
+C ESTATICA                                           2018017   {2006018}
+D CALCULO NUMERICO                                   2008052   {2010008}
+D TRANSFORMADAS INTEGRALES                           2008157   {2008058}
+D CIRCUITOS ELECTRICOS I                             2014002   {2006020}
+D RESISTENCIA DE MATERIALES                          2018002   {2018017}
+D DINAMICA                                           2018018   {2018017}
+E CIRCUITOS ELECTRICOS III                           2014005   {2014002}
+E ELECTRONICA ANALOGICA I                            2014006   {2014002}
+E TECNOLOGIA MECANICA I                              2018008   {2018015}
+E TRANSFERENCIA DE CALOR                             2018033   {2018009}
+E MECANICA DE FLUIDOS                                2018135   {2006019}
+F MAQUINAS DC                                        2014008   {2014002}
+F INSTALACIONES ELECTRICAS II                        2014018   {2014005}
+F ORGANIZACION INDUSTRIAL                            2016091   {2018008}
+F ELEMENTOS DE MAQUINAS I                            2018032   {2018002}
+F TECNOLOGIA MECANICA II                             2018034   {2018008}
+G MAQUINAS ASINCRONAS                                2014012   {2014008}
+G LINEAS ELECTRICAS II                               2014029   {2014018}
+G SISTEMAS DE CONTROL DINAMICO                       2014063   {2014006}
+G GESTION DE CALIDAD                                 2016022   {2016091}
+G MAQUINAS HIDRAULICAS                               2018040   {2018135}
+H ELECTRONICA DIGITAL I                              2014014   {2014012}
+H INSTALACIONES ELECTRICAS INDUSTRIALES I            2014045   {2014029}
+H TALLER DE CONTROL Y AUTOMATISMO                    2014143   {2014063}
+H SISTEMAS HIDRAULICOS Y NEUMATICOS                  2018043   {2018040}
+H MAQUINAS DE ELEVACION Y TRANSPORTE                 2018048   {2018032}
+H GESTION Y CALIDAD AMBIENTAL                        2018061   {2018034}
+I PREPARACION Y EVALUACION DE PROYECTOS              2016005   {2016022}
+I PRACTICA PROFESIONALIZANTE                         2018047   {2018061}
+I PREPARACION DE PROYECTO DE GRADO                   2018049   {2018048}
+I REFRIGERACION Y AIRE ACONDICIONADO                 2018050   {2018033}
+I MANTENIMIENTO INDUSTRIAL                           2018054   {2014045}
+I MECATRONICA                                        2018136   {2014143}
+J INGENIERIA ECONOMICA                               2016023   {2016005}
+J RECURSOS HUMANOS - PRODUCTIVIDAD                   2016030   {2018047}
+J ROBOTICA INDUSTRIAL                                2018001   {2014148}
+J PROYECTO DE GRADO                                  2018055   {2018049}

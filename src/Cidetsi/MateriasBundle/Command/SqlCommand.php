@@ -24,9 +24,6 @@ class SqlCommand extends ContainerAwareCommand
 
         $this->setName('cidetsi:sql:materias')
              ->setDescription('Fetch courses information')
-             ->addArgument(
-                'params', InputArgument::OPTIONAL,
-                'Connection parameters in .pgpass style')
               ->addArgument(
                 'filename', InputArgument::OPTIONAL,
                 'Filename in the register the sql content');
@@ -35,48 +32,35 @@ class SqlCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output) {
         $output->writeln('Procesando la información de materias ... ');
         $filename = $input->getArgument('filename');
-        $params = $input->getArgument('params');
+
+        $path = $this->getDictPath();
+        $materia_departamento = $this->readDepartamentoMateria($path);
 
         $materias = $this->getData();
+        ksort($materias);
 
-        if (!empty($filename) && !empty($params)) {
+        if (!empty($filename)) {
             $in_array = array();
             foreach ($materias as $code => $materia) {
                 $in_array[] = $code;
             }
 
-            list($host, $port, $database, $user, $pass) = explode(':', $params);
-
-            $output->writeln('Conectando a la base de datos ... ' . $database);
-            $dbconn = pg_connect(
-                "host=$host dbname=$database user=$user password=$pass") or
-                die('No se puede conectar a la base de datos');
-
-            $output->writeln('Extrayendo la información de los materias ... ');
-            $query =
-                'SELECT codigo, sigla FROM materia WHERE sigla IN (\''
-                    . implode('\',\'', $in_array) . '\')';
-            $result = pg_query($query);
-            
-            $hash = array();
-            while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                $hash[$line['sigla']] = $line['codigo'];
-            }
-            
-            pg_free_result($result);
-            pg_close($dbconn);
-
-            $sql = 'INSERT INTO `materia` (`ident`,`departamento`,`name`,`code`,`pg_id`)'
+            $sql = 'INSERT INTO `materia` '
+                 . '(`ident`,`departamento`,`name`,`code`)'
                  . PHP_EOL . 'VALUES' . PHP_EOL;
 
             $values = array();
             $start = $this->start_sequence;
             foreach ($materias as $code => $materia) {
-                $pg_id = isset($hash[$code]) ? $hash[$code] : '';
-                
-                $values[] = $start++ . ',' . $materia['departamento'] . ',\''
-                          . $materia['name'] . '\',\'' . $code . '\',\''
-                          . $pg_id . '\'';
+                $dpto = 1;
+                if (array_key_exists($code, $materia_departamento)) {
+                    $dpto = $materia_departamento[$code];
+                }
+
+                $values[] = $start++ . ','
+                          . $dpto . ',\''
+                          . iconv('ISO-8859-1', 'UTF-8', $materia['name']) . '\',\''
+                          . $code . '\'';
             }
 
             $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
@@ -87,7 +71,11 @@ class SqlCommand extends ContainerAwareCommand
             $output->writeln('');
 
             foreach ($materias as $code => $materia) {
-                $output->writeln($code . '  ' . $materia['name']);
+                $dpto = 0;
+                if (array_key_exists($code, $materia_departamento)) {
+                    $dpto = $materia_departamento[$code];
+                }
+                $output->writeln($dpto . ' ' . $code . ' ' . $materia['name']);
             }
         }
     }
@@ -133,7 +121,8 @@ class SqlCommand extends ContainerAwareCommand
     }
 
     protected function getDataFile($file) {
-        $regex = '/^(?P<depto>[0-9]) (?P<level>[A-J]) (?P<name>.{50}) (?P<code>\d{7}) (?P<type>[ |x]) {(?P<pres>.*)}$/';
+        $regex = '/^(?P<level>[A-J]) (?P<name>.*) '
+                . '(?P<code>\d{7}) (?P<type>[ |x]) {(?P<pres>.*)}$/';
 
         $handle = @fopen($file, 'r');
         $matches = array();
@@ -144,7 +133,6 @@ class SqlCommand extends ContainerAwareCommand
                 preg_match($regex, $line, $matches);
 
                 $return[$matches['code']] = array(
-                    'departamento' => $matches['depto'],
                     'name' => trim($matches['name']),
                     'level' => $matches['level'],
                     'type' => $matches['type'],
@@ -158,5 +146,29 @@ class SqlCommand extends ContainerAwareCommand
         }
 
         return $return;
+    }
+
+    protected function getDictPath() {
+        $root = $this->getContainer()->get('kernel')->getRootDir();
+        return realpath($root
+                . '/../data/implantation/dicts/aux-departamento-materia.txt');
+    }
+
+    protected function readDepartamentoMateria($path) {
+        $dict = array();
+
+        $handle = @fopen($path, 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                list($materia, $departamento) = explode(' ', $line);
+                $dict[$materia] = trim($departamento);
+            }
+            if (!feof($handle)) {
+                echo 'Error: unexpected fgets() fail' . PHP_EOL;
+            }
+            fclose($handle);
+        }
+
+        return $dict;
     }
 }

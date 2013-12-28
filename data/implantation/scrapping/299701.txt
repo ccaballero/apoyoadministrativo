@@ -1,0 +1,58 @@
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008019   {}
+A PROBABILIDAD Y ESTADISTICA                         2008029   {}
+A CALCULO I                                          2008054   {}
+A INTRODUCCION A LA PROGRAMACION                     2010001   {}
+B FISICA BASICA III                                  2006020   {2006018}
+B ALGEBRA II                                         2008022   {2008019}
+B CALCULO NUMERICO                                   2008052   {2010001}
+B CALCULO II                                         2008056   {2008054}
+B CIRCUITOS ELECTRICOS I                             2014002   {2008054}
+C FISICA BASICA II                                   2006019   {2006018}
+C VARIABLE COMPLEJA                                  2008024   {2008056}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+C ELECTROMAGNETISMO                                  2014003   {2006020}
+C CIRCUITOS ELECTRICOS II                            2014004   {2014002}
+D TRANSFORMADAS INTEGRALES                           2008157   {2008058}
+D CIRCUITOS ELECTRICOS III                           2014005   {2014004}
+D ELECTRONICA ANALOGICA I                            2014006   {2014003,2014004}
+D RESISTENCIA DE MATERIALES                          2018003   {2008058}
+D HIDRAULICA APLICADA                                2018004   {2006019}
+E ELECTRONICA ANALOGICA II                           2014007   {2014006}
+E MAQUINAS DC                                        2014008   {2014003}
+E TRANSFORMADORES                                    2014009   {2014003}
+E MEDIDAS ELECTRICAS                                 2014010   {2014005}
+E MAQUINAS TERMICAS                                  2018005   {2018003}
+F INSTALACIONES ELECTRICAS I                         2014011   {2014010}
+F MAQUINAS ASINCRONAS                                2014012   {2014008}
+F MAQUINAS SINCRONAS                                 2014013   {2014009}
+F ELECTRONICA DIGITAL I                              2014014   {2014007}
+F PREPARACION Y EVALUACION DE PROYECTOS              2016005   {2018003,2018004}
+G ELECTRONICA DE POTENCIA                            2014015   {2014014}
+G CENTRALES HIDRAULICAS                              2014016   {2014013}
+G REDES DE DISTRIBUCION                              2014017   {2014011,2016005}
+G INSTALACIONES ELECTRICAS II                        2014018   {2014011}
+G CENTRALES TERMICAS                                 2014019   {2014013,2018005}
+H SISTEMAS DE CONTROL                                2014020   {2014015}
+H SISTEMAS DE POTENCIA I                             2014021   {2014017}
+H LINEAS ELECTRICAS I                                2014022   {2014016,2014017}
+H SUBESTACIONES                                      2014023   {2014018}
+H MANTENIMIENTO ELECTRICO                            2014024   {2014012}
+H TELECOMUNICACIONES                                 2014025   {2014015}
+I SISTEMAS DE POTENCIA II                            2014026   {2014021}
+I MERCADEO Y TARIFACION                              2014027   {2014021}
+I TECNICAS DE ALTA TENSION                           2014028   {2014023}
+I LINEAS ELECTRICAS II                               2014029   {2014022}
+I PROYECTO TERMINAL I                                2014030   {2014023}
+I TOPICOS ELECTRICOS I (TELEFONIA BASICA)            2014041   {2014022}
+I INSTALACIONES ELECTRICAS INDUSTRIALES I            2014045   {2014023}
+I CONTROL Y AUTOMATIZACION INDUSTRIAL                2014088   {2014020}
+I ELEM. DE MAQUINAS Y TECNOL. MECANICA               2018011   {2014024}
+J SISTEMAS DE POTENCIA III                           2014031   {2014026}
+J PROTECCION DE SISTEMAS ELECTRICOS                  2014032   {2014026}
+J SIMULACION DE SISTEMAS DE POTENCIA                 2014033   {2014026}
+J PROYECTO TERMINAL II                               2014034   {2014030}
+J TOPICOS ELECTRICOS II (ELECTRONICA DE POT. II      2014044   {2014041}
+J INSTALACIONES ELECTRICAS INDUSTRIALES II           2014048   {2014045}
+J ACCIONAMIENTO Y SIMULACION ELECTROTECNICA          2014051   {2014088}
+J ADMINISTRACION DE PROYECTOS                        2016006   {2016005}

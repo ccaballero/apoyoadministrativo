@@ -1,0 +1,34 @@
+A LENGUAJE I                                         1803014   {}
+A BIOLOGIA GENERAL                                   2002004   {}
+A QUIMICA GENERAL                                    2004046   {}
+A ALGEBRA I                                          2008053   {}
+A CALCULO I                                          2008054   {}
+B INTRODUCCION A LA PSICOLOGIA                       1802001   {1803014}
+B FISICA BASICA I                                    2006018   {2008054}
+B GEOMETRIA ANALITICA                                2008010   {2008054}
+B CALCULO II                                         2008056   {2008054}
+B ALGEBRA LINEAL Y MATRICIAL                         2008240   {2008053}
+C FISICA BASICA II                                   2006019   {2006018}
+C ANALISIS VECTORIAL Y TENSORIAL                     2008014   {2008240}
+C ECUACIONES DIFERENCIALES                           2008058   {2008054}
+D SOCIOLOGIA GENERAL                                 1801011   {1802001}
+D PEDAGOGIA GENERAL I                                1801012   {1802001}
+D FISICA BASICA III                                  2006020   {2006019}
+D FISICA COMPUTACIONAL I                             2006089   {}
+D PROBABILIDAD Y ESTADISTICA                         2008029   {2008053,2008054}
+D CALCULO COMPLEJO                                   2008156   {2008058}
+E DIDACTICA GENERAL                                  1801033   {1801011,1801012}
+E METODOS MATEMATICOS DE LA FISICA                   2006001   {2008156}
+E FISICA BASICA IV                                   2006031   {2006020}
+E ELECTRONICA                                        2006034   {2006020}
+F PSICOLOGIA EVOLUTIVA II                            1801018   {1801033}
+F LEGISLACION DE LA EDUCACION BOLIVIANA              1801034   {1801033}
+F FISICA TEORICA I                                   2006033   {2006031}
+F TERMODINAMICA                                      2006037   {2006031}
+F TALLER DE FISICA I                                 2006078   {2006031}
+G LENGUAJE II                                        1803015   {1803014}
+G FISICA TEORICA II                                  2006036   {2006033}
+G MECANICA CUANTICA I                                2006040   {2006001}
+G TALLER DE FISICA II                                2006080   {2006078}
+H TRABAJO DE GRADO                                   2006003   {1803015,2006036,2006040,2006045,2006077}
+H PRACTICA DOCENTE                                   2006081   {2006077}

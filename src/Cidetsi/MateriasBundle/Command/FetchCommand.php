@@ -37,13 +37,9 @@ class FetchCommand extends ContainerAwareCommand
         $html = $this->getPage($url);
         list($plan, $collection) = $this->parse($html);
 
-        $path = $this->getDictPath();
-        $materia_departamento = $this->readDepartamentoMateria($path);
-
         $line = '';
         foreach ($collection as $item) {
-            $line .= $materia_departamento[$item->code] . ' '
-                  . $item->level . ' '
+            $line .= $item->level . ' '
                   . str_pad($item->name, 50) . ' '
                   . $item->code . ' '
                   . ($item->type == 'curricular' ? ' ':'x') . ' '
@@ -144,33 +140,9 @@ class FetchCommand extends ContainerAwareCommand
         return $output;
     }
 
-    protected function getDictPath() {
-        $root = $this->getContainer()->get('kernel')->getRootDir();
-        return realpath($root
-                . '/../data/implantation/dicts/aux-departamento-materia.txt');
-    }
-
     protected function getScrappingPath() {
         $root = $this->getContainer()->get('kernel')->getRootDir();
         return realpath($root
                 . '/../data/implantation/scrapping');
-    }
-
-    protected function readDepartamentoMateria($path) {
-        $dict = array();
-
-        $handle = @fopen($path, 'r');
-        if ($handle) {
-            while (($line = fgets($handle, 4096)) !== false) {
-                list($materia, $departamento) = explode(' ', $line);
-                $dict[$materia] = trim($departamento);
-            }
-            if (!feof($handle)) {
-                echo 'Error: unexpected fgets() fail' . PHP_EOL;
-            }
-            fclose($handle);
-        }
-
-        return $dict;
     }
 }

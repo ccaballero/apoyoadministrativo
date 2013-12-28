@@ -56,11 +56,6 @@ class Grupo
      */
     private $tsregister;
 
-    /**
-     * @ORM\Column(type="string",length=15,unique=true)
-     */
-    public $pg_id;
-
     public function getIdent() { return $this->ident; }
     public function getDepartamento() { return $this->departamento; }
     public function getMateria() { return $this->materia; }

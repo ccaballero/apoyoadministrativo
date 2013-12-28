@@ -1,0 +1,32 @@
+A LENGUAJE I                                         1803014   {}
+A BIOLOGIA GENERAL                                   2002004   {}
+A QUIMICA GENERAL                                    2004046   {}
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008053   {}
+A CALCULO I                                          2008054   {}
+B FISICA II                                          2006027   {2006018}
+B CALCULO II                                         2008056   {2008054}
+B GEOMETRIA                                          2008070   {}
+B TEMAS TRANSVERSALES I                              2008301   {}
+C TEORIAS PEDAGOGICAS ACTUALES                       1801079   {}
+C ALGEBRA LINEAL                                     2008055   {2008053}
+C ESTRUCTURAS DISCRETAS                              2008075   {2008053}
+C GEOMETRIA I                                        2008079   {2008070}
+C COMPUTACION I                                      2010008   {}
+D EPISTEMOLOGIA DE LAS CIENCIAS Y MATEMATICA         1802138   {2008301}
+D PROBABILIDAD Y ESTADISTICA I                       2008077   {}
+D TEORIA AXIOMATICA DE CONJUNTOS                     2008078   {2008075}
+D ANALISIS I                                         2008080   {2008056}
+D MATEMATICA COMPUTACIONAL II                        2008214   {2010008}
+E TEORIAS DEL APRENDIZAJE                            1802139   {}
+E PROBABILIDAD Y ESTADISTICA II                      2008081   {2008077}
+F LEGISLACION DE LA EDUCACION BOLIVIANA              1801034   {}
+F SOCIOLOGIA DE LA INSTITUCION ESCOLAR               1801080   {}
+F PSICOPEDAGOGIA DEL ADOLESCENTE                     1802140   {1802139}
+F ALGEBRA ABSTRACTA I                                2008085   {2008078}
+F DIDACTICA DE LA CIENCIAS II                        2008173   {2008172}
+G LENGUAJE II                                        1803015   {1801034}
+H TRABAJO DE GRADO                                   2008104   {2008177}
+H DIDACTICA DE LAS CIENCIAS IV                       2008178   {2008174}
+H CIENCIA TECNOLOGIA SOCIEDAD                        2008179   {}
+H TEMAS TRANSVERSALES II                             2008180   {}

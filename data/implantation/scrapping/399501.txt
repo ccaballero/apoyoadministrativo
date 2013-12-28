@@ -1,0 +1,47 @@
+A INGLES                                             1803013   {}
+A BIOLOGIA GENERAL                                   2002004   {}
+A QUIMICA GENERAL                                    2004163   {}
+A FISICA GENERAL                                     2006063   {}
+A ALGEBRA                                            2008159   {}
+B BIOLOGIA CELULAR Y MOLECULAR                       2002005   {2002004}
+B BIOFISICA                                          2002006   {2002004,2006063}
+B FISICOQUIMICA                                      2004091   {2004163,2006063}
+B CALCULO                                            2008160   {2008159}
+C HISTOLOGIA ANIMAL COMPARADA                        2002007   {2002005}
+C MORFOLOGIA Y ANATOMIA VEGETAL                      2002008   {2002005}
+C ZOOLOGIA DE INVERTEBRADOS                          2002009   {2002005}
+C QUIMICA ORGANICA                                   2004092   {2004091}
+C BIOESTADISTICA                                     2008161   {2008160}
+D EMBRIOLOGIA COMPARADA                              2002010   {2002007}
+D SISTEMATICA DE CRIPTOGAMAS                         2002011   {2002008}
+D ARTROPODOLOGIA                                     2002012   {2002009}
+D GEOLOGIA-EDAFOLOGIA                                2002013   {2004091}
+D BIOQUIMICA                                         2002014   {2004092}
+E ANATOMIA COMPARADA                                 2002015   {2002010}
+E SISTEMATICA DE FANEROGAMAS                         2002016   {2002008}
+E FISIOLOGIA DE INVERTEBRADOS                        2002017   {2002012,2002014}
+E BIOCLIMATOLOGIA-HIDROLOGIA                         2002018   {2002011,2002013}
+E GENETICA I                                         2002019   {2002014,2008161}
+F FISIOLOGIA VEGETAL                                 2002020   {2002014,2002016}
+F ZOOLOGIA DE VERTEBRADOS                            2002021   {2002015}
+F ECOLOGIA I                                         2002022   {2002016,2002018}
+F GENETICA II                                        2002023   {2002019}
+F BACTERIOLOGIA                                      2002024   {2002019}
+G VIROLOGIA                                          2002025   {2002024}
+G FISIOLOGIA DE VERTEBRADOS                          2002026   {2002017,2002021}
+G ECOLOGIA II                                        2002027   {2002022}
+G DISE�OS EXPERIMENTALES                             2002028   {2002015,2002016,2002017,2002018,2002019}
+G ETNOBOTANICA                                       2002037 x {2002022}
+G CONSERVACION DE LA FAUNA SILVESTRE                 2002043 x {2002021}
+G SISTEMATICA DE INSECTOS                            2002055 x {2002017}
+H LIMNOLOGIA                                         2002029 x {2002027}
+H MICOLOGIA I                                        2002030   {2002024}
+H METODOLOGIA DE LA INVESTIGACION                    2002031   {2002020,2002021,2002022,2002023,2002024}
+H EVOLUCION                                          2002032   {2002025,2002026,2002027,2002028}
+H BIOESTADISTICA II                                  2002038 x {2002028}
+H MICROBIOLOGIA DE AIRE Y SUELO                      2002039 x {2002024}
+H INMUNOPARASITOLOGIA                                2002066 x {2002024}
+I BIOGEOGRAFIA                                       2002035   {2002027}
+I MANEJO Y CONSERV. DE RECURS. GENETICOS (ELECT      2002060 x {2002023}
+I PLANIFICACION Y EVALUACION DE PROYECTOS            2016092   {2002031}
+J TESIS                                              2002034   {2002028,2002031}

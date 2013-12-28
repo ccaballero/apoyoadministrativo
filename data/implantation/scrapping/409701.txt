@@ -1,0 +1,56 @@
+A RECURSOS NATURALES                                 2004001   {}
+A LABORATORIO DE QUIMICA GENERAL                     2004003   {}
+A QUIMICA GENERAL                                    2004045   {}
+A FISICA BASICA I                                    2006018   {}
+A CALCULO I                                          2008054   {}
+A ALGEBRA LINEAL Y TEORIA MATRICIAL                  2008237   {}
+B EQUILIBRIOS EN DISOLUCION                          2004050   {2004045}
+B QUIMICA INORGANICA                                 2004174   {2004045}
+B LABORATORIO DE QUIMICA ANALITICA CUALITATIVA       2004192   {2004003}
+B FISICA BASICA II                                   2006019   {2006018}
+B CALCULO II                                         2008056   {2008054}
+B ESTADISTICA APLICADA                               2008241   {2008237}
+C BIOLOGIA CELULAR                                   2002048   {2004001}
+C FISICOQUIMICA                                      2004044   {2004050}
+C LABORATORIO DE FISICOQUIMICA                       2004147   {2004050}
+C FISICA BASICA III                                  2006020   {2006019}
+C CALCULO III                                        2008066   {2008056}
+C ANALISIS NUMERICO                                  2008067   {2008056}
+D LABORATORIO DE QUIMICA ORGANICA                    2004012   {2004050}
+D QUIMICA ORGANICA                                   2004053   {2004050}
+D INTRODUCCION A LOS PROCESOS QUIMICOS               2004055   {2004044}
+D TERMODINAMICA GENERAL                              2004062   {2004044}
+D ECONOMIA Y ADMINISTRACION INDUSTRIAL               2016060   {2008066}
+D DIBUJO TECNICO                                     2018057   {2008241}
+E QUIMICA ORGANICA II                                2004056   {2004053}
+E QUIMICA BIOLOGICA                                  2004059   {2004053}
+E QUIMICA ANALITICA                                  2004061   {2004044}
+E LABORATORIO DE QUIMICA ORGANICA II                 2004145   {2004053}
+E LABORATORIO DE QUIMICA ANALITICA CUANTITATIVA      2004169   {2004044}
+E FENOMENOS DE TRANSPORTE GENERAL                    2004195   {2004055}
+F INGENIERIA DE ALIMENTOS I                          2004089   {2004195}
+F ANALISIS INSTRUMENTAL                              2004100   {2004061}
+F QUIMICA DE ALIMENTOS                               2004121   {2004056}
+F INTRODUCCION A LA INGENIERIA BIOQUIMICA            2004191   {2004059}
+F MICROBIOLOGIA DE LOS ALIMENTOS                     2004211   {2004059}
+F COSTOS INDUSTRIALES                                2016049   {2016060}
+G INGENIERIA DE ALIMENTOS II                         2004017   {2004089}
+G LABORATORIO DE ANALISIS DE ALIMENTOS               2004019   {2004100}
+G PREPARACION Y EVALUACION DE PROYECTOS              2004020   {2016049}
+G NUTRICION                                          2004203   {2004121}
+G INDUSTRIA DE LOS CEREALES                          2004204   {2004089}
+G INDUSTRIAS LACTEAS                                 2004206   {2004089}
+H INGENIERIA DE ALIMENTOS III                        2004018   {2004017}
+H INSTRUMENTACION PROCESOS                           2004193   {2004017}
+H INTRODUCCION A LA INGENIERIA MEDIO AMBIENTAL       2004201   {2004020}
+H INDUSTRIAS DE GRASAS Y ACEITES                     2004207   {2004206}
+H INDUSTRIA DE FRUTAS Y HORTALIZAS                   2004210   {2004121}
+H LABORATORIO DE INVESTIGACION                       2004212   {2004019}
+I INDUSTRIA DE BEBIDAS                               2004007   {2004017}
+I SISTEMAS DE CALIDAD EN ALIMENTOS                   2004021   {2004019}
+I DISE�O DE PLANTAS AGRO-ALIMENTARIAS                2004022   {2004193}
+I DISE�O EXPERIMENTAL                                2004198   {2004212}
+I INDUSTRIAS CARNICAS                                2004208   {2004203}
+I TECNOLOGIA DEL FRIO                                2004213   {2004018}
+J PROYECTO DE GRADO                                  2004185   {2004198}
+J PRACTICAS INDUSTRIALES                             2004194   {2004022}

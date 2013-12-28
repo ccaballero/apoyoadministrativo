@@ -1,0 +1,44 @@
+A RECURSOS NATURALES                                 2004001   {}
+A LABORATORIO DE QUIMICA GENERAL                     2004003   {}
+A QUIMICA GENERAL                                    2004045   {}
+A FISICA BASICA I                                    2006018   {}
+A CALCULO I                                          2008054   {}
+A ALGEBRA LINEAL Y TEORIA MATRICIAL                  2008237   {}
+B EQUILIBRIOS EN DISOLUCION                          2004050   {2004045}
+B QUIMICA INORGANICA                                 2004174   {2004045}
+B LABORATORIO DE QUIMICA ANALITICA CUALITATIVA       2004192   {2004003}
+B FISICA BASICA II                                   2006019   {2006018}
+B CALCULO II                                         2008056   {2008054}
+C FISICOQUIMICA                                      2004044   {2004050}
+C QUIMICA INORGANICA II                              2004111   {2004174}
+C LABORATORIO DE FISICOQUIMICA                       2004147   {2004050}
+C FISICA BASICA III                                  2006020   {2006019}
+C CALCULO III                                        2008066   {2008056}
+C ANALISIS NUMERICO                                  2008067   {2008056}
+D LABORATORIO DE QUIMICA ORGANICA                    2004012   {2004050}
+D QUIMICA ORGANICA                                   2004053   {2004050}
+D INTRODUCCION A LOS PROCESOS QUIMICOS               2004055   {2004044}
+D OPTICA Y ESPECTROSCOPIA MOLECULAR                  2006023   {2006020}
+D ESTADISTICA APLICADA                               2008241   {2008237}
+E QUIMICA ORGANICA II                                2004056   {2004053}
+E QUIMICA ANALITICA                                  2004061   {2004044}
+E FISICOQUIMICA II                                   2004109   {2004044}
+E LABORATORIO DE QUIMICA ORGANICA II                 2004145   {2004053}
+E LABORATORIO DE QUIMICA ANALITICA CUANTITATIVA      2004169   {2004044}
+F QUIMICA BIOLOGICA                                  2004059   {2004053}
+F QUIMICA ORGANICA III                               2004105   {2004053}
+F FISICOQUIMICA III                                  2004114   {2004044}
+F MODULO I                                           2004171   {2004061}
+F QUIMICA INORGANICA III                             2004175   {2004044}
+F QUIMICA ANALITICA II                               2004176   {2004061}
+G QUIMICA ANALITICA III                              2004115   {2004061}
+G SINTESIS ORGANICA                                  2004119   {2004056}
+G PLANIFICACION ORGANIZACION Y CONTROL DE CALID      2004130   {2004061}
+G MODULO II                                          2004172   {2004171}
+G QUIMICA DEL MEDIO AMBIENTE                         2004173   {2004061}
+H SEPARACIONES QUIMICAS                              2004116   {2004061}
+H QUIMICA ANALITICA IV                               2004120   {2004061}
+H DISE�O EXPERIMENTAL                                2004177   {2004172}
+H PRACTICAS DE INDUSTRIA                             2004178   {2004170}
+I LABORATORIO DE INVESTIGACION                       2004170   {2004172}
+J TESIS DE GRADO                                     2004131   {2004172,2004177}

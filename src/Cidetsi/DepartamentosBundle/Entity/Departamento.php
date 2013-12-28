@@ -45,11 +45,13 @@ class Departamento
 
     /**
      * @ORM\OneToMany(targetEntity="Carrera",mappedBy="departamento")
+     * @ORM\OrderBy({"name"="ASC"})
      **/
     private $carreras;
 
     /**
      * @ORM\OneToMany(targetEntity="\Cidetsi\MateriasBundle\Entity\Materia",mappedBy="departamento")
+     * @ORM\OrderBy({"name"="ASC"})
      **/
     private $materias;
 

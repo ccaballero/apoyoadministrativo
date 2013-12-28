@@ -1,0 +1,67 @@
+A QUIMICA GENERAL                                    2004046   {}
+A FISICA I                                           2006004   {}
+A ALGEBRA I                                          2008053   {}
+A CALCULO I                                          2008054   {}
+A GEOM. ANALITICA PLANA Y DEL ESPACIO                2008238   {}
+B FISICA II                                          2006005   {2006004}
+B GEOMETRIA DESCRIPTIVA                              2008013   {2008238}
+B ALGEBRA II                                         2008022   {2008053}
+B CALCULO II                                         2008056   {2008054}
+B DIBUJO TECNICO                                     2012001   {2008238}
+C ANALISIS VECTORIAL Y TENSORIAL                     2008014   {2008056}
+C CALCULO III                                        2008066   {2008056}
+C COMPUTACION PARA INGENIERIA                        2012002   {2008022}
+C GEOLOGIA GENERAL                                   2012003   {2004046}
+C ELECTROTECNIA                                      2014001   {2006005}
+D ESTRUCTURAS ISOSTATICAS                            2012004   {2008014}
+D MATERIALES DE CONSTRUCCION                         2012005   {2012003}
+D METODOS GEODESICOS                                 2012006   {2008013,2012001}
+D ECONOMIA POLITICA                                  2012007   {2012003}
+D ANALISIS NUMERICO                                  2012060   {2008066,2012002}
+E PROBABILIDAD Y ESTADISTICA                         2008029   {2012060}
+E HIDRAULICA I                                       2012008   {2006005,2008014}
+E GEODESIA Y FOTOGRAMETRIA                           2012009   {2012006}
+E GEOG. Y DEF. DE LOS RECURSOS NATURALES             2012010   {2012007}
+E RESISTENCIA DE MATERIALES                          2018002   {2012004}
+F HIDRAULICA II                                      2012011   {2012008}
+F HIDROLOGIA                                         2012012   {2008029,2012008}
+F RESISTENCIA DE MATERIALES II                       2012013   {2018002}
+F MECANICA DE SUELOS I                               2012014   {2012005,2018002}
+F TRANSPORTES Y COMUNICACIONES                       2012015   {2012009,2012010}
+G INGENIERIA SANITARIA I                             2012016   {2012011,2012012}
+G ESTRUCTURAS HIPERESTATICAS                         2012017   {2012013}
+G ESTRUCTURAS DE MADERA                              2012018   {2012013}
+G TECNOLOGIA DEL HORMIGON                            2012019   {2012014}
+G SISTEMAS DE INGENIERIA                             2012020   {2012060}
+G MECANICA DE SUELOS II                              2012021   {2012014}
+H INGENIERIA SANITARIA II                            2012022   {2012016}
+H HORMIGON ARMADO                                    2012023   {2012017,2012019}
+H MAQUINARIA Y EQUIPO DE CONSTRUCCION                2012024   {2012020}
+H MECANICA DE SUELOS APLICADA                        2012025   {2012021}
+H CARRETERAS I                                       2012026   {2012015,2012021}
+H INGENIERIA ECONOMICA                               2012027   {2012020}
+I PLANIFICACION DE PROYECTO DE GRADO                 2012028   {2012022,2012023,2012024,2012025,2012026,2012027}
+I OBRAS HIDRAULICAS I                                2012029   {2012011,2012023}
+I ESTRUCTURAS METALICAS                              2012030   {2012017,2012018}
+I CONSTRUCCION DE EDIFICIOS                          2012031   {2012023,2012024}
+I DIRECCION DE OBRAS Y VALUACIONES                   2012032   {2012027}
+I FUNDACIONES I                                      2012033   {2012021,2012023}
+I SANEAMIENTO AMBIENTAL (SANITARIA)                  2012034   {2012022}
+I PROYECTO DE GRADO                                  2012057   {2012028}
+J PUENTES                                            2012035 x {2012023,2012030}
+J HORMIGON PREESFORZADO                              2012036 x {2012023}
+J INGENIERIA ANTISISMICA                             2012037 x {2012033}
+J ESTRUCTURAS ESPECIALES                             2012038 x {2012030}
+J FUNDACIONES II                                     2012039 x {2012033}
+J CARRETERAS II                                      2012042 x {2012026,2012029}
+J AEROPUERTOS                                        2012043 x {2012026}
+J INGENIERIA DE TRAFICO                              2012044 x {2012026,2012032}
+J VIAS FERREAS                                       2012045 x {2012026}
+J MODELOS HIDRAULICOS                                2012047 x {2012029}
+J TEMAS ESPECIALES                                   2012048 x {2012029}
+J PUERTOS Y VIAS NAVEGABLES                          2012050 x {2012029}
+J HIDRAULICA DE RIOS                                 2012051 x {2012029}
+J PLANTAS DE TRATAMIENTO AGUAS                       2012053 x {2012034}
+J INSTALACIONES DOMICILIARIAS E INDUSTRIALES         2012054 x {2012031,2012034}
+J OBRAS HIDRAULICAS II                               2012055 x {2012029}
+J QUIMICA DEL AGUA                                   2012061 x {2012034}

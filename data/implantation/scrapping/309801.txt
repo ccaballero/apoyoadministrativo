@@ -1,0 +1,58 @@
+A QUIMICA GENERAL                                    2004046   {}
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008019   {}
+A CALCULO I                                          2008054   {}
+A COMPUTACION I                                      2010008   {}
+B FISICA BASICA II                                   2006019   {2006018}
+B ALGEBRA II                                         2008022   {2008019}
+B CALCULO II                                         2008056   {2008054}
+B ESTADISTICA I                                      2008059   {2008054}
+B DIBUJO TECNICO COMPUTARIZADO                       2018007   {2010008}
+C FISICOQUIMICA                                      2004044   {2006019}
+C FISICA BASICA III                                  2006020   {2006019}
+C CALCULO COMPUTARIZADO                              2008043   {2008054}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+C ESTADISTICA II                                     2008061   {2008059}
+D ELECTROTECNIA INDUSTRIAL                           2014087   {2006020}
+D ORGANIZACION INDUSTRIAL                            2016010   {2008061}
+D ECONOMIA INDUSTRIAL                                2016011   {2008059}
+D RESISTENCIA DE MATERIALES                          2018006   {2006018,2008054}
+D TERMODINAMICA                                      2018009   {2004044}
+E OPERACIONES INDUSTRIALES I                         2016015   {2004044}
+E CONTABILIDAD BASICA                                2016046   {2008061}
+E INVESTIGACION OPERATIVA I                          2016048   {2008022,2008061}
+E MERCADOTECNIA                                      2016057   {2016010}
+E CIENCIA DE LOS MATERIALES                          2018010   {2018009}
+E ELEM. DE MAQUINAS Y TECNOL. MECANICA I             2018066   {2018006}
+F OPERACIONES INDUSTRIALES II                        2016019   {2016015}
+F INVESTIGACION DE MERCADOS                          2016020   {2016010}
+F COSTOS INDUSTRIALES                                2016049   {2016046}
+F INVESTIGACION OPERATIVA II                         2016051   {2016048}
+F INGENIERIA DE METODOS Y REINGENIERIA               2016052   {2016010}
+F TECNOLOGIA MECANICA II                             2018013   {2018066}
+G PLANIF. Y CONTROL DE LA PRODUCCION I               2016021   {2016020,2016048}
+G GESTION DE CALIDAD                                 2016022   {2016010}
+G INGENIERIA ECONOMICA                               2016023   {2016049}
+G INGENIERIA DE SEGURIDAD                            2016024   {2016052}
+G OPERACIONES INDUSTRIALES III                       2016025   {2016019}
+G DISE�O ASISTIDO POR COMPUTADORA                    2016026   {2018013}
+H CONTROL Y AUTOMATIZACION INDUSTRIAL                2014088   {2014087,2018013}
+H PLANIF. Y CONTROL DE LA PRODUCCION II              2016027   {2016021}
+H INGENIERIA DE SISTEMAS I                           2016028   {2016048}
+H PREP. Y EVAL. DE PROYECTOS I                       2016029   {2016023}
+H RECURSOS HUMANOS - PRODUCTIVIDAD                   2016030   {2016010}
+H PROCESOS INDUSTRIALES I                            2016031   {2016025}
+H MANTENIMIENTO INDUSTRIAL                           2018054 x {2016027}
+I INDUSTRIAS LACTEAS                                 2004206 x {2016027}
+I INGENIERIA DE SISTEMAS II                          2016032   {2016028}
+I PREP. Y EVAL. DE PROYECTOS II                      2016033   {2016029}
+I TALLER DE TESIS I                                  2016034   {2016025,2016027,2016029}
+I PROCESOS INDUSTRIALES II                           2016036   {2016031}
+I INDUSTRIA PETROQUIMICA E INNOVACION                2016098 x {2016027}
+I GESTION Y CALIDAD AMBIENTAL                        2018061 x {2016027}
+J DERECHO EMPRESARIAL                                2016038   {2016030}
+J TALLER TESIS II                                    2016039   {2016034}
+J TRABAJO DIRIGIDO (OPCIONAL)                        2016040   {2016034}
+J PSICOLOGIA INDUSTRIAL                              2016041   {2016030}
+J GESTION ESTRATEGICA DE EMPRESAS                    2016059   {2016028}
+J PRACTICA EMPRESARIAL                               2016090   {2016021,2016022,2016023,2016024,2016025,2016026}

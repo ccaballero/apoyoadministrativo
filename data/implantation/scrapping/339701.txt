@@ -1,0 +1,54 @@
+A RECURSOS NATURALES                                 2004001   {}
+A LABORATORIO DE QUIMICA GENERAL                     2004003   {}
+A QUIMICA GENERAL                                    2004045   {}
+A FISICA BASICA I                                    2006018   {}
+A CALCULO I                                          2008054   {}
+A ALGEBRA LINEAL Y TEORIA MATRICIAL                  2008237   {}
+B EQUILIBRIOS EN DISOLUCION                          2004050   {2004045}
+B QUIMICA INORGANICA                                 2004174   {2004045}
+B FISICA BASICA II                                   2006019   {2006018}
+B CALCULO II                                         2008056   {2008054}
+B ESTADISTICA APLICADA                               2008241   {2008237}
+C FISICOQUIMICA                                      2004044   {2004050}
+C LABORATORIO DE FISICOQUIMICA                       2004147   {2004050}
+C FISICA BASICA III                                  2006020   {2006019}
+C CALCULO III                                        2008066   {2008056}
+D LABORATORIO DE QUIMICA ORGANICA                    2004012   {2004050}
+D QUIMICA ORGANICA                                   2004053   {2004050}
+D INTRODUCCION A LOS PROCESOS QUIMICOS               2004055   {2004044}
+D TERMODINAMICA I                                    2004183   {2004044}
+D ECONOMIA Y ADMINISTRACION INDUSTRIAL               2016060   {2008066}
+D DIBUJO TECNICO                                     2018057   {2008241}
+E QUIMICA ORGANICA II                                2004056   {2004053}
+E QUIMICA ANALITICA                                  2004061   {2004044}
+E LABORATORIO DE QUIMICA ORGANICA II                 2004145   {2004053}
+E LABORATORIO DE QUIMICA ANALITICA CUANTITATIVA      2004169   {2004044}
+E FENOMENOS DE TRANSPORTE A                          2004184   {2004055}
+E TERMODINAMICA II                                   2004196   {2004183}
+F LABORATORIO DE TERMODINAMICA                       2004069   {2004183}
+F OPERACIONES UNITARIAS I                            2004072   {2004184}
+F INTRODUCCION A LA INGENIERIA BIOQUIMICA            2004191   {2004056}
+F FENOMENOS DE TRANSPORTE B                          2004197   {2004184}
+F DISE�O EXPERIMENTAL                                2004198   {2004006}
+F INTRODUCCION A LA INGENIERIA MEDIO AMBIENTAL       2004201   {2004061}
+G PREPARACION Y EVALUACION DE PROYECTOS I            2004005   {2016060}
+G OPERACIONES UNITARIAS II                           2004078   {2004072}
+G MODULO EXPERIMENTAL                                2004190   {2004061}
+G TECNOLOGIA QUIMICA                                 2004200   {2004072}
+G ANALISIS NUMERICO                                  2008067   {2004184}
+G ELECTROTECNIA INDUSTRIAL                           2014087   {2004069}
+H PREPARACION Y EVALUACION DE PROYECTOS II           2004006   {2004005}
+H DISE�O DE REACTORES I                              2004181   {2008067}
+H LABORATORIO DE OPERACIONES UNITARIAS I             2004187   {2004072}
+H LABORATORIO DE INVESTIGACION                       2004189   {2004190}
+H INSTRUMENTACION PROCESOS                           2004193   {2014087}
+H OPERACIONES UNITARIAS III                          2004199   {2004078}
+I ANALISIS Y DISE�O DE PROCESOS QUIMICOS             2004079   {2004199}
+I DINAMICA Y CONTROL DE PROCESOS                     2004083   {2004193}
+I DISE�O DE REACTORES II                             2004180   {2004181}
+I DISE�O DE PLANTAS QUIMICAS                         2004182   {2004199}
+I LABORATORIO DE REACTORES                           2004186   {2004181}
+I LABORATORIO DE OPERACIONES UNITARIAS II            2004188   {2004187}
+I PRACTICAS INDUSTRIALES                             2004194   {2004199}
+I INGENIERIA DE SEGURIDAD                            2016024   {2004199}
+J PROYECTO DE GRADO                                  2004185   {2004180,2004199}

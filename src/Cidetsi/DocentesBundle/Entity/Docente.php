@@ -53,11 +53,6 @@ class Docente
     private $tsregister;
 
     /**
-     * @ORM\Column(type="string",length=15,unique=true)
-     */
-    public $pg_id;
-
-    /**
      * @ORM\OneToMany(targetEntity="\Cidetsi\MateriasBundle\Entity\Grupo",mappedBy="docente")
      **/
     private $grupos;

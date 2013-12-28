@@ -1,0 +1,40 @@
+A FISICA BASICA I                                    2006018   {}
+A GEOMETRIA ANALITICA                                2008010   {}
+A ALGEBRA I                                          2008053   {}
+A CALCULO I                                          2008054   {}
+B INGLES I                                           1803010   {}
+B QUIMICA GENERAL                                    2004046   {}
+B FISICA BASICA II                                   2006019   {2006018}
+B CALCULO II                                         2008056   {2008054}
+B ALGEBRA LINEAL Y MATRICIAL                         2008240   {2008053}
+C INGLES II                                          1803011   {1803010}
+C FISICA BASICA III                                  2006020   {2006019}
+C ANALISIS VECTORIAL Y TENSORIAL                     2008014   {2008056}
+C PROBABILIDAD Y ESTADISTICA                         2008029   {2008056}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+D INGLES III                                         1803012   {1803011}
+D RECURSOS NATURALES                                 2004001   {}
+D FISICA BASICA IV                                   2006031   {2006020}
+D FISICA COMPUTACIONAL I                             2006089   {}
+D CALCULO COMPLEJO                                   2008156   {2008014}
+E FISICA TEORICA I                                   2006033   {2006020}
+E ELECTRONICA                                        2006034   {2006020}
+E FISICA COMPUTACIONAL II                            2006090   {}
+E TRANSFORMADAS INTEGRALES                           2008157   {2008156}
+F METODOS MATEMATICOS DE LA FISICA                   2006001   {2008156}
+F FISICA TEORICA II                                  2006036   {2006033}
+F TERMODINAMICA                                      2006037   {2008058}
+F LABORATORIO MEDIO                                  2006038   {2006031}
+G CONTAMINACION ATMOSFERICA                          2006006 x {}
+G MECANICA CUANTICA I                                2006040   {2006031}
+G TALLER AVANZADO I                                  2006041   {2006038}
+G INTRODUCCION A LA FISICA NUCLEAR Y DE PARTICU      2006042   {2006031}
+H MECANICA CUANTICA II                               2006043   {2006040}
+H INTRODUCCION A LA FISICA DEL ESTADO SOLIDO         2006044   {2006040}
+H TALLER AVANZADO II                                 2006045   {2006041}
+H MECANICA ESTADISTICA                               2006046   {2006037,2006040}
+I FISICA DEL ESTADO SOLIDO I                         2006047   {2006040}
+I OPTICA                                             2006048   {2006040}
+I ENERGIAS ALTERNATIVAS                              2006059 x {}
+J TALLER DE GRADO                                    2006049   {}
+J ASTROFISICA                                        2006061   {}

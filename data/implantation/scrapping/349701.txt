@@ -1,0 +1,46 @@
+A INGLES I                                           1803005   {}
+A ALGEBRA I                                          2008053   {}
+A CALCULO I                                          2008054   {}
+A GEOMETRIA                                          2008070   {}
+A COMPUTACION I                                      2010008   {}
+B INGLES II                                          1803006   {1803005}
+B ALGEBRA LINEAL                                     2008055   {2008053}
+B CALCULO II                                         2008056   {2008054}
+B ESTRUCTURAS DISCRETAS                              2008075   {2008053}
+B MATEMATICA COMPUTACIONAL II                        2008214   {2010008}
+C FISICA I                                           2006004   {}
+C PROBABILIDAD Y ESTADISTICA I                       2008077   {}
+C TEORIA AXIOMATICA DE CONJUNTOS                     2008078   {2008075}
+C GEOMETRIA I                                        2008079   {2008055}
+C ANALISIS I                                         2008080   {2008056}
+D FISICA II                                          2006027   {2006004}
+D PROBABILIDAD Y ESTADISTICA II                      2008081   {2008077}
+D ALGEBRA LINEAL AVANZADA                            2008082   {2008055}
+D ANALISIS II                                        2008083   {2008080}
+D GEOMETRIA II                                       2008084   {2008079}
+E ALGEBRA ABSTRACTA I                                2008085   {2008078}
+E GEOMETRIA III                                      2008086   {2008084}
+E ANALISIS III                                       2008087   {2008083}
+E ANALISIS NUMERICO I                                2008122   {2008080}
+F ANALISIS IV                                        2008089   {2008087}
+F GEOMETRIA IV                                       2008090   {2008086}
+F ANALISIS NUMERICO II                               2008091   {2008122}
+F ALGEBRA ABSTRACTA II                               2008123   {2008085}
+G ANALISIS FUNCIONAL                                 2008092   {2008086}
+G SISTEMAS DINAMICOS                                 2008093 x {2008082,2008083}
+G FRACTALES                                          2008102 x {2008086}
+G GEOMETRIA DIFERENCIAL                              2008125 x {2008087}
+G FUNCIONES ESPECIALES                               2008242 x {2008089}
+G ANALISIS NUMERICO III                              2008258 x {2008091}
+H INVESTIGACION OPERATIVA II                         2008001 x {2008236}
+H TRANSFORMADAS DE FOURIER                           2008034 x {2008089}
+H TENSORES Y FORMAS                                  2008098 x {2008089}
+H TEORIA DE LA MEDIDA                                2008110   {2008086}
+H TOPOLOGIA ALGEBRAICA                               2008131   {2008086}
+H METODOS NUMERICOS III                              2008243 x {2008091}
+I TALLER DE INVESTIGACION OPERATIVA                  2008023 x {2008001}
+I SEMINARIO DE GRADO                                 2008100   {2008110,2008131}
+I TEORIA DE CONTROL                                  2008247 x {2008095}
+J MODELAJE Y SIMULACION                              2008096 x {2008093}
+J TRABAJO DE GRADO                                   2008104   {2008100}
+J METODOS NUMERICOS IV                               2008259 x {2008243}

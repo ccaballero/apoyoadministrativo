@@ -1,0 +1,52 @@
+A FISICA BASICA I                                    2006018   {}
+A ALGEBRA I                                          2008019   {}
+A PROBABILIDAD Y ESTADISTICA                         2008029   {}
+A CALCULO I                                          2008054   {}
+A INTRODUCCION A LA PROGRAMACION                     2010010   {}
+B FISICA BASICA III                                  2006020   {2006018}
+B ALGEBRA II                                         2008022   {2008019}
+B CALCULO II                                         2008056   {2008054}
+B ELEM. DE PROGRAMACION Y ESTRUC. DE DATOS           2010003   {2010010}
+B CIRCUITOS ELECTRICOS I                             2014002   {2008054}
+C FISICA BASICA II                                   2006019   {2006018}
+C VARIABLE COMPLEJA                                  2008024   {2008056}
+C ECUACIONES DIFERENCIALES                           2008058   {2008056}
+C ELECTROMAGNETISMO                                  2014003   {2006020}
+C CIRCUITOS ELECTRICOS II                            2014004   {2014002}
+D TRANSFORMADAS INTEGRALES                           2008157   {2008058}
+D METODOS TECNICAS Y TALLER DE PROGRAMACION          2010012   {2010003}
+D CIRCUITOS ELECTRICOS III                           2014005   {2014004}
+D ELECTRONICA ANALOGICA I                            2014006   {2014003,2014004}
+D RESISTENCIA DE MATERIALES                          2018003   {2006019}
+E ELECTRONICA ANALOGICA II                           2014007   {2014006}
+E ELECTRONICA DIGITAL I                              2014014   {2014005}
+E ANALISIS DE SE�ALES                                2014059   {2008157}
+E MEDIDAS ELECTRONICAS                               2014061   {2014005}
+E ELECTROTECNIA INDUSTRIAL                           2014087   {2018003}
+F FISICA MODERNA                                     2006012   {2014007}
+F TALLER DE PROGRAMACION EN BAJO NIVEL               2010005   {2010012}
+F SISTEMAS DE CONTROL DINAMICO                       2014063   {2014059}
+F TELECOMUNICACIONES I                               2014064   {2014059}
+F LINEAS DE TRANSMISION Y PROPAGACION                2014065   {2014061}
+G CALCULO NUMERICO                                   2008052   {2008058}
+G INSTALACIONES ELECTRICAS I                         2014011   {2014065}
+G ELECTRONICA DE POTENCIA                            2014015   {2006012}
+G ELECTRONICA DIGITAL II                             2014037   {2014014}
+G TELECOMUNICACIONES II                              2014066   {2014064}
+H MICROPROCESADORES I                                2014035   {2014037}
+H ROBOTICA                                           2014071   {2014015}
+H DISE�O DE ELECTRONICA ANALOGICA                    2014075   {2014015}
+H TELECOMUNICACIONES III                             2014139   {2014066}
+H MULTIMEDIA                                         2014140   {2014066}
+H DISE�O DE SISTEMAS DIGITALES I                     2014141   {2014037}
+I TALLER DE SISTEMAS OPERATIVOS                      2010017   {2010005}
+I PROYECTO TERMINAL I                                2014030   {2014139}
+I MICROPROCESADORES II                               2014042   {2014035}
+I DISE�O DE SISTEMAS DIGITALES II                    2014142   {2014141}
+I TALLER DE CONTROL Y AUTOMATISMO                    2014143   {2014071}
+J REDES DE COMPUTADORAS                              2010047   {2010017}
+J PROYECTO TERMINAL II                               2014034   {2014030}
+J TOPICOS ELECTRONICOS  (TELEFONIA BASICA)           2014046   {2014142}
+J TOPICOS ELECTRONICOS  (AVIONICA)                   2014049   {2014066}
+J COMUNICACION DE DATOS                              2014144   {2014140}
+J PREPARACION Y EVALUACION DE PROYECTOS              2016005   {2014142}
