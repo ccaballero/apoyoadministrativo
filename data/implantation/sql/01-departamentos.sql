@@ -1,4 +1,4 @@
-INSERT INTO `departamento` (`name`,`abbreviation`,`facultad`)
+INSERT INTO `departamento`(`name`,`abbreviation`,`facultad`)
 VALUES
 ('No definidas',                         'No definidas',         'Ciencias y Tecnología'),
 ('Departamento de Biología',             'Biología',             'Ciencias y Tecnología'),
@@ -10,3 +10,5 @@ VALUES
 ('Departamento de Matemáticas',          'Matemáticas',          'Ciencias y Tecnología'),
 ('Departamento de Mecánica',             'Mecánica',             'Ciencias y Tecnología'),
 ('Departamento de Química',              'Química',              'Ciencias y Tecnología');
+
+UPDATE `departamento` SET `status` = 'disabled' WHERE `ident` = 1;

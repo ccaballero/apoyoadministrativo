@@ -8,16 +8,31 @@
 {% endblock %}
 
 {% block items %}
-<ul class="list-group">
-{% for carrera in entity.carreras %}
-    <li class="list-group-item">
-        <a href="{{ path('carrera_read', { 'id': carrera.ident }) }}">{{ carrera.name }} ({{ carrera.abbreviation }})</a>
-    </li>
-{% else %}
-    <li class="list-group-item"><em>No existen carreras registradas.</em></li>
-{% endfor %}
-</ul>
-{{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
-    'view': true, 'edit': true, 'delete': true
-}) }}
+<div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ entity.name }}</div>
+        <div class="panel-body">
+            <ul class="list-group">
+        {% for carrera in entity.carreras %}
+            {% if carrera.isEnabled %}
+                {% for plan in carrera.planes %}
+                    {% if plan.isEnabled %}
+                        <a class="list-group-item"
+                            href="{{ path('carrera_read', { 'id': carrera.ident }) }}">{{ carrera.name }} ({{ carrera.abbreviation }})
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <li><em>No existen planes de estudio registrados.</em></li>
+                {% endfor %}
+            {% endif %}
+        {% else %}
+            <li><em>No existen carreras registradas.</em></li>
+        {% endfor %}
+            </ul>
+        {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
+            'view': true, 'edit': true, 'delete': true
+        }) }}
+        </div>
+    </div>
+</div>
 {% endblock %}

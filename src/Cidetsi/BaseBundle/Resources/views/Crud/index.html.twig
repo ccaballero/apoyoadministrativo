@@ -13,26 +13,13 @@
         {% block preamble %}
             <h1>{{ title_list }}</h1>
         {% endblock %}
-        <div class="panel-group" id="accordion">
         {% for entity in entities %}
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion"
-                           href="#collapse{{ entity.ident }}">
-                            {{ entity.name }}
-                        </a>
-                    </h2>
-                </div>
-                <div id="collapse{{ entity.ident }}"
-                     class="panel-collapse collapse">
-                    <div class="panel-body">
-                        {% block items %}{% endblock %}
-                    </div>
-                </div>
-            </div>
+            {% if entity.isEnabled %}
+                {% block items %}{% endblock %}
+            {% endif %}
+        {% else %}
+            <p>No se encontraron entidades.</p>
         {% endfor %}
-        </div>
     </div>
 </section>
 {% endblock %}

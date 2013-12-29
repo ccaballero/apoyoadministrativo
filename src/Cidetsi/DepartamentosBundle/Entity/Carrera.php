@@ -107,4 +107,8 @@ class Carrera
     public function isEmpty() {
         return count($this->getPlanes()) == 0;
     }
+
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
 }

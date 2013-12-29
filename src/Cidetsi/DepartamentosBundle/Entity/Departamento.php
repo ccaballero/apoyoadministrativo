@@ -132,4 +132,8 @@ class Departamento
     public function isEmpty() {
         return count($this->getCarreras()) == 0;
     }
+
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
 }

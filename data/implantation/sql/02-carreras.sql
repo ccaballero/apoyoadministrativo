@@ -1,4 +1,4 @@
-INSERT INTO `carrera` (`departamento`,`name`,`abbreviation`)
+INSERT INTO `carrera`(`departamento`,`name`,`abbreviation`)
 VALUES
 ( 2, 'Licenciatura en Biología', 'BIO'),
 ( 3, 'Ingeniería Civil', 'CIV'),

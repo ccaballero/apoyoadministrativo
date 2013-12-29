@@ -90,6 +90,10 @@ class PlanEstudio
         return $this->getName() . ' (' . $this->getCode() . ')';
     }
 
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
+
 //    private $plan_materias;
 //    private $materias;
 

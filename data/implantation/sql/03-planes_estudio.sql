@@ -1,4 +1,4 @@
-INSERT plan_estudio (`departamento`, `carrera`, `name`, `code`)
+INSERT `plan_estudio`(`departamento`,`carrera`,`name`,`code`)
 VALUES
 ( 2,  1, 'Licenciatura en Biología', '399501'),
 ( 3,  2, 'Ingeniería Civil', '329201'),
@@ -19,3 +19,5 @@ VALUES
 (10, 15, 'Licenciatura en Química', '389701'),
 (10, 16, 'Ingeniería Química', '339701'),
 (10, 17, 'Ingeniería de Alimentos', '409701');
+
+UPDATE `plan_estudio` SET `status` = 'disabled' WHERE `ident` = 10;
