@@ -12,8 +12,8 @@
         <br />
         <ul class="nav nav-tabs">
             <li><a href="#home" data-toggle="tab">Información</a></li>
-            <li class="active"><a href="#courses" data-toggle="tab">Materias</a></li>
-            <li><a href="#teachers" data-toggle="tab">Docentes</a></li>
+            <li><a href="#courses" data-toggle="tab">Materias</a></li>
+            <li class="active"><a href="#teachers" data-toggle="tab">Docentes</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane" id="home">
@@ -21,25 +21,32 @@
                     'departamento': entity
                 }) }}
             </div>
-            <div class="tab-pane active" id="courses">
+            <div class="tab-pane" id="courses">
                 {{ include('CidetsiMateriasBundle:Materia:list.departamento.html.twig', {
                     'departamento': entity
                 }) }}
             </div>
-            <div class="tab-pane" id="teachers">
+            <div class="tab-pane active table-responsive" id="teachers">
                 <table class="table table-striped">
                     <tr>
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
                         <th>Nombres</th>
-                        <th>Grupos</th>
+                        <th># Materias</th>
+                        <th># Grupos</th>
+                        <th>&nbsp;</th>
                     </tr>
                 {% for docente in docentes %}
                     <tr>
                         <td>{{ docente.apellidoPaterno }}</td>
                         <td>{{ docente.apellidoMaterno }}</td>
                         <td>{{ docente.nombres }}</td>
-                        <td>{{ docente.grupos|length }}</td>
+                        <td class="text-center">{{ docente.materias|length }}</td>
+                        <td class="text-center">{{ docente.grupos|length }}</td>
+                        <td class="text-center">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            <span class="glyphicon glyphicon-ok-circle"></span>
+                        </td>
                     </tr>
                 {% endfor %}
                 </table>

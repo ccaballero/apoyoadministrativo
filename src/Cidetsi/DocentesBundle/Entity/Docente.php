@@ -67,6 +67,15 @@ class Docente
     public function getTsregister() { return $this->tsregister; }
 
     public function getGrupos() { return $this->grupos; }
+    public function getMaterias() {
+        $grupos = $this->getGrupos();
+        $materias = array();
+        foreach($grupos as $grupo) {
+            $_materia = $grupo->getMateria();
+            $materias[$_materia->getIdent()] = $_materia;
+        }
+        return $materias;
+    }
 
     public function setCi($ci) {
         $this->ci = $ci;
