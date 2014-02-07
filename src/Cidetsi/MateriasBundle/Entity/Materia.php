@@ -102,6 +102,10 @@ class Materia
         return $this;
     }
 
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
+
     public function __toString() {
         return $this->getName();
     }

@@ -36,8 +36,23 @@ departamento_delete_post:
     defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:deletePost" }
     requirements: { _method: post|delete }
 
-departamento_create_carrera:
-    pattern: /{id}/agregar/carrera
-    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createCarrera" }
+departamento_create_carrera_get:
+    pattern: /{id}/carrera
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createCarreraGet" }
     requirements: { _method: get }
+
+departamento_create_carrera_post:
+    pattern: /{id}/carrera
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createCarreraPost" }
+    requirements: { _method: post }
+
+departamento_create_planestudio_get:
+    pattern: /{id}/planestudio
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createPlanEstudioGet" }
+    requirements: { _method: get }
+
+departamento_create_planestudio_post:
+    pattern: /{id}/planestudio
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createPlanEstudioPost" }
+    requirements: { _method: post }
 

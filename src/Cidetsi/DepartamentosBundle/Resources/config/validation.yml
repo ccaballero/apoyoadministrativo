@@ -50,4 +50,4 @@ Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
             - Length: { min: 4, max: 16 }
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
-            field: [name, code]
+            fields: [name, code]

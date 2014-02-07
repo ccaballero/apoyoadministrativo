@@ -5,10 +5,10 @@
     <div class="container">
         {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
         <h1>{{ entity.name }}</h1>
-        <p class="lead">{{ entity.departamento }}</p>
-        {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
-            'view': false,  'edit': true, 'delete': true
-        }) }}
+        <p class="lead">{{ entity.facultad }}</p>
+    
+        <h2>Agregar carrera</h2>
+        {{ form(form) }}
     </div>
 </section>
 {% endblock %}

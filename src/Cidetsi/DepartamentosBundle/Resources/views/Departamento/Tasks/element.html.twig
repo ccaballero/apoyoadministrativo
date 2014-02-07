@@ -19,11 +19,12 @@
     <div class="btn-group">
         {% if admin %}
             <a class="btn btn-default"
-               href="{{ path('departamento_create_carrera', {
+               href="{{ path('departamento_create_carrera_get', {
                 'id': entity.ident }) }}">Nueva Carrera</a>
             <a class="btn btn-default"
-               href="{{ path('departamento_create_carrera', {
+               href="{{ path('departamento_create_planestudio_get', {
                 'id': entity.ident }) }}">Nuevo Plan de Estudio</a>
         {% endif %}
     </div>
 </div>
+
