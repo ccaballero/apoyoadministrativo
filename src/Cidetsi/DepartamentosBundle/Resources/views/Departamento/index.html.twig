@@ -4,7 +4,8 @@
     {{ parent() }}
     <p>Estos son los departamentos en la facultad de ciencias y tecnologia, para
     los que este sistema gestiona información.</p>
-    {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/collection.html.twig') }}
+    {{ include(
+        'CidetsiDepartamentosBundle:Departamento:Tasks/collection.html.twig') }}
 {% endblock %}
 
 {% block items %}
@@ -17,22 +18,27 @@
             {% if carrera.isEnabled %}
                 {% for plan in carrera.planes %}
                     {% if plan.isEnabled %}
-                        <a class="list-group-item"
-                            href="{{ path('carrera_read', { 'id': carrera.ident }) }}">{{ carrera.name }} ({{ carrera.abbreviation }})
-                        </a>
+                        <li class="list-group-item"><a href="{{ path(
+                            'carrera_read', { 'id': carrera.ident }) }}">
+                            {{ carrera.name }} ({{ carrera.abbreviation }})</a>
+                        </li>
                     {% endif %}
                 {% else %}
-                    <li><em>No existen planes de estudio registrados.</em></li>
+                    <li class="list-group-item">
+                        <em>No existen planes de estudio registrados.</em></li>
                 {% endfor %}
             {% endif %}
         {% else %}
-            <li><em>No existen carreras registradas.</em></li>
+            <li class="list-group-item">
+                <em>No existen carreras registradas.</em></li>
         {% endfor %}
             </ul>
-        {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
-            'view': true, 'edit': true, 'delete': true
-        }) }}
+        {{ include(
+            'CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
+                'view': true, 'edit': true, 'delete': true
+            }) }}
         </div>
     </div>
 </div>
 {% endblock %}
+

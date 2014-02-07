@@ -1,6 +1,6 @@
 INSERT INTO `departamento`(`name`,`abbreviation`,`facultad`)
 VALUES
-('No definidas',                         'No definidas',         'Ciencias y Tecnología'),
+('No definido',                          'No definido',          'Ciencias y Tecnología'),
 ('Departamento de Biología',             'Biología',             'Ciencias y Tecnología'),
 ('Departamento de Civil',                'Civil',                'Ciencias y Tecnología'),
 ('Departamento de Eléctrica',            'Eléctrica',            'Ciencias y Tecnología'),

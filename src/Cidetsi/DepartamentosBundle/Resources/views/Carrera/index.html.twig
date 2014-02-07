@@ -4,20 +4,35 @@
     {{ parent() }}
     <p>Estas son las carreras que posee la facultad de ciencias y
     tecnologia.</p>
-    {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/collection.html.twig') }}
+    {{ include(
+        'CidetsiDepartamentosBundle:Carrera:Tasks/collection.html.twig') }}
 {% endblock %}
 
 {% block items %}
-<ul class="list-group">
-{% for plan in entity.planes %}
-    <li class="list-group-item">
-        <a href="{{ path('planestudio_read', { 'id': plan.ident }) }}">{{ plan.name }} ({{ plan.code }})</a>
-    </li>
-{% else %}
-    <li class="list-group-item"><em>No existen planes de estudio registrados.</em></li>
-{% endfor %}
-</ul>
-{{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
-    'view': true, 'edit': true, 'delete': true
-}) }}
+<div class="col-sm-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ entity.name }}</div>
+        <div class="panel-body">
+            <ul class="list-group">
+        {% for plan in entity.planes %}
+            {% if plan.isEnabled %}
+                <li class="list-group-item">
+                    <a href="{{ path(
+                        'planestudio_read', { 'id': plan.ident }) }}">
+                        {{ plan.name }} ({{ plan.code }})</a>
+                </li>
+            {% endif %}
+        {% else %}
+            <li class="list-group-item">
+                <em>No existen planes de estudio registrados.</em></li>
+        {% endfor %}
+            </ul>
+        {{ include(
+            'CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
+                'view': true, 'edit': true, 'delete': true
+            }) }}
+        </div>
+    </div>
+</div>
 {% endblock %}
+

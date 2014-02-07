@@ -6,27 +6,31 @@
         {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
         <h1>{{ entity.name }}</h1>
         <p class="lead">{{ entity.facultad }}</p>
-        {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
-            'view': false,  'edit': true, 'delete': true
+        {{ include(
+            'CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
+            'view': false,  'edit': true, 'delete': true, 'admin': true
         }) }}
         <br />
         <ul class="nav nav-tabs">
-            <li><a href="#home" data-toggle="tab">Información</a></li>
+            <li class="active">
+                <a href="#home" data-toggle="tab">Información</a></li>
             <li><a href="#courses" data-toggle="tab">Materias</a></li>
-            <li class="active"><a href="#teachers" data-toggle="tab">Docentes</a></li>
+            <li><a href="#teachers" data-toggle="tab">Docentes</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane" id="home">
-                {{ include('CidetsiDepartamentosBundle:Departamento:_info.html.twig', {
-                    'departamento': entity
+            <div class="tab-pane active" id="home">
+                {{ include(
+                    'CidetsiDepartamentosBundle:Departamento:_info.html.twig', {
+                        'departamento': entity
                 }) }}
             </div>
             <div class="tab-pane" id="courses">
-                {{ include('CidetsiMateriasBundle:Materia:list.departamento.html.twig', {
-                    'departamento': entity
+                {{ include(
+                    'CidetsiMateriasBundle:Materia:list.departamento.html.twig',
+                        { 'departamento': entity
                 }) }}
             </div>
-            <div class="tab-pane active table-responsive" id="teachers">
+            <div class="tab-pane" id="teachers">
                 <table class="table table-striped">
                     <tr>
                         <th>Apellido Paterno</th>
@@ -41,7 +45,9 @@
                         <td>{{ docente.apellidoPaterno }}</td>
                         <td>{{ docente.apellidoMaterno }}</td>
                         <td>{{ docente.nombres }}</td>
-                        <td class="text-center">{{ docente.materias|length }}</td>
+                        <td class="text-center">
+                            {{ docente.materias|length }}
+                        </td>
                         <td class="text-center">{{ docente.grupos|length }}</td>
                         <td class="text-center">
                             <span class="glyphicon glyphicon-calendar"></span>
