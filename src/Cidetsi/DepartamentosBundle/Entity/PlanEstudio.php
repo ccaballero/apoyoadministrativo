@@ -18,6 +18,7 @@ class PlanEstudio
     private $ident;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Departamento")
      * @ORM\JoinColumn(name="departamento",referencedColumnName="ident")
      **/
     private $departamento;
