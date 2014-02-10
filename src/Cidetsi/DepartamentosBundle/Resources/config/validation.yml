@@ -42,6 +42,8 @@ Cidetsi\DepartamentosBundle\Entity\Carrera:
 
 Cidetsi\DepartamentosBundle\Entity\PlanEstudio:
     properties:
+        carrera:
+            - NotBlank: ~
         name:
             - NotBlank: ~
             - Length: { min: 8, max: 128 }

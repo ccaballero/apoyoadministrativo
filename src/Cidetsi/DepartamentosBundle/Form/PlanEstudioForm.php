@@ -6,12 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CarreraForm extends AbstractType
+class PlanEstudioForm extends AbstractType
 {
     private $departamento = null;
+    private $carrera = null;
 
-    public function __construct($departamento = null) {
+    public function __construct($departamento = null, $carrera = null) {
         $this->departamento = $departamento;
+        $this->carrera = $carrera;
     }
 
     /**
@@ -24,12 +26,26 @@ class CarreraForm extends AbstractType
                 'class' => 'CidetsiDepartamentosBundle:Departamento'));
         }
 
+        $departamento = $this->departamento; 
+        $queryBuilder = function($repository) use ($departamento) {
+            return $repository->createQueryBuilder('c')
+                              ->where('c.departamento = :departamento')
+                              ->setParameter('departamento', $departamento);
+        };
+        if ($this->carrera == null) {
+            $builder->add('carrera', 'entity', array(
+                'class' => 'CidetsiDepartamentosBundle:Carrera',
+                'query_builder' => $queryBuilder,
+                'required' => true,
+            ));
+        }
+        
         $builder->add('name', 'text', array(
                       'required' => true,
                       'label' => 'Nombre:'))
-                ->add('abbreviation', 'text', array(
+                ->add('code', 'text', array(
                       'required' => true,
-                      'label' => 'Abreviatura:'));
+                      'label' => 'Código:'));
     }
 
     /**
@@ -37,7 +53,7 @@ class CarreraForm extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'Cidetsi\DepartamentosBundle\Entity\Carrera'
+            'data_class' => 'Cidetsi\DepartamentosBundle\Entity\PlanEstudio'
         ));
     }
 
@@ -45,6 +61,6 @@ class CarreraForm extends AbstractType
      * @return string
      */
     public function getName() {
-        return 'carrera';
+        return 'planestudio';
     }
 }

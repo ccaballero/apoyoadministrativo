@@ -5,8 +5,8 @@ namespace Cidetsi\DepartamentosBundle\Controller;
 use Cidetsi\BaseBundle\Controller\CrudController;
 use Cidetsi\DepartamentosBundle\Entity\Carrera;
 use Cidetsi\DepartamentosBundle\Entity\PlanEstudio;
-use Cidetsi\DepartamentosBundle\Form\CarreraDepartamentoForm;
-use Cidetsi\DepartamentosBundle\Form\PlanEstudioDepartamentoForm;
+use Cidetsi\DepartamentosBundle\Form\CarreraForm;
+use Cidetsi\DepartamentosBundle\Form\PlanEstudioForm;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -88,7 +88,7 @@ class DepartamentoController extends CrudController
     }
 
     protected function createCarreraCreateForm($entity, $carrera) {
-        $form = $this->createForm(new CarreraDepartamentoForm(), $carrera,
+        $form = $this->createForm(new CarreraForm($entity), $carrera,
             array('action' => $this->generateUrl(
                 'departamento_create_carrera_post', array(
                     'id' => $entity->getIdent(),
@@ -145,7 +145,7 @@ class DepartamentoController extends CrudController
     }
 
     protected function createPlanEstudioCreateForm($entity, $planestudio) {
-        $form = $this->createForm(new PlanEstudioDepartamentoForm(),
+        $form = $this->createForm(new PlanEstudioForm($entity),
             $planestudio, array('action' => $this->generateUrl(
                 'departamento_create_planestudio_post', array(
                     'id' => $entity->getIdent(),
