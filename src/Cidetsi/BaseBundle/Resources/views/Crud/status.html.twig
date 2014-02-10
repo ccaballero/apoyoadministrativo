@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><a href="{{ path(url_list) }}">{{ title_list }}</a></li>
+    <li><a href="{{ path(url_element, { 'id' : entity.ident }) }}">
+        {{ entity.name }}</a></li>
+{% if entity.isEnabled %}
+    <li><span>Deshabilitar</span></li>
+{% else %}
+    <li><span>Habilitar</span></li>
+{% endif %}
+</ol>
+{% endblock %}
+
+{% block body %}
+    {% if entity.isEnabled %}
+        {% set param1 = 'deshabilitación' %}
+        {% set param2 = 'Deshabilitar' %}
+        {% set param3 = 'esconder' %}
+        {% set param4 = 'deshabilitar' %}
+    {% else %}
+        {% set param1 = 'habilitación' %}
+        {% set param2 = 'Habilitar' %}
+        {% set param3 = 'mostrar' %}
+        {% set param4 = 'habilitar' %}
+    {% endif %}
+<section>
+    <div class="container">
+        <h1>Confirmación de {{ param1 }} del recurso</h1>
+        <p class="col-md-6">{{ param2 }} un recurso de la aplicación, implica
+        {{ param3 }} el recurso en todas las listas del sitio, e inherente a
+        todos los recursos que esten por debajo de su jerarquia. Lo que a veces
+        puede no ser lo que se espera conseguir. Si todavia quiere {{ param4 }}
+        el recurso, por favor presione el boton que se muestra a
+        continuación.</p>
+        {{ form(status_form) }}
+    </div>
+</section>
+{% endblock %}

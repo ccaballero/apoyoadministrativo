@@ -106,6 +106,27 @@ class CrudController extends Controller
         )));
     }
 
+    public function disabledGetAction($id) {
+        return $this->statusGetAction($id);
+    }
+
+    public function enabledGetAction($id) {
+        return $this->statusGetAction($id);
+    }
+
+    protected function statusGetAction($id) {
+        $entity = $this->getEntity($id);
+        $statusForm = $this->createStatusForm($id);
+
+        return $this->render(
+            $this->repository . ':status.html.twig',
+                array_merge(
+                    $this->tpl_commons, array(
+                        'entity' => $entity,
+                        'status_form' => $statusForm->createView(),
+        )));
+    }
+
     protected function createCreateForm($entity) {
         $form = $this->createForm(new $this->form(), $entity, array(
             'action' => $this->generateUrl($this->resource . '_create_post'),
@@ -135,6 +156,16 @@ class CrudController extends Controller
                     'id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Eliminar'))
+            ->getForm();
+    }
+
+    protected function createStatusForm($id) {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl(
+                $this->resource . '_status_post', array(
+                    'id' => $id)))
+            ->setMethod('POST')
+            ->add('submit', 'submit', array('label' => 'Confirmar'))
             ->getForm();
     }
 
@@ -213,4 +244,35 @@ class CrudController extends Controller
 
         return $this->redirect($this->generateUrl($this->resource));
     }
+
+    public function statusPostAction(Request $request, $id) {
+        $form = $this->createStatusForm($id);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $entity = $em->getRepository($this->repository)->find($id);
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find entity.');
+            }
+            if ($entity->isEnabled()) {
+                $entity->setStatus('disabled');
+                $em->flush();
+                $this->get('session')->getFlashBag()
+                    ->add('success', 'El recurso fue deshabilitado
+                    exitosamente');
+            } else {
+                $entity->setStatus('enabled');
+                $em->flush();
+                $this->get('session')->getFlashBag()
+                    ->add('success', 'El recurso fue habilitado exitosamente');
+
+            }
+        } else {
+            $this->get('session')->getFlashBag()
+                 ->add('warning', 'El recurso no pudo ser modificado');
+        }
+
+        return $this->redirect($this->generateUrl($this->resource));
+    }
 }
+

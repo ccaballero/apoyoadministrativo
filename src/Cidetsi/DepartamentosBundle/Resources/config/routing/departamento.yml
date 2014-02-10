@@ -36,6 +36,21 @@ departamento_delete_post:
     defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:deletePost" }
     requirements: { _method: post|delete }
 
+departamento_enabled_get:
+    pattern: /{id}/habilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:enabledGet" }
+    requirements: { _method: get }
+
+departamento_disabled_get:
+    pattern: /{id}/deshabilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:disabledGet" }
+    requirements: { _method: get }
+
+departamento_status_post:
+    pattern: /{id}/estado
+    defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:statusPost" }
+    requirements: { _method: post }
+
 departamento_create_carrera_get:
     pattern: /{id}/carrera
     defaults: { _controller: "CidetsiDepartamentosBundle:Departamento:createCarreraGet" }
