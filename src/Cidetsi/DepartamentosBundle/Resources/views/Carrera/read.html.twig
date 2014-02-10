@@ -9,6 +9,19 @@
         {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
             'view': false,  'edit': true, 'delete': true, 'admin': true
         }) }}
+        <br />
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#home" data-toggle="tab">Información</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                {{ include(
+                    'CidetsiDepartamentosBundle:Carrera:_info.html.twig', {
+                        'carrera': entity
+                }) }}
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

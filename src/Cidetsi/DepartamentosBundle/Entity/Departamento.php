@@ -129,6 +129,10 @@ class Departamento
         return $this->getName();
     }
 
+    public function getCode() {
+        return $this->getAbbreviation();
+    }
+
     public function isEmpty() {
         return count($this->getCarreras()) == 0;
     }

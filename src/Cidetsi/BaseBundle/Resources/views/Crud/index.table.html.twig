@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+    <li><span>{{ title_list }}</span></li>
+</ol>
+{% endblock %}
+
+{% block body %}
+<section>
+    <div class="container">
+        {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
+        {% block preamble %}
+            <h1>{{ title_list }}</h1>
+        {% endblock %}
+        <table class="table table-striped table-condensed table-bordered
+                      table-hover">
+        {% block headers %}{% endblock %}
+        {% for entity in entities %}
+            {% if entity.isEnabled %}
+                {% block items %}{% endblock %}
+            {% endif %}
+        {% else %}
+            <p>No se encontraron entidades.</p>
+        {% endfor %}
+        <table>
+    </div>
+</section>
+{% endblock %}

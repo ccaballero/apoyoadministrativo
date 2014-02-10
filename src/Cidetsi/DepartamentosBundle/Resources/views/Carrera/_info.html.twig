@@ -1,0 +1,12 @@
+<div class="col-md-6">
+    <h2>Planes de estudio:</h2>
+    <div class="list-group">
+    {% for plan in carrera.planes %}
+        <a href="{{ path('planestudio_read', { 'id': plan.ident }) }}"
+           class="list-group-item">{{ plan.name }}</a>
+    {% else %}
+        <em>No existen planes de estudio registrados.</em>
+    {% endfor %}
+    </div>
+</div>
+

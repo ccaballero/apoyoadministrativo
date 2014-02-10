@@ -1,4 +1,4 @@
-{% extends 'CidetsiBaseBundle:Crud:index.html.twig' %}
+{% extends 'CidetsiBaseBundle:Crud:index.table.html.twig' %}
 
 {% block preamble %}
     {{ parent() }}
@@ -7,8 +7,20 @@
     {{ include('CidetsiMateriasBundle:Materia:Tasks/collection.html.twig') }}
 {% endblock %}
 
+{% block headers %}
+    <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Departamento</th>
+        <th>&nbsp;</th>
+    </tr>
+{% endblock %}
+
 {% block items %}
-{{ include('CidetsiMateriasBundle:Materia:Tasks/element.html.twig', {
-    'view': true, 'edit': true, 'delete': true
-}) }}
+<tr>
+    <td class="text-center">{{ entity.code }}</td>
+    <td>{{ entity.name }}</td>
+    <td>{{ entity.departamento.name }}</td>
+    <td>&nbsp;<td>
+</tr>
 {% endblock %}

@@ -104,6 +104,10 @@ class Carrera
         return $this->getName();
     }
 
+    public function getCode() {
+        return $this->getAbbreviation();
+    }
+
     public function isEmpty() {
         return count($this->getPlanes()) == 0;
     }
