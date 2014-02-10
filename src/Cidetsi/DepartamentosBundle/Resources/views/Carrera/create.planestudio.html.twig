@@ -9,6 +9,9 @@
         {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
             'view': false,  'edit': true, 'delete': true, 'admin': true
         }) }}
+    
+        <h2>Agregar plan de estudio</h2>
+        {{ form(form) }}
     </div>
 </section>
 {% endblock %}

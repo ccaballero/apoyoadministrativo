@@ -35,3 +35,29 @@ carrera_delete_post:
     pattern:  /{id}/eliminar
     defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:deletePost" }
     requirements: { _method: post|delete }
+
+carrera_enabled_get:
+    pattern: /{id}/habilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:enabledGet" }
+    requirements: { _method: get }
+
+carrera_disabled_get:
+    pattern: /{id}/deshabilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:disabledGet" }
+    requirements: { _method: get }
+
+carrera_status_post:
+    pattern: /{id}/estado
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:statusPost" }
+    requirements: { _method: post }
+
+carrera_create_planestudio_get:
+    pattern: /{id}/planestudio
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:createPlanEstudioGet" }
+    requirements: { _method: get }
+
+carrera_create_planestudio_post:
+    pattern: /{id}/planestudio
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:createPlanEstudioPost" }
+    requirements: { _method: post }
+

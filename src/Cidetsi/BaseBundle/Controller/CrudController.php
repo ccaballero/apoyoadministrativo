@@ -265,7 +265,6 @@ class CrudController extends Controller
                 $em->flush();
                 $this->get('session')->getFlashBag()
                     ->add('success', 'El recurso fue habilitado exitosamente');
-
             }
         } else {
             $this->get('session')->getFlashBag()

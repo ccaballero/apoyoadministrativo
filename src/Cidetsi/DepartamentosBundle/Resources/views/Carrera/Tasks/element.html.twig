@@ -3,17 +3,33 @@
     {% if view %}
         <a class="btn btn-primary"
            href="{{ path('carrera_read', {
-            'id': entity.ident }) }}">Ver detalles</a>
+            'id': entity.ident }) }}">Ver</a>
     {% endif %}
     {% if edit %}
         <a class="btn btn-default"
            href="{{ path('carrera_update_get', {
             'id': entity.ident }) }}">Editar</a>
     {% endif %}
+    {% if entity.isEnabled %}
+        <a class="btn btn-default"
+           href="{{ path('carrera_disabled_get', {
+            'id': entity.ident }) }}">Deshabilitar</a>
+    {% else %}
+        <a class="btn btn-default"
+           href="{{ path('carrera_enabled_get', {
+            'id': entity.ident }) }}">Habilitar</a>
+    {% endif %}
     {% if delete %}
         <a class="btn btn-default"
            href="{{ path('carrera_delete_get', {
             'id': entity.ident }) }}">Eliminar</a>
     {% endif %}
+    </div>
+    <div class="btn-group">
+        {% if admin %}
+            <a class="btn btn-default"
+               href="{{ path('carrera_create_planestudio_get', {
+                'id': entity.ident }) }}">Nuevo Plan de Estudio</a>
+        {% endif %}
     </div>
 </div>
