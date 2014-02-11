@@ -116,3 +116,4 @@ class Carrera
         return $this->getStatus() == 'enabled';
     }
 }
+

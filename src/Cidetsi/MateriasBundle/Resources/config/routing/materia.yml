@@ -35,3 +35,29 @@ materia_delete_post:
     pattern:  /{id}/eliminar
     defaults: { _controller: "CidetsiMateriasBundle:Materia:deletePost" }
     requirements: { _method: post|delete }
+
+materia_enabled_get:
+    pattern: /{id}/habilitar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:enabledGet" }
+    requirements: { _method: get }
+
+materia_disabled_get:
+    pattern: /{id}/deshabilitar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:disabledGet" }
+    requirements: { _method: get }
+
+materia_status_post:
+    pattern: /{id}/estado
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:statusPost" }
+    requirements: { _method: post }
+
+materia_create_grupo_get:
+    pattern: /{id}/grupo
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:createGrupoGet" }
+    requirements: { _method: get }
+
+materia_create_grupo_post:
+    pattern: /{id}/grupo
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:createGrupoPost" }
+    requirements: { _method: post }
+

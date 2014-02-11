@@ -6,7 +6,8 @@
         {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
         <h1>{{ entity.name }}</h1>
         <p class="lead">{{ entity.departamento }}</p>
-        {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig', {
+        {{ include('CidetsiDepartamentosBundle:Carrera:Tasks/element.html.twig',
+        {
             'view': false,  'edit': true, 'delete': true, 'admin': true
         }) }}
         <br />

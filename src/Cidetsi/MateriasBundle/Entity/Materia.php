@@ -102,11 +102,16 @@ class Materia
         return $this;
     }
 
-    public function isEnabled() {
-        return $this->getStatus() == 'enabled';
-    }
-
     public function __toString() {
         return $this->getName();
     }
+
+    public function isEmpty() {
+        return count($this->getGrupos()) == 0;
+    }
+
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
 }
+

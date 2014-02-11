@@ -21,6 +21,22 @@
     <td class="text-center">{{ entity.code }}</td>
     <td>{{ entity.name }}</td>
     <td>{{ entity.departamento.name }}</td>
-    <td>&nbsp;<td>
+    <td class="text-center">
+        <a href="{{ path('materia_read', {'id': entity.ident}) }}"
+           alt="Ver" title="Ver">
+           <span class="glyphicon glyphicon-search"></span></a>&nbsp;
+        <a href="{{ path('materia_update_get', {'id': entity.ident}) }}"
+           alt="Editar" title="Editar">
+           <span class="glyphicon glyphicon-pencil"></span></a>&nbsp;
+        <a href="{{ path('materia_enabled_get', {'id': entity.ident}) }}"
+           alt="Habilitar" title="Habilitar">
+           <span class="glyphicon glyphicon-ok-circle"></span></a>&nbsp;
+        <a href="{{ path('materia_disabled_get', {'id': entity.ident}) }}"
+           alt="Deshabilitar" title="Deshabilitar">
+           <span class="glyphicon glyphicon-ban-circle"></span></a>&nbsp;
+        <a href="{{ path('materia_delete_get', {'id': entity.ident}) }}"
+           alt="Eliminar" title="Eliminar">
+           <span class="glyphicon glyphicon-remove"></span></a>
+    </td>
 </tr>
 {% endblock %}

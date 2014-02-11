@@ -3,7 +3,7 @@
 {% block breadcrumb %}
 <ol class="breadcrumb">
     <li><a href="{{ path(url_list) }}">{{ title_list }}</a></li>
-    <li><a href="{{ path(url_element, { 'id' : entity.ident }) }}">{{ entity.name }}</a></li>
+    <li><a href="{{ path(url_element, {'id': entity.ident}) }}">{{ entity.name }}</a></li>
     <li><span>Edición</span></li>
 </ol>
 {% endblock %}
