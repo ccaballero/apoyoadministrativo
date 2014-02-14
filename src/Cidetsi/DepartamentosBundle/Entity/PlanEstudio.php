@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\Entity
 * @ORM\Table(name="plan_estudio")
 */
-class PlanEstudio
+class PlanEstudio 
 {
     /**
      * @ORM\Id
@@ -57,12 +57,14 @@ class PlanEstudio
     public function getStatus() { return $this->status; }
     public function getTsregister() { return $this->tsregister; }
 
-    public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
+    public function setDepartamento(
+        \Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
         $this->departamento = $departamento;
         return $this;
     }
 
-    public function setCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera = null) {
+    public function setCarrera(
+        \Cidetsi\DepartamentosBundle\Entity\Carrera $carrera = null) {
         $this->carrera = $carrera;
         return $this;
     }
@@ -95,45 +97,16 @@ class PlanEstudio
         return $this->getStatus() == 'enabled';
     }
 
-//    private $plan_materias;
-//    private $materias;
+    public function getLabel() {
+        return $this->getName();
+    }
 
-//    public function __construct()
-//    {
-//        $this->plan_materias = new \Doctrine\Common\Collections\ArrayCollection();
-//        $this->materias = new \Doctrine\Common\Collections\ArrayCollection();
-//    }
-//
-//    public function addPlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
-//    {
-//        $this->plan_materias[] = $planMaterias;
-//
-//        return $this;
-//    }
-//
-//    public function removePlanMateria(\Cidetsi\DepartamentosBundle\Entity\PlanMateria $planMaterias)
-//    {
-//        $this->plan_materias->removeElement($planMaterias);
-//    }
-//
-//    public function getPlanMaterias()
-//    {
-//        return $this->plan_materias;
-//    }
-//
-//    public function addMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
-//    {
-//        $this->materias[] = $materias;
-//        return $this;
-//    }
-//
-//    public function removeMateria(\Cidetsi\DepartamentosBundle\Entity\Materia $materias)
-//    {
-//        $this->materias->removeElement($materias);
-//    }
-//
-//    public function getMaterias()
-//    {
-//        return $this->materias;
-//    }
+    public function getSlug() {
+        return $this->getIdent();
+    }
+
+    public function isEmpty() {
+        return true;
+    }
 }
+

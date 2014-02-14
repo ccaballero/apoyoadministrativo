@@ -41,14 +41,19 @@ carrera_enabled_get:
     defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:enabledGet" }
     requirements: { _method: get }
 
+carrera_enabled_post:
+    pattern: /{id}/habilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:enabledPost" }
+    requirements: { _method: post }
+
 carrera_disabled_get:
     pattern: /{id}/deshabilitar
     defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:disabledGet" }
     requirements: { _method: get }
 
-carrera_status_post:
-    pattern: /{id}/estado
-    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:statusPost" }
+carrera_disabled_post:
+    pattern: /{id}/deshabilitar
+    defaults: { _controller: "CidetsiDepartamentosBundle:Carrera:disabledPost" }
     requirements: { _method: post }
 
 carrera_create_planestudio_get:

@@ -123,6 +123,7 @@ class CrudController extends Controller
                 array_merge(
                     $this->tpl_commons, array(
                         'entity' => $entity,
+                        'task' => $task,
                         'status_form' => $statusForm->createView(),
         )));
     }

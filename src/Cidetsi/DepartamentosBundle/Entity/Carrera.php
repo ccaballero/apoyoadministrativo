@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\Entity
 * @ORM\Table(name="carrera")
 */
-class Carrera
+class Carrera implements \Cidetsi\BaseBundle\Entity\Resource
 {
     /**
      * @ORM\Id
@@ -61,7 +61,8 @@ class Carrera
 
     public function getPlanes() { return $this->planes; }
 
-    public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
+    public function setDepartamento(
+        \Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
         $this->departamento = $departamento;
         return $this;
     }
@@ -104,16 +105,21 @@ class Carrera
         return $this->getName();
     }
 
-    public function getCode() {
-        return $this->getAbbreviation();
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
+
+    public function getLabel() {
+        return $this->getName();
+    }
+
+    public function getSlug() {
+        return $this->getIdent();
     }
 
     public function isEmpty() {
         return count($this->getPlanes()) == 0;
     }
 
-    public function isEnabled() {
-        return $this->getStatus() == 'enabled';
-    }
 }
 

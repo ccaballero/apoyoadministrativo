@@ -17,9 +17,7 @@
         {% for plan in entity.planes %}
             {% if plan.isEnabled %}
                 <li class="list-group-item">
-                    <a href="{{ path(
-                        'planestudio_read', { 'id': plan.ident }) }}">
-                        {{ plan.name }} ({{ plan.code }})</a>
+                    {{ plan.name }} ({{ plan.code }})
                 </li>
             {% endif %}
         {% else %}

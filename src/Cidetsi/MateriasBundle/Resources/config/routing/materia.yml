@@ -41,14 +41,19 @@ materia_enabled_get:
     defaults: { _controller: "CidetsiMateriasBundle:Materia:enabledGet" }
     requirements: { _method: get }
 
+materia_enabled_post:
+    pattern: /{id}/habilitar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:enablePost" }
+    requirements: { _method: post }
+
 materia_disabled_get:
     pattern: /{id}/deshabilitar
     defaults: { _controller: "CidetsiMateriasBundle:Materia:disabledGet" }
     requirements: { _method: get }
 
-materia_status_post:
-    pattern: /{id}/estado
-    defaults: { _controller: "CidetsiMateriasBundle:Materia:statusPost" }
+materia_disabled_post:
+    pattern: /{id}/deshabilitar
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:disabledPost" }
     requirements: { _method: post }
 
 materia_create_grupo_get:

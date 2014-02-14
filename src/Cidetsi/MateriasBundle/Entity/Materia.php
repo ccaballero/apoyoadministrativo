@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\Entity
 * @ORM\Table(name="materia")
 */
-class Materia
+class Materia implements \Cidetsi\BaseBundle\Entity\Resource
 {
     /**
      * @ORM\Id
@@ -19,7 +19,9 @@ class Materia
     private $ident;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\Cidetsi\DepartamentosBundle\Entity\Departamento",inversedBy="materias")
+     * @ORM\ManyToOne(
+     * targetEntity="\Cidetsi\DepartamentosBundle\Entity\Departamento",
+     * inversedBy="materias")
      * @ORM\JoinColumn(name="departamento",referencedColumnName="ident")
      **/
     private $departamento;
@@ -62,7 +64,8 @@ class Materia
 
     public function getGrupos() { return $this->grupos; }
 
-    public function setDepartamento(\Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
+    public function setDepartamento(
+        \Cidetsi\DepartamentosBundle\Entity\Departamento $departamento = null) {
         $this->departamento = $departamento;
         return $this;
     }
@@ -106,12 +109,20 @@ class Materia
         return $this->getName();
     }
 
-    public function isEmpty() {
-        return count($this->getGrupos()) == 0;
-    }
-
     public function isEnabled() {
         return $this->getStatus() == 'enabled';
+    }
+
+    public function getLabel() {
+        return $this->getName();
+    }
+
+    public function getSlug() {
+        return $this->getIdent();
+    }
+
+    public function isEmpty() {
+        return count($this->getGrupos()) == 0;
     }
 }
 

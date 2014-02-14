@@ -5,25 +5,25 @@
     <li><a href="{{ path(url_list) }}">{{ title_list }}</a></li>
     <li><a href="{{ path(url_element, {'id': entity.ident}) }}">
         {{ entity.name }}</a></li>
-{% if entity.isEnabled %}
-    <li><span>Deshabilitar</span></li>
-{% else %}
+{% if task == 'enabled' %}
     <li><span>Habilitar</span></li>
+{% else %}
+    <li><span>Deshabilitar</span></li>
 {% endif %}
 </ol>
 {% endblock %}
 
 {% block body %}
-    {% if entity.isEnabled %}
-        {% set param1 = 'deshabilitación' %}
-        {% set param2 = 'Deshabilitar' %}
-        {% set param3 = 'esconder' %}
-        {% set param4 = 'deshabilitar' %}
-    {% else %}
+    {% if task == 'enabled' %}
         {% set param1 = 'habilitación' %}
         {% set param2 = 'Habilitar' %}
         {% set param3 = 'mostrar' %}
         {% set param4 = 'habilitar' %}
+    {% else %}
+        {% set param1 = 'deshabilitación' %}
+        {% set param2 = 'Deshabilitar' %}
+        {% set param3 = 'esconder' %}
+        {% set param4 = 'deshabilitar' %}
     {% endif %}
 <section>
     <div class="container">
@@ -38,3 +38,4 @@
     </div>
 </section>
 {% endblock %}
+
