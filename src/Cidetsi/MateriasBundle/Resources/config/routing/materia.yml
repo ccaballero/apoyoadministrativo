@@ -43,7 +43,7 @@ materia_enabled_get:
 
 materia_enabled_post:
     pattern: /{id}/habilitar
-    defaults: { _controller: "CidetsiMateriasBundle:Materia:enablePost" }
+    defaults: { _controller: "CidetsiMateriasBundle:Materia:enabledPost" }
     requirements: { _method: post }
 
 materia_disabled_get:

@@ -265,8 +265,13 @@ class CrudController extends Controller
             }
             $entity->setStatus($task);
             $em->flush();
-            $this->get('session')->getFlashBag()
-                ->add('success', 'El recurso fue deshabilitado exitosamente');
+            $message = 'El recurso fue %s exitosamente';
+            if ($task == 'enabled') {
+                $message = sprintf($message, 'habilitado');
+            } else {
+                $message = sprintf($message, 'deshabilitado');
+            }
+            $this->get('session')->getFlashBag()->add('success', $message);
         } else {
             $this->get('session')->getFlashBag()
                  ->add('warning', 'El recurso no pudo ser modificado');
