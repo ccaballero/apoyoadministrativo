@@ -10,6 +10,7 @@
                href="{{ path('departamento_update_get', {
                 'id': entity.ident }) }}">Editar</a>
         {% endif %}
+    {% if admin %}
         {% if entity.isEnabled %}
             <a class="btn btn-default"
                href="{{ path('departamento_disabled_get', {
@@ -19,6 +20,7 @@
                href="{{ path('departamento_enabled_get', {
                 'id': entity.ident }) }}">Habilitar</a>
         {% endif %}
+    {% endif %}
         {% if delete %}
             <a class="btn btn-default"
                href="{{ path('departamento_delete_get', {

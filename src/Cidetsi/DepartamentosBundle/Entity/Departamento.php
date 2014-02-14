@@ -6,10 +6,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity(repositoryClass="\Cidetsi\DepartamentosBundle\Entity\DepartamentoRepository")
-* @ORM\Table(name="departamento")
-*/
-class Departamento
+ * @ORM\Entity(
+ * repositoryClass="\Cidetsi\DepartamentosBundle\Entity\DepartamentoRepository")
+ * @ORM\Table(name="departamento")
+ */
+class Departamento implements \Cidetsi\BaseBundle\Entity\Resource
 {
     /**
      * @ORM\Id
@@ -50,7 +51,9 @@ class Departamento
     private $carreras;
 
     /**
-     * @ORM\OneToMany(targetEntity="\Cidetsi\MateriasBundle\Entity\Materia",mappedBy="departamento")
+     * @ORM\OneToMany(
+     * targetEntity="\Cidetsi\MateriasBundle\Entity\Materia",
+     * mappedBy="departamento")
      * @ORM\OrderBy({"name"="ASC"})
      **/
     private $materias;
@@ -100,12 +103,14 @@ class Departamento
         return $this;
     }
 
-    public function addCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
+    public function addCarrera(
+        \Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
         $this->carreras[] = $carrera;
         return $this;
     }
 
-    public function removeCarrera(\Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
+    public function removeCarrera(
+        \Cidetsi\DepartamentosBundle\Entity\Carrera $carrera) {
         $this->carreras->removeElement($carrera);
         return $this;
     }
@@ -115,12 +120,14 @@ class Departamento
         return $this;
     }
 
-    public function addMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
+    public function addMateria(
+        \Cidetsi\MateriasBundle\Entity\Materia $materia) {
         $this->materias[] = $materia;
         return $this;
     }
 
-    public function removeMateria(\Cidetsi\MateriasBundle\Entity\Materia $materia) {
+    public function removeMateria(
+        \Cidetsi\MateriasBundle\Entity\Materia $materia) {
         $this->materias->removeElement($materia);
         return $this;
     }
@@ -129,15 +136,20 @@ class Departamento
         return $this->getName();
     }
 
-    public function getCode() {
-        return $this->getAbbreviation();
+    public function isEnabled() {
+        return $this->getStatus() == 'enabled';
+    }
+
+    public function getLabel() {
+        return $this->getName();
+    }
+
+    public function getSlug() {
+        return $this->getIdent();
     }
 
     public function isEmpty() {
         return count($this->getCarreras()) == 0;
     }
-
-    public function isEnabled() {
-        return $this->getStatus() == 'enabled';
-    }
 }
+

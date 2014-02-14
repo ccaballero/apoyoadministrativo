@@ -59,16 +59,6 @@ class CrudController extends Controller
         return $entity;
     }
 
-    public function readAction($id) {
-        $entity = $this->getEntity($id);
-
-        return $this->render($this->repository . ':read.html.twig',
-            array_merge(
-                $this->tpl_commons, array(
-                    'entity' => $entity,
-        )));
-    }
-
     public function createGetAction() {
         $entity = new $this->entity();
         $form = $this->createCreateForm($entity);
@@ -78,6 +68,16 @@ class CrudController extends Controller
                 $this->tpl_commons, array(
                     'entity' => $entity,
                     'form' => $form->createView(),
+        )));
+    }
+
+    public function readAction($id) {
+        $entity = $this->getEntity($id);
+
+        return $this->render($this->repository . ':read.html.twig',
+            array_merge(
+                $this->tpl_commons, array(
+                    'entity' => $entity,
         )));
     }
 
@@ -107,16 +107,16 @@ class CrudController extends Controller
     }
 
     public function disabledGetAction($id) {
-        return $this->statusGetAction($id);
+        return $this->statusGetAction($id, 'disabled');
     }
 
     public function enabledGetAction($id) {
-        return $this->statusGetAction($id);
+        return $this->statusGetAction($id, 'enabled');
     }
 
-    protected function statusGetAction($id) {
+    protected function statusGetAction($id, $task) {
         $entity = $this->getEntity($id);
-        $statusForm = $this->createStatusForm($id);
+        $statusForm = $this->createStatusForm($id, $task);
 
         return $this->render(
             $this->repository . ':status.html.twig',
@@ -159,10 +159,10 @@ class CrudController extends Controller
             ->getForm();
     }
 
-    protected function createStatusForm($id) {
+    protected function createStatusForm($id, $task) {
         return $this->createFormBuilder()
             ->setAction($this->generateUrl(
-                $this->resource . '_status_post', array(
+                $this->resource . '_' . $task . '_post', array(
                     'id' => $id)))
             ->setMethod('POST')
             ->add('submit', 'submit', array('label' => 'Confirmar'))
@@ -245,8 +245,16 @@ class CrudController extends Controller
         return $this->redirect($this->generateUrl($this->resource));
     }
 
-    public function statusPostAction(Request $request, $id) {
-        $form = $this->createStatusForm($id);
+    public function enabledPostAction(Request $request, $id) {
+        return $this->statusPostAction($request, $id, 'enabled');
+    }
+
+    public function disabledPostAction(Request $request, $id) {
+        return $this->statusPostAction($request, $id, 'disabled');
+    }
+
+    protected function statusPostAction(Request $request, $id, $task) {
+        $form = $this->createStatusForm($id, $task);
         $form->handleRequest($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -254,18 +262,10 @@ class CrudController extends Controller
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find entity.');
             }
-            if ($entity->isEnabled()) {
-                $entity->setStatus('disabled');
-                $em->flush();
-                $this->get('session')->getFlashBag()
-                    ->add('success', 'El recurso fue deshabilitado
-                    exitosamente');
-            } else {
-                $entity->setStatus('enabled');
-                $em->flush();
-                $this->get('session')->getFlashBag()
-                    ->add('success', 'El recurso fue habilitado exitosamente');
-            }
+            $entity->setStatus($task);
+            $em->flush();
+            $this->get('session')->getFlashBag()
+                ->add('success', 'El recurso fue deshabilitado exitosamente');
         } else {
             $this->get('session')->getFlashBag()
                  ->add('warning', 'El recurso no pudo ser modificado');

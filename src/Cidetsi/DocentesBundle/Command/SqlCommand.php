@@ -1,5 +1,21 @@
 <?php
 
+/** Comando para la extracción de la información de los docentes desde el 
+ *  sistema de apoyo administrativo, para poder portarse hacia el nuevo sistema 
+ *  de apoyo administrativo.
+ *  Uso:
+ *      $ php app/console.php cidetsi:sql:docentes params [filename]
+ *
+ *      params: son los datos necesarios para la conexion hacia el sistema de 
+ *      apoyo administrativo, que se encuentra en PostgreSQL.
+ *
+ *      La notación para este parametro es:
+ *          ip:port:user:db:password
+ *
+ *      filename: es el archivo donde se registrará la información de los
+ *      docentes.
+ */
+
 namespace Cidetsi\DocentesBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

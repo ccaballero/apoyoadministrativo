@@ -1,0 +1,14 @@
+{% extends 'CidetsiBaseBundle:Crud:read.html.twig' %}
+
+{% block body %}
+<section>
+    <div class="container">
+        {{ include('CidetsiBaseBundle:Block:flashbag.html.twig') }}
+        <h1>{{ entity.fullname}}</h1>
+        {{ include('CidetsiDocentesBundle:Docente:Tasks/element.html.twig', {
+            'view': false, 'edit': true, 'delete': true, 'admin': true
+        }) }}
+        <br />
+    </div>
+</section>
+{% endblock %}

@@ -2,8 +2,6 @@
 
 {% block preamble %}
     {{ parent() }}
-    <p>Estas son las materias que posee la facultad de ciencias y
-    tecnologia.</p>
     {{ include('CidetsiMateriasBundle:Materia:Tasks/collection.html.twig') }}
 {% endblock %}
 

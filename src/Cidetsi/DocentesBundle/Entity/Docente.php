@@ -127,6 +127,22 @@ class Docente
         return $this;
     }
 
+    public function getStatus() {
+        return 'enabled';
+    }
+
+    public function isEnabled() {
+        return true;
+    }
+
+    public function getFullname() {
+        return $this->getApellidoPaterno() . ' ' . $this->getApellidoMaterno() . ' ' . $this->getNombres();
+    }
+
+    public function getCode() {
+        return $this->getFullname();
+    }
+
     public function __toString() {
         return $this->getCi();
     }
