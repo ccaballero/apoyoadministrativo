@@ -3,17 +3,17 @@
     {% if view %}
         <a class="btn btn-primary"
            href="{{ path('docente_read', {
-            'id': entity.ident }) }}">Ver detalles</a>
+            'id': entity.slug }) }}">Ver detalles</a>
     {% endif %}
     {% if edit %}
         <a class="btn btn-default"
            href="{{ path('docente_update_get', {
-            'id': entity.ident }) }}">Editar</a>
+            'id': entity.slug }) }}">Editar</a>
     {% endif %}
     {% if delete %}
         <a class="btn btn-default"
            href="{{ path('docente_delete_get', {
-            'id': entity.ident }) }}">Eliminar</a>
+            'id': entity.slug }) }}">Eliminar</a>
     {% endif %}
     </div>
 </div>

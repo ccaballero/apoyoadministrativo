@@ -35,3 +35,4 @@ gestion_delete_post:
     pattern:  /{id}/eliminar
     defaults: { _controller: "CidetsiGestionesBundle:Gestion:deletePost" }
     requirements: { _method: post|delete }
+

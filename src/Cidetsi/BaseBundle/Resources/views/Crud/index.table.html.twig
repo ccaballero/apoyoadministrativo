@@ -17,9 +17,7 @@
                       table-hover">
         {% block headers %}{% endblock %}
         {% for entity in entities %}
-            {% if entity.isEnabled %}
-                {% block items %}{% endblock %}
-            {% endif %}
+            {% block items %}{% endblock %}
         {% else %}
             <tr><td>No se encontraron entidades.</td></tr>
         {% endfor %}

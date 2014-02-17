@@ -20,13 +20,13 @@
     <td>{{ entity.apellidoMaterno }}</td>
     <td>{{ entity.nombres }}</td>
     <td class="text-center">
-        <a href="{{ path('docente_read', {'id': entity.ident}) }}"
+        <a href="{{ path('docente_read', {'id': entity.slug}) }}"
            alt="Ver" title="Ver">
            <span class="glyphicon glyphicon-search"></span></a>&nbsp;
-        <a href="{{ path('docente_update_get', {'id': entity.ident}) }}"
+        <a href="{{ path('docente_update_get', {'id': entity.slug}) }}"
            alt="Editar" title="Editar">
            <span class="glyphicon glyphicon-pencil"></span></a>&nbsp;
-        <a href="{{ path('docente_delete_get', {'id': entity.ident}) }}"
+        <a href="{{ path('docente_delete_get', {'id': entity.slug}) }}"
            alt="Eliminar" title="Eliminar">
            <span class="glyphicon glyphicon-remove"></span></a>
     </td>

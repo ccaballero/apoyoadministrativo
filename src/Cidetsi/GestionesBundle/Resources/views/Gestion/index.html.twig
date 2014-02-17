@@ -1,12 +1,35 @@
-{% extends 'CidetsiBaseBundle:Crud:index.html.twig' %}
+{% extends 'CidetsiBaseBundle:Crud:index.table.html.twig' %}
 
 {% block preamble %}
     {{ parent() }}
-    {{ include('CidetsiDepartamentosBundle:Departamento:Tasks/collection.html.twig') }}
+    {{ include('CidetsiGestionesBundle:Gestion:Tasks/collection.html.twig') }}
+{% endblock %}
+
+{% block headers %}
+    <tr>
+        <th>Gestión</th>
+        <th>&nbsp;</th>
+    </tr>
 {% endblock %}
 
 {% block items %}
-{{ include('CidetsiDepartamentosBundle:Departamento:Tasks/element.html.twig', {
-    'view': true, 'edit': true, 'delete': true, 'admin': false
-}) }}
+{% if entity.status == 'active' %}
+<tr class="success">
+{% else %}
+<tr>
+{% endif %}
+    <td class="text-center">{{ entity.label }}</td>
+    <td class="text-center">
+        <a href="{{ path('gestion_read', {'id': entity.ident}) }}"
+           alt="Ver" title="Ver">
+           <span class="glyphicon glyphicon-search"></span></a>&nbsp;
+        <a href="{{ path('gestion_update_get', {'id': entity.ident}) }}"
+           alt="Editar" title="Editar">
+           <span class="glyphicon glyphicon-pencil"></span></a>&nbsp;
+        <a href="{{ path('gestion_delete_get', {'id': entity.ident}) }}"
+           alt="Eliminar" title="Eliminar">
+           <span class="glyphicon glyphicon-remove"></span></a>
+    </td>
+</tr>
 {% endblock %}
+

@@ -127,6 +127,10 @@ class Docente
         return $this;
     }
 
+    public function __toString() {
+        return $this->getCi();
+    }
+
     public function getStatus() {
         return 'enabled';
     }
@@ -135,15 +139,12 @@ class Docente
         return true;
     }
 
-    public function getFullname() {
+    public function getLabel() {
         return $this->getApellidoPaterno() . ' ' . $this->getApellidoMaterno() . ' ' . $this->getNombres();
     }
 
-    public function getCode() {
-        return $this->getFullname();
-    }
-
-    public function __toString() {
-        return $this->getCi();
+    public function getSlug() {
+        return $this->getIdent();
     }
 }
+

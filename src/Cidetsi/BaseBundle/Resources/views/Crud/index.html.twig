@@ -14,9 +14,7 @@
             <h1>{{ title_list }}</h1>
         {% endblock %}
         {% for entity in entities %}
-            {% if entity.isEnabled %}
-                {% block items %}{% endblock %}
-            {% endif %}
+            {% block items %}{% endblock %}
         {% else %}
             <p>No se encontraron entidades.</p>
         {% endfor %}

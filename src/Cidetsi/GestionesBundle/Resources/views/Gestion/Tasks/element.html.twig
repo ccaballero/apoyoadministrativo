@@ -27,15 +27,5 @@
                 'id': entity.slug }) }}">Eliminar</a>
         {% endif %}
     </div>
-    <div class="btn-group">
-        {% if admin %}
-            <a class="btn btn-default"
-               href="{{ path('departamento_create_carrera_get', {
-                'id': entity.slug }) }}">Nueva Carrera</a>
-            <a class="btn btn-default"
-               href="{{ path('departamento_create_planestudio_get', {
-                'id': entity.slug }) }}">Nuevo Plan de Estudio</a>
-        {% endif %}
-    </div>
 </div>
 

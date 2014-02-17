@@ -3,33 +3,33 @@
     {% if view %}
         <a class="btn btn-primary"
            href="{{ path('materia_read', {
-            'id': entity.ident }) }}">Ver</a>
+            'id': entity.slug }) }}">Ver</a>
     {% endif %}
     {% if edit %}
         <a class="btn btn-default"
            href="{{ path('materia_update_get', {
-            'id': entity.ident }) }}">Editar</a>
+            'id': entity.slug }) }}">Editar</a>
     {% endif %}
     {% if entity.isEnabled %}
         <a class="btn btn-default"
            href="{{ path('materia_disabled_get', {
-            'id': entity.ident }) }}">Deshabilitar</a>
+            'id': entity.slug }) }}">Deshabilitar</a>
     {% else %}
         <a class="btn btn-default"
            href="{{ path('materia_enabled_get', {
-            'id': entity.ident }) }}">Habilitar</a>
+            'id': entity.slug }) }}">Habilitar</a>
     {% endif %}
     {% if delete %}
         <a class="btn btn-default"
            href="{{ path('materia_delete_get', {
-            'id': entity.ident }) }}">Eliminar</a>
+            'id': entity.slug }) }}">Eliminar</a>
     {% endif %}
     </div>
     <div class="btn-group">
         {% if admin %}
             <a class="btn btn-default"
                href="{{ path('materia_create_grupo_get', {
-                'id': entity.ident }) }}">Nuevo Grupo</a>
+                'id': entity.slug }) }}">Nuevo Grupo</a>
         {% endif %}
     </div>
 </div>

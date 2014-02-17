@@ -35,3 +35,4 @@ docente_delete_post:
     pattern:  /{id}/eliminar
     defaults: { _controller: "CidetsiDocentesBundle:Docente:deletePost" }
     requirements: { _method: post|delete }
+

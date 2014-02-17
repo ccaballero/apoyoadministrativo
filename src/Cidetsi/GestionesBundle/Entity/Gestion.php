@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 * @ORM\Entity
 * @ORM\Table(name="gestion")
 */
-class Gestion
+class Gestion implements \Cidetsi\BaseBundle\Entity\Resource
 {
     /**
      * @ORM\Id
@@ -39,7 +39,7 @@ class Gestion
 //    private $grupos;
 
     public function __construct() {
-        $this->grupos = new ArrayCollection();
+        //$this->grupos = new ArrayCollection();
     }
 
     public function getIdent() {        return $this->ident; }
@@ -79,11 +79,24 @@ class Gestion
 //        return $this;
 //    }
 
+    public function __toString() {
+        return $this->getName();
+    }
+
     public function isEnabled() {
         return $this->getStatus() == 'enabled';
     }
 
-    public function __toString() {
+    public function getLabel() {
         return $this->getName();
     }
+
+    public function getSlug() {
+        return $this->getIdent();
+    }
+
+    public function isEmpty() {
+        return true;
+    }
 }
+
