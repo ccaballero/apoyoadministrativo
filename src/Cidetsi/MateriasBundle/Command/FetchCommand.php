@@ -8,7 +8,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-// fetch the list of courses and registry in the database
+
+/**
+ * FetchCommand: Se encarga de crear un fichero con la información extraída del
+ * websiss, donde se encuentran las materias por cada plan de estudios.
+ *
+ * Entrada: url de la websiss desde donde extraer la información del plan de
+ * estudios.
+ *
+ * Salida: Fichero que compendia la información extraída, este normalmente lo 
+ * coloco en data/scrapping/[plan_estudio].txt
+ *
+ */
+
 class FetchCommand extends ContainerAwareCommand
 {
     protected function initialize(

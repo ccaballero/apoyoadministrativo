@@ -54,14 +54,14 @@ CREATE TABLE `gestion` (
 CREATE TABLE `materia` (
     `ident`             int unsigned               NOT NULL auto_increment,
     `departamento`      int unsigned               NULL,
-    `name`              varchar(128)               NOT NULL,
-    `code`              varchar(16)                NOT NULL,
+--    `name`              varchar(128)               NOT NULL,
+--    `code`              varchar(16)                NOT NULL,
     `status`            enum('enabled','disabled') NOT NULL DEFAULT 'enabled',
     `tsregister`        timestamp                  NOT NULL DEFAULT CURRENT_TIMESTAMP,
 --     `pg_id`             varchar(15)                NOT NULL,
     PRIMARY KEY (`ident`, `departamento`),
 --     UNIQUE KEY (`name`),
-    UNIQUE KEY (`code`),
+--    UNIQUE KEY (`code`),
     INDEX (`departamento`),
     FOREIGN KEY (`departamento`)
     REFERENCES `departamento`(`ident`)
@@ -157,6 +157,8 @@ CREATE TABLE `malla_curricular` (
     `plan`              int unsigned               NOT NULL,
     `departamento2`     int unsigned               NOT NULL,
     `materia`           int unsigned               NOT NULL,
+    `name`              varchar(128)               NULL,
+    `code`              varchar(16)                NULL,
     `type`              enum('C', 'NC')            NOT NULL DEFAULT 'C',
     `level`             char(1)                    NOT NULL DEFAULT '',
     PRIMARY KEY (`departamento`, `carrera`, `plan`, `departamento2`, `materia`),

@@ -21,3 +21,4 @@ VALUES
 (10, 17, 'Ingeniería de Alimentos', '409701');
 
 UPDATE `plan_estudio` SET `status` = 'disabled' WHERE `ident` = 10;
+

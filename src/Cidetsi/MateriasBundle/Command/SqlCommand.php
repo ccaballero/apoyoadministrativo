@@ -7,7 +7,18 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-// fetch the list of docentes and registry in the database
+/**
+ * SqlCommand: Generador del fichero SQL con la información de las materias, y
+ * las mallas curriculares, ademas de sus prerequisitos.
+ *
+ * Entrada: Directorio con los ficheros de scrapping de todos los planes de 
+ * estudio.
+ *
+ * Salida: Fichero SQL con la insercion de datos en las tablas:
+ *     - materia
+ *     - malla_curricular
+ *     - prerequisito
+ */
 class SqlCommand extends ContainerAwareCommand
 {
     protected $start_sequence = 100;
@@ -17,6 +28,7 @@ class SqlCommand extends ContainerAwareCommand
         parent::initialize($input, $output);
         $this->em = $this->getContainer()
                          ->get('doctrine')->getEntityManager();
+        $this->root = $this->getContainer()->get('kernel')->getRootDir();
     }
 
     protected function configure() {
@@ -31,12 +43,55 @@ class SqlCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output) {
         $output->writeln('Procesando la información de materias ... ');
+
         $filename = $input->getArgument('filename');
 
-        $path = $this->getDictPath();
-        $materia_departamento = $this->readDepartamentoMateria($path);
+        $dict1 = $this->loadDictDepartamentoMateria();
+        $dict2 = $this->loadDictMateriaCodigo();
+        $dict3 = $this->loadPlanEstudios();
 
-        $materias = $this->getData();
+        $planes = $this->getPlanesEstudio();
+
+        $materias = array();
+        $buffer = array();
+        $malla_curricular = array();
+        $prerequesitos = array();
+        
+        foreach($planes as $plan => $materias) {
+            foreach ($materias as $materia => $_materia) {
+                if (array_key_exists($materia, $dict2)) {
+                    $i = $dict2[$materia];
+                    if (array_key_exists($i, $buffer)) {
+                        $seq = $buffer['ident'];
+                        $dpto = $buffer['departamento'];
+                    }
+                }
+
+                $seq = $this->start_sequence++;
+                $dpto = array_key_exists($materia, $dict1) ?
+                    $dict1[$materia] : 1;
+
+                $materias[] = array(
+                    'ident' => $seq,
+                    'departamento' => $dpto,
+                );
+
+                $malla_curricular[] = array(
+                    'departamento' => $dict3[$plan]['departamento'],
+                    'carrera' => $dict3[$plan]['carrera'],
+                    'plan' => $dict3[$plan]['ident'],
+                    'departamento2' => $dpto,
+                    'materia' => $seq,
+                    'name' => $_materia['name'],
+                    'code' => $materia,
+                    'type' => $_materia['type'] == ' ' ? 'C':'NC',
+                    'level' => $_materia['level'],
+                );
+            }
+        }
+        
+
+/*        $materias = $this->getData();
         ksort($materias);
 
         if (!empty($filename)) {
@@ -77,50 +132,94 @@ class SqlCommand extends ContainerAwareCommand
                 }
                 $output->writeln($dpto . ' ' . $code . ' ' . $materia['name']);
             }
+        }*/
+    }
+
+    protected function loadDictDepartamentoMateria() {
+        $dict = array();
+        $path = realpath($this->root
+              . '/../data/implantation/dicts/aux-departamento-materia.txt');
+
+        $handle = @fopen($path, 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                list($materia, $departamento) = explode(' ', $line);
+                $dict[$materia] = trim($departamento);
+            }
+            if (!feof($handle)) {
+                echo 'Error: unexpected fgets() fail' . PHP_EOL;
+            }
+            fclose($handle);
         }
+
+        return $dict;
     }
 
-    protected function getScrappingPath() {
-        $root = $this->getContainer()->get('kernel')->getRootDir();
-        return realpath($root
-                . '/../data/implantation/scrapping');
-    }
+    protected function loadDictMateriaCodigo() {
+        $dict = array();
+        $path = realpath($this->root
+              . '/../data/implantation/dicts/aux-materia-codigo.txt');
 
-    protected function listFiles() {
-        $return = array();
+        $handle = @fopen($path, 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                list($i, $materias) = explode('    ', $line);
+                $_materias = explode(' ', $materias);
+                $_i = intval($i);
 
-        $dir = $this->getScrappingPath();
-        $files = scandir($dir);
-        if ($files) {
-            foreach ($files as $file) {
-                $_file = $dir . '/' . $file;
-                if (is_file($_file)) {
-                    $return[] = $_file;
+                foreach ($_materias as $_materia) {
+                    $dict[$_materia] = $_i;
                 }
             }
+            if (!feof($handle)) {
+                echo 'Error: unexpected fgets() fail' . PHP_EOL;
+            }
+            fclose($handle);
         }
 
-        return $return;
+        return $dict;
     }
 
-    protected function getData() {
-        $files = $this->listFiles();
+    protected function loadPlanEstudios() {
+        $dict = array();
+        $path = realpath($this->root
+              . '/../data/implantation/dicts/aux-planestudio.txt');
 
-        $all = array();
+        $handle = @fopen($path, 'r');
+        if ($handle) {
+            while (($line = fgets($handle, 4096)) !== false) {
+                $keys = explode('  ', $line);
+                $dict[trim($keys[3])] = array(
+                    'ident' => trim($keys[0]),
+                    'departamento' => trim($keys[1]),
+                    'carrera' => trim($keys[2]),
+                );
+            }
+            if (!feof($handle)) {
+                echo 'Error: unexpected fgets() fail' . PHP_EOL;
+            }
+            fclose($handle);
+        }
 
+        return $dict;
+    }
+
+    protected function getPlanesEstudio() {
+        $path = realpath($this->root
+              . '/../data/implantation/scrapping');
+
+        $files = $this->listFiles($path);
+
+        $planes = array();
         foreach ($files as $file) {
-            $hash = $this->getDataFile($file);
-            foreach ($hash as $key => $value) {
-                if (!array_key_exists($key, $all)) {
-                    $all[$key] = $value;
-                }
-            }
+            $plan = basename($file, '.txt');
+            $planes[$plan] = $this->getMallaCurricular($file);
         }
 
-        return $all;
+        return $planes;
     }
 
-    protected function getDataFile($file) {
+    protected function getMallaCurricular($file) {
         $regex = '/^(?P<level>[A-J]) (?P<name>.*) '
                 . '(?P<code>\d{7}) (?P<type>[ |x]) {(?P<pres>.*)}$/';
 
@@ -148,27 +247,18 @@ class SqlCommand extends ContainerAwareCommand
         return $return;
     }
 
-    protected function getDictPath() {
-        $root = $this->getContainer()->get('kernel')->getRootDir();
-        return realpath($root
-                . '/../data/implantation/dicts/aux-departamento-materia.txt');
-    }
-
-    protected function readDepartamentoMateria($path) {
-        $dict = array();
-
-        $handle = @fopen($path, 'r');
-        if ($handle) {
-            while (($line = fgets($handle, 4096)) !== false) {
-                list($materia, $departamento) = explode(' ', $line);
-                $dict[$materia] = trim($departamento);
+    protected function listFiles($dir) {
+        $return = array();
+        $files = scandir($dir);
+        if ($files) {
+            foreach ($files as $file) {
+                $_file = $dir . '/' . $file;
+                if (is_file($_file)) {
+                    $return[] = $_file;
+                }
             }
-            if (!feof($handle)) {
-                echo 'Error: unexpected fgets() fail' . PHP_EOL;
-            }
-            fclose($handle);
         }
-
-        return $dict;
+        return $return;
     }
 }
+
