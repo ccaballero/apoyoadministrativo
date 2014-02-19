@@ -74,17 +74,22 @@ class SqlCommand extends ContainerAwareCommand
                             'ident' => $seq,
                             'departamento' => $dpto,
                         );
+                        
+                        $_materias[] = array(
+                            'ident' => $seq,
+                            'departamento' => $dpto,
+                        );
                     }
                 } else {
                     $seq = $this->start_sequence++;
                     $dpto = array_key_exists($m, $dict1) ?
                         $dict1[$m] : 1;
-                }
 
-                $_materias[] = array(
-                    'ident' => $seq,
-                    'departamento' => $dpto,
-                );
+                    $_materias[] = array(
+                        'ident' => $seq,
+                        'departamento' => $dpto,
+                    );
+                }
 
                 $_malla[] = array(
                     'departamento' => $dict3[$p]['departamento'],
@@ -99,18 +104,24 @@ class SqlCommand extends ContainerAwareCommand
                 );
             }
         }
-        
+
         if (!empty($filename)) {
-            $values = array();
+            $values1 = array();
+            foreach ($_materias as $j) {
+                $values1[] = $j['ident'] . ',' . $j['departamento'];
+            }
+
+            $values2 = array();
             foreach ($_malla as $i) {
-                $values[] =
+                $_name = str_replace('�', 'Ñ', $i['name']);
+                $values2[] =
                       str_pad($i['departamento'], 3, ' ', STR_PAD_LEFT) . ', '
                     . str_pad($i['carrera'], 3, ' ', STR_PAD_LEFT) . ', '
                     . str_pad($i['plan'], 3, ' ', STR_PAD_LEFT) . ', '
                     . str_pad($i['departamento2'], 3, ' ', STR_PAD_LEFT) . ', '
                     . str_pad($i['materia'], 3, ' ', STR_PAD_LEFT) . ', '
-                    . str_pad('\'' . iconv('ISO-8859-1', 'UTF-8', $i['name'])
-                        . '\'', 50, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad('\'' . $_name . '\'', 50, ' ', STR_PAD_LEFT)
+                        . ', '
                     . str_pad('\'' . $i['code'] . '\'', 3, ' ', STR_PAD_LEFT)
                         . ', '
                     . str_pad('\'' . $i['type'] . '\'', 3, ' ', STR_PAD_LEFT)
@@ -118,15 +129,19 @@ class SqlCommand extends ContainerAwareCommand
                     . ('\'' . $i['level'] . '\'');
             }
 
-            $sql = 'INSERT INTO `materia` '
-                 . '(`ident`,`departamento`,`name`,`code`)'
-                 . PHP_EOL . 'VALUES' . PHP_EOL;
+            $sql = 'INSERT INTO `materia` (`ident`,`departamento`)'
+                . PHP_EOL . 'VALUES' . PHP_EOL;
+            $sql .= '(' . implode("),\n(", $values1) . ');' . PHP_EOL;
 
-//  . iconv('ISO-8859-1', 'UTF-8', $materia['name']) . '\',\''
+            $sql .= PHP_EOL;
 
-            $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
+            $sql .= 'INSERT INTO `malla_curricular` '
+                . '(`departamento`,`carrera`,`plan`,`departamento2`,`materia`,'
+                . '`name`,`code`,`type`,`level`)'
+                . PHP_EOL . 'VALUES' . PHP_EOL;
+            $sql .= '(' . implode("),\n(", $values2) . ');' . PHP_EOL;
+
             $output->writeln('registrando salida en: ' . $filename);
-            $output->writeln($sql);
             file_put_contents($filename, $sql);
         } else {
             $output->writeln('Generando lista ... ');

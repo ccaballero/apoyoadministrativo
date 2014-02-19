@@ -7,7 +7,6 @@
 
 {% block headers %}
     <tr>
-        <th>Código</th>
         <th>Nombre</th>
         <th>Departamento</th>
         <th>&nbsp;</th>
@@ -16,7 +15,6 @@
 
 {% block items %}
 <tr>
-    <td class="text-center">{{ entity.code }}</td>
     <td>{{ entity.name }}</td>
     <td>{{ entity.departamento.name }}</td>
     <td class="text-center">

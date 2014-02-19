@@ -29,12 +29,12 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     /**
      * @ORM\Column(type="string",length=128,unique=true)
      */
-    private $name;
+    //private $name;
 
     /**
      * @ORM\Column(type="string",length=16,unique=true)
      */
-    private $code;
+    //private $code;
 
     /**
      * @ORM\Column(type="status")
@@ -57,8 +57,8 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
 
     public function getIdent() { return $this->ident; }
     public function getDepartamento() { return $this->departamento; }
-    public function getName() { return $this->name; }
-    public function getCode() { return $this->code; }
+//    public function getName() { return $this->name; }
+//    public function getCode() { return $this->code; }
     public function getStatus() { return $this->status; }
     public function getTsregister() { return $this->tsregister; }
 
@@ -70,15 +70,15 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
         return $this;
     }
 
-    public function setName($name) {
+/*    public function setName($name) {
         $this->name = $name;
         return $this;
-    }
+}*/
 
-    public function setCode($code) {
+/*    public function setCode($code) {
         $this->code = $code;
         return $this;
-    }
+}*/
 
     public function setStatus($status) {
         $this->status = $status;
@@ -106,7 +106,11 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     }
 
     public function __toString() {
-        return $this->getName();
+        return $this->getIdent();
+    }
+
+    public function getName() {
+        return 'NAME';
     }
 
     public function isEnabled() {
@@ -114,7 +118,7 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     }
 
     public function getLabel() {
-        return $this->getName();
+        return $this->getIdent();
     }
 
     public function getSlug() {

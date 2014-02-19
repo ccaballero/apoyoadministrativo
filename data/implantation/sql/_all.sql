@@ -10,8 +10,8 @@ SELECT 'plan_estudio';
 \. 03-planes_estudio.sql
 SELECT 'gestion';
 \. 04-gestiones.sql
---SELECT 'materias';
---\. 05-materias.sql
+SELECT 'materias';
+\. 05-materias.sql
 --SELECT 'docentes';
 --\. 06-docentes.sql
 -- SELECT 'grupo-docentes';

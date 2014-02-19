@@ -8,7 +8,7 @@ class MateriaController extends CrudController
 {
     public $resource = 'materia';
     public $repository = 'CidetsiMateriasBundle:Materia';
-    public $orderBy = array('name' => 'asc');
+    public $orderBy = array('ident' => 'asc');
     public $form = 'Cidetsi\MateriasBundle\Form\MateriaForm';
     public $entity = 'Cidetsi\MateriasBundle\Entity\Materia';
 
