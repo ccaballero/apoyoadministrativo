@@ -52,87 +52,99 @@ class SqlCommand extends ContainerAwareCommand
 
         $planes = $this->getPlanesEstudio();
 
-        $materias = array();
-        $buffer = array();
-        $malla_curricular = array();
-        $prerequesitos = array();
+        $_materias = array();
+        $_buffer = array();
+        $_malla = array();
+        $_prerequesitos = array();
         
-        foreach($planes as $plan => $materias) {
-            foreach ($materias as $materia => $_materia) {
-                if (array_key_exists($materia, $dict2)) {
-                    $i = $dict2[$materia];
-                    if (array_key_exists($i, $buffer)) {
-                        $seq = $buffer['ident'];
-                        $dpto = $buffer['departamento'];
+        foreach($planes as $p => $materias) {
+            foreach ($materias as $m => $materia) {
+                if (array_key_exists($m, $dict2)) {
+                    $grupo = $dict2[$m];
+                    
+                    if (array_key_exists($grupo, $_buffer)) {
+                        $seq = $_buffer[$grupo]['ident'];
+                        $dpto = $_buffer[$grupo]['departamento'];
+                    } else {
+                        $seq = $this->start_sequence++;
+                        $dpto = array_key_exists($m, $dict1) ?
+                            $dict1[$m] : 1;
+
+                        $_buffer[$grupo] = array(
+                            'ident' => $seq,
+                            'departamento' => $dpto,
+                        );
                     }
+                } else {
+                    $seq = $this->start_sequence++;
+                    $dpto = array_key_exists($m, $dict1) ?
+                        $dict1[$m] : 1;
                 }
 
-                $seq = $this->start_sequence++;
-                $dpto = array_key_exists($materia, $dict1) ?
-                    $dict1[$materia] : 1;
-
-                $materias[] = array(
+                $_materias[] = array(
                     'ident' => $seq,
                     'departamento' => $dpto,
                 );
 
-                $malla_curricular[] = array(
-                    'departamento' => $dict3[$plan]['departamento'],
-                    'carrera' => $dict3[$plan]['carrera'],
-                    'plan' => $dict3[$plan]['ident'],
+                $_malla[] = array(
+                    'departamento' => $dict3[$p]['departamento'],
+                    'carrera' => $dict3[$p]['carrera'],
+                    'plan' => $dict3[$p]['ident'],
                     'departamento2' => $dpto,
                     'materia' => $seq,
-                    'name' => $_materia['name'],
-                    'code' => $materia,
-                    'type' => $_materia['type'] == ' ' ? 'C':'NC',
-                    'level' => $_materia['level'],
+                    'name' => $materia['name'],
+                    'code' => $m,
+                    'type' => $materia['type'] == ' ' ? 'C':'NC',
+                    'level' => $materia['level'],
                 );
             }
         }
         
-
-/*        $materias = $this->getData();
-        ksort($materias);
-
         if (!empty($filename)) {
-            $in_array = array();
-            foreach ($materias as $code => $materia) {
-                $in_array[] = $code;
+            $values = array();
+            foreach ($_malla as $i) {
+                $values[] =
+                      str_pad($i['departamento'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['carrera'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['plan'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['departamento2'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['materia'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad('\'' . iconv('ISO-8859-1', 'UTF-8', $i['name'])
+                        . '\'', 50, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad('\'' . $i['code'] . '\'', 3, ' ', STR_PAD_LEFT)
+                        . ', '
+                    . str_pad('\'' . $i['type'] . '\'', 3, ' ', STR_PAD_LEFT)
+                        . ', '
+                    . ('\'' . $i['level'] . '\'');
             }
 
             $sql = 'INSERT INTO `materia` '
                  . '(`ident`,`departamento`,`name`,`code`)'
                  . PHP_EOL . 'VALUES' . PHP_EOL;
 
-            $values = array();
-            $start = $this->start_sequence;
-            foreach ($materias as $code => $materia) {
-                $dpto = 1;
-                if (array_key_exists($code, $materia_departamento)) {
-                    $dpto = $materia_departamento[$code];
-                }
-
-                $values[] = $start++ . ','
-                          . $dpto . ',\''
-                          . iconv('ISO-8859-1', 'UTF-8', $materia['name']) . '\',\''
-                          . $code . '\'';
-            }
+//  . iconv('ISO-8859-1', 'UTF-8', $materia['name']) . '\',\''
 
             $sql .= '(' . implode("),\n(", $values) . ');' . PHP_EOL;
             $output->writeln('registrando salida en: ' . $filename);
+            $output->writeln($sql);
             file_put_contents($filename, $sql);
         } else {
             $output->writeln('Generando lista ... ');
             $output->writeln('');
 
-            foreach ($materias as $code => $materia) {
-                $dpto = 0;
-                if (array_key_exists($code, $materia_departamento)) {
-                    $dpto = $materia_departamento[$code];
-                }
-                $output->writeln($dpto . ' ' . $code . ' ' . $materia['name']);
+            foreach ($_malla as $i) {
+                $output->writeln(
+                      str_pad($i['departamento'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['carrera'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['plan'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['departamento2'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['materia'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['name'], 50, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['code'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . str_pad($i['type'], 3, ' ', STR_PAD_LEFT) . ', '
+                    . $i['level']);
             }
-        }*/
+        }
     }
 
     protected function loadDictDepartamentoMateria() {
@@ -168,6 +180,7 @@ class SqlCommand extends ContainerAwareCommand
                 $_i = intval($i);
 
                 foreach ($_materias as $_materia) {
+                    $_materia = trim($_materia);
                     $dict[$_materia] = $_i;
                 }
             }
@@ -225,13 +238,13 @@ class SqlCommand extends ContainerAwareCommand
 
         $handle = @fopen($file, 'r');
         $matches = array();
-        $return = array();
+        $materias = array();
 
         if ($handle) {
             while (($line = fgets($handle, 4096)) !== false) {
                 preg_match($regex, $line, $matches);
 
-                $return[$matches['code']] = array(
+                $materias[$matches['code']] = array(
                     'name' => trim($matches['name']),
                     'level' => $matches['level'],
                     'type' => $matches['type'],
@@ -244,7 +257,7 @@ class SqlCommand extends ContainerAwareCommand
             fclose($handle);
         }
 
-        return $return;
+        return $materias;
     }
 
     protected function listFiles($dir) {
