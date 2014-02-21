@@ -10,6 +10,9 @@
             'view': false, 'edit': true, 'delete': true, 'admin': true
         }) }}
         <br />
+        {% for malla in entity.malla %}
+            {{ malla }}<br />
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

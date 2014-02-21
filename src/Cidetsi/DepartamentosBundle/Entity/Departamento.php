@@ -54,7 +54,7 @@ class Departamento implements \Cidetsi\BaseBundle\Entity\Resource
      * @ORM\OneToMany(
      * targetEntity="\Cidetsi\MateriasBundle\Entity\Materia",
      * mappedBy="departamento")
-     * @ORM\OrderBy({"name"="ASC"})
+     * @ORM\OrderBy({"ident"="ASC"})
      **/
     private $materias;
 

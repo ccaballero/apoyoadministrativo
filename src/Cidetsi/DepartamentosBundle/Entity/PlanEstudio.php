@@ -5,10 +5,10 @@ namespace Cidetsi\DepartamentosBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-* @ORM\Entity
-* @ORM\Table(name="plan_estudio")
-*/
-class PlanEstudio 
+ * @ORM\Entity
+ * @ORM\Table(name="plan_estudio")
+ */
+class PlanEstudio implements \Cidetsi\BaseBundle\Entity\Resource
 {
     /**
      * @ORM\Id

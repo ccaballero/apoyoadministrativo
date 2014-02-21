@@ -23,18 +23,8 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
      * targetEntity="\Cidetsi\DepartamentosBundle\Entity\Departamento",
      * inversedBy="materias")
      * @ORM\JoinColumn(name="departamento",referencedColumnName="ident")
-     **/
+     */
     private $departamento;
-
-    /**
-     * @ORM\Column(type="string",length=128,unique=true)
-     */
-    //private $name;
-
-    /**
-     * @ORM\Column(type="string",length=16,unique=true)
-     */
-    //private $code;
 
     /**
      * @ORM\Column(type="status")
@@ -47,21 +37,28 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     private $tsregister;
 
     /**
+     * @ORM\OneToMany(
+     * targetEntity="\Cidetsi\DepartamentosBundle\Entity\MallaCurricular",
+     * mappedBy="materia")
+     */
+    private $malla;
+
+    /**
      * @ORM\OneToMany(targetEntity="Grupo",mappedBy="materia")
-     **/
+     */
     private $grupos;
 
     public function __construct() {
+        $this->malla = new ArrayCollection();
         $this->grupos = new ArrayCollection();
     }
 
     public function getIdent() { return $this->ident; }
     public function getDepartamento() { return $this->departamento; }
-//    public function getName() { return $this->name; }
-//    public function getCode() { return $this->code; }
     public function getStatus() { return $this->status; }
     public function getTsregister() { return $this->tsregister; }
 
+    public function getMalla() { return $this->malla; }
     public function getGrupos() { return $this->grupos; }
 
     public function setDepartamento(
@@ -69,16 +66,6 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
         $this->departamento = $departamento;
         return $this;
     }
-
-/*    public function setName($name) {
-        $this->name = $name;
-        return $this;
-}*/
-
-/*    public function setCode($code) {
-        $this->code = $code;
-        return $this;
-}*/
 
     public function setStatus($status) {
         $this->status = $status;
@@ -90,9 +77,25 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
         return $this;
     }
 
+    public function setMalla($malla) {
+        $this->malla = $malla;
+        return $this;
+    }
+
     public function setGrupos($grupos) {
         $this->grupos = $grupos;
         return $this;
+    }
+
+    public function addMalla(
+        \Cidetsi\DepartamentoBundle\Entity\MallaCurricular $malla) {
+        $this->malla[] = $malla;
+        return $this;
+    }
+
+    public function removeMalla(
+        \Cidetis\DepartamentoBundle\Entity\MallaCurricular $malla) {
+        $this->malla->removeElement($malla);
     }
 
     public function addGrupo(\Cidetsi\MateriasBundle\Entity\Grupo $grupo) {
@@ -110,7 +113,41 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     }
 
     public function getName() {
-        return 'NAME';
+        $malla = $this->getMalla();
+        $name = '';
+
+        switch (count($malla)) {
+        case 0:
+            $name = 'No definida';
+            break;
+        case 1:
+            $name = $malla[0]->getName();
+            break;
+        default:
+            foreach ($malla as $_m) {
+                $name .= $_m->getName();
+            }
+        }
+        return $name;
+    }
+
+    public function getCode() {
+        $malla = $this->getMalla();
+        $code = '';
+
+        switch (count($malla)) {
+        case 0:
+            $code = '-------';
+            break;
+        case 1:
+            $code = $malla[0]->getCode();
+            break;
+        default:
+            foreach ($malla as $_m) {
+                $code .= $_m->getCode();
+            }
+        }
+        return $code;
     }
 
     public function isEnabled() {

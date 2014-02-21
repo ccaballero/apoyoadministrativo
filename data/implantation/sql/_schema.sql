@@ -152,6 +152,7 @@ CREATE TABLE `grupo` (
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
 CREATE TABLE `malla_curricular` (
+    `ident`             int unsigned               NOT NULL auto_increment,
     `departamento`      int unsigned               NOT NULL,
     `carrera`           int unsigned               NOT NULL,
     `plan`              int unsigned               NOT NULL,
@@ -161,7 +162,7 @@ CREATE TABLE `malla_curricular` (
     `code`              varchar(16)                NULL,
     `type`              enum('C', 'NC')            NOT NULL DEFAULT 'C',
     `level`             char(1)                    NOT NULL DEFAULT '',
-    PRIMARY KEY (`departamento`, `carrera`, `plan`, `departamento2`, `materia`),
+    PRIMARY KEY (`ident`, `departamento`, `carrera`, `plan`, `departamento2`, `materia`),
     INDEX (`departamento`, `carrera`, `plan`),
     FOREIGN KEY (`departamento`, `carrera`, `plan`)
     REFERENCES `plan_estudio`(`departamento`, `carrera`, `ident`)
@@ -172,7 +173,8 @@ CREATE TABLE `malla_curricular` (
     ON UPDATE CASCADE ON DELETE RESTRICT
 ) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
 
-CREATE TABLE `prerequisito` (
+/*CREATE TABLE `prerequisito` (
+    `ident`             int unsigned               NOT NULL auto_increment,
     `departamento`      int unsigned               NOT NULL,
     `carrera`           int unsigned               NOT NULL,
     `plan`              int unsigned               NOT NULL,
@@ -183,7 +185,7 @@ CREATE TABLE `prerequisito` (
     `req_plan`          int unsigned               NOT NULL,
     `req_departamento2` int unsigned               NOT NULL,
     `req_materia`       int unsigned               NOT NULL,
-    PRIMARY KEY (`departamento`, `carrera`, `plan`, `departamento2`, `materia`, `req_departamento`, `req_carrera`, `req_plan`, `req_departamento2`, `req_materia`),
+    PRIMARY KEY (`ident`, `departamento`, `carrera`, `plan`, `departamento2`, `materia`, `req_departamento`, `req_carrera`, `req_plan`, `req_departamento2`, `req_materia`),
     INDEX (`departamento`, `carrera`, `plan`, `departamento2`, `materia`),
     FOREIGN KEY (`departamento`, `carrera`, `plan`, `departamento2`, `materia`)
     REFERENCES `malla_curricular`(`departamento`, `carrera`, `plan`, `departamento2`, `materia`)
@@ -192,7 +194,7 @@ CREATE TABLE `prerequisito` (
     FOREIGN KEY (`req_departamento`, `req_carrera`, `req_plan`, `req_departamento2`, `req_materia`)
     REFERENCES `malla_curricular`(`departamento`, `carrera`, `plan`, `departamento2`, `materia`)
     ON UPDATE CASCADE ON DELETE RESTRICT
-) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;
+) DEFAULT CHARACTER SET UTF8 ENGINE = INNODB;*/
 
 CREATE TABLE `laboratorio` (
     `ident`             int unsigned               NOT NULL auto_increment,
