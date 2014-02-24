@@ -20,4 +20,31 @@ class MateriaController extends CrudController
         'url_list'     => 'materia',
         'url_element'  => 'materia_read',
     );
+
+    public function listByDepartamentoAction($departamento) {
+        $materias = array();
+        foreach ($departamento->getMaterias() as $materia) {
+            $malla = array();
+            foreach ($materia->getMalla() as $_m) {
+                if (array_key_exists($_m->getCode(), $malla)) {
+                    $malla[$_m->getCode()]['carrera'][] = $_m->getCarrera();
+                } else {
+                    $malla[$_m->getCode()] = array(
+                        'level' => $_m->getLevel(),
+                        'code' => $_m->getCode(),
+                        'name' => $_m->getName(),
+                        'carrera' => array(
+                            $_m->getCarrera(),
+                        ),
+                    );
+                }
+            }
+            $materias[$materia->getIdent()] = $malla;
+        }
+
+        return $this->render(
+            'CidetsiMateriasBundle:Materia:list.departamento.html.twig', array(
+            'materias' => $materias,
+        ));
+    }
 }

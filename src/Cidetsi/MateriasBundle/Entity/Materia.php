@@ -124,9 +124,12 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
             $name = $malla[0]->getName();
             break;
         default:
+            $names = array();
             foreach ($malla as $_m) {
-                $name .= $_m->getName();
+                $names[] = $_m->getName();
             }
+            $names = array_unique($names);
+            $name = implode(', ', $names);
         }
         return $name;
     }
@@ -143,9 +146,12 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
             $code = $malla[0]->getCode();
             break;
         default:
+            $codes = array();
             foreach ($malla as $_m) {
-                $code .= $_m->getCode();
+                $codes[] = $_m->getCode();
             }
+            $codes = array_unique($codes);
+            $code = implode(', ', $codes);
         }
         return $code;
     }

@@ -12,23 +12,22 @@
         }) }}
         <br />
         <ul class="nav nav-tabs">
-            <li class="active">
+            <li class="">
                 <a href="#home" data-toggle="tab">Información</a></li>
-            <li><a href="#courses" data-toggle="tab">Materias</a></li>
+            <li class="active"><a href="#courses" data-toggle="tab">Materias</a></li>
             <li><a href="#teachers" data-toggle="tab">Docentes</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="home">
+            <div class="tab-pane" id="home">
                 {{ include(
                     'CidetsiDepartamentosBundle:Departamento:_info.html.twig', {
                         'departamento': entity
                 }) }}
             </div>
-            <div class="tab-pane" id="courses">
-                {{ include(
-                    'CidetsiMateriasBundle:Materia:list.departamento.html.twig',
-                        { 'departamento': entity
-                }) }}
+            <div class="tab-pane active" id="courses">
+                {{ render(controller('CidetsiMateriasBundle:Materia:listByDepartamento',
+                    { 'departamento': entity }))
+                }}
             </div>
             <div class="tab-pane" id="teachers">
                 {{ include(

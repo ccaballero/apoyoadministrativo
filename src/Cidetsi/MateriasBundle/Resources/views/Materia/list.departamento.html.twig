@@ -4,24 +4,33 @@
 </div>
 <br />
 <br />
-<table class="table table-striped table-condensed table-bordered table-hover">
-    <tr>
+<table class="table table-condensed table-bordered">
+    <tr class="active">
+        <th>Nivel</th>
         <th>Código</th>
         <th>Materia</th>
-        <th>Nº Grupos</th>
-        <th>&nbsp;</th>
+        <th>Carrera</th>
+        <!--<th>&nbsp;</th>-->
     </tr>
-{% for materia in departamento.materias %}
+{% for materia in materias %}
+    {% for malla in materia %}
     <tr>
-        <td>{{ materia.code }}</td>
-        <td>{{ materia.name }}</td>
-        <td>{{ materia.grupos|length }}</td>
-        <td class="text-center">
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="glyphicon glyphicon-search"></span>
+        <td>{{ malla.level }}</td>
+        <td>{{ malla.code }}</td>
+        <td>{{ malla.name }}</td>
+        <td>
+        {% for carrera in malla.carrera %}
+            {{ carrera }}<br/>
+        {% endfor %}
         </td>
+        <!--<td class="text-center">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
+        </td>-->
     </tr>
+    {% endfor %}
+    <tr class="active"><td colspan="5"></td></tr>
 {% endfor %}
 </table>
 
