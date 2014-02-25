@@ -66,29 +66,39 @@ class SqlCommand extends ContainerAwareCommand
                         $seq = $_buffer[$grupo]['ident'];
                         $dpto = $_buffer[$grupo]['departamento'];
                     } else {
+                        if (!array_key_exists($m, $_materias)) {
+                            $seq = $this->start_sequence++;
+                            $dpto = array_key_exists($m, $dict1) ?
+                                $dict1[$m] : 1;
+
+                            $_buffer[$grupo] = array(
+                                'ident' => $seq,
+                                'departamento' => $dpto,
+                            );
+
+                            $_materias[$m] = array(
+                                'ident' => $seq,
+                                'departamento' => $dpto,
+                            );
+                        } else {
+                            $seq = $_materias[$m]['ident'];
+                            $dpto = $_materias[$m]['departamento'];
+                        }
+                    }
+                } else {
+                    if (!array_key_exists($m, $_materias)) {
                         $seq = $this->start_sequence++;
                         $dpto = array_key_exists($m, $dict1) ?
                             $dict1[$m] : 1;
 
-                        $_buffer[$grupo] = array(
+                        $_materias[$m] = array(
                             'ident' => $seq,
                             'departamento' => $dpto,
                         );
-                        
-                        $_materias[] = array(
-                            'ident' => $seq,
-                            'departamento' => $dpto,
-                        );
+                    } else {
+                        $seq = $_materias[$m]['ident'];
+                        $dpto = $_materias[$m]['departamento'];
                     }
-                } else {
-                    $seq = $this->start_sequence++;
-                    $dpto = array_key_exists($m, $dict1) ?
-                        $dict1[$m] : 1;
-
-                    $_materias[] = array(
-                        'ident' => $seq,
-                        'departamento' => $dpto,
-                    );
                 }
 
                 $_malla[] = array(
