@@ -1,0 +1,50 @@
+<style>
+    * { font-size: 8pt; }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table.grid, table.grid td, table.grid th {
+        border: 1px solid #000000;
+        padding: 0px 3px;
+    }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+</style>
+
+<table>
+    <tr>
+        <td width="450px">
+            <strong class="size10">UNIVERSIDAD MAYOR DE SAN SIMÓN</strong><br />
+            <strong class="size10">FACULTAD DE CIENCIAS Y TECNOLOGÍA</strong><br />
+            <strong class="size10">{{ departamento.name|upper }}</strong><br />
+            <strong class="size8">Cochabamba - Bolivia</strong>
+        </td>
+    </tr>
+</table>
+<div style="width:100%;height:4px;">&nbsp;</div>
+
+<table class="grid">
+    <tr>
+        <th>NIVEL</th>
+        <th>CÓDIGO</th>
+        <th>MATERIA</th>
+        <th>CARRERA</th>
+    </tr>
+{% for materia in materias %}
+    {% for malla in materia %}
+    <tr>
+        <td class="text-center">{{ malla.level }}</td>
+        <td class="text-center">{{ malla.code }}</td>
+        <td>{{ malla.name }}</td>
+        <td>
+        {% for carrera in malla.carrera %}
+            {{ carrera }}<br/>
+        {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
+    <tr class="active"><td colspan="4"></td></tr>
+{% endfor %}
+</table>
+

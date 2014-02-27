@@ -136,6 +136,29 @@ class Departamento implements \Cidetsi\BaseBundle\Entity\Resource
         return $this->getName();
     }
 
+    public function listMaterias() {
+        $materias = array();
+        foreach ($this->getMaterias() as $materia) {
+            $malla = array();
+            foreach ($materia->getMalla() as $_m) {
+                if (array_key_exists($_m->getCode(), $malla)) {
+                    $malla[$_m->getCode()]['carrera'][] = $_m->getCarrera();
+                } else {
+                    $malla[$_m->getCode()] = array(
+                        'level' => $_m->getLevel(),
+                        'code' => $_m->getCode(),
+                        'name' => $_m->getName(),
+                        'carrera' => array(
+                            $_m->getCarrera(),
+                        ),
+                    );
+                }
+            }
+            $materias[$materia->getIdent()] = $malla;
+        }
+        return $materias;
+    }
+
     public function isEnabled() {
         return $this->getStatus() == 'enabled';
     }

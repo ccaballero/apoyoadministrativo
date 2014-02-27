@@ -1,6 +1,8 @@
 <br />
 <div class="btn-group btn-group-sm">
-    <button type="button" class="btn btn-default">Agregar</button>
+    <a href="" class="btn btn-default">Agregar</a>
+    <a href="{{ path('pdf_materias', {'id': departamento.ident })}}"
+       class="btn btn-default">Generar PDF</a>
 </div>
 <br />
 <br />
@@ -10,9 +12,10 @@
         <th>Código</th>
         <th>Materia</th>
         <th>Carrera</th>
-        <!--<th>&nbsp;</th>-->
+        <th>&nbsp;</th>
     </tr>
 {% for materia in materias %}
+    {% set flag = true %}
     {% for malla in materia %}
     <tr>
         <td>{{ malla.level }}</td>
@@ -23,11 +26,14 @@
             {{ carrera }}<br/>
         {% endfor %}
         </td>
-        <!--<td class="text-center">
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="glyphicon glyphicon-search"></span>
-            <span class="glyphicon glyphicon-search"></span>
-        </td>-->
+        {% if flag == true %}
+            <td class="text-center" rowspan="{{ materia|length }}">
+                <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search"></span>
+                <span class="glyphicon glyphicon-search"></span>
+            </td>
+            {% set flag = false %}
+        {% endif %}
     </tr>
     {% endfor %}
     <tr class="active"><td colspan="5"></td></tr>

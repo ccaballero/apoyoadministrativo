@@ -1,11 +1,15 @@
 pdf_test:
-    pattern: /test
+    pattern: /test.pdf
     defaults: { _controller: CidetsiPdfReportsBundle:Default:test }
 
+pdf_materias:
+    pattern: /{id}/lista-materias.pdf
+    defaults: { _controller: CidetsiPdfReportsBundle:Default:materias }
+
 pdf_seguimiento:
-    pattern: /seguimiento
+    pattern: /seguimiento.pdf
     defaults: { _controller: CidetsiPdfReportsBundle:Default:seguimiento }
 
 pdf_nombramiento:
-    pattern: /nombramiento
+    pattern: /nombramiento.pdf
     defaults: { _controller: CidetsiPdfReportsBundle:Default:nombramiento }
