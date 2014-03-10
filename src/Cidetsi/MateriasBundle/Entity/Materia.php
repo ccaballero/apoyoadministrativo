@@ -88,13 +88,13 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     }
 
     public function addMalla(
-        \Cidetsi\DepartamentoBundle\Entity\MallaCurricular $malla) {
+        \Cidetsi\DepartamentosBundle\Entity\MallaCurricular $malla) {
         $this->malla[] = $malla;
         return $this;
     }
 
     public function removeMalla(
-        \Cidetis\DepartamentoBundle\Entity\MallaCurricular $malla) {
+        \Cidetsi\DepartamentosBundle\Entity\MallaCurricular $malla) {
         $this->malla->removeElement($malla);
     }
 

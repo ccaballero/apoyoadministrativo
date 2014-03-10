@@ -35,8 +35,6 @@ class AppKernel extends Kernel
                 new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] =
                 new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
-            $bundles[] =
-                new DavidBadura\FixturesBundle\DavidBaduraFixturesBundle();
         }
 
         return $bundles;

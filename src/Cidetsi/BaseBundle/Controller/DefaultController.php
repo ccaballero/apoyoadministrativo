@@ -51,4 +51,33 @@ class DefaultController extends Controller
     public function footerAction() {
         return $this->render('CidetsiBaseBundle:Default:footer.html.twig');
     }
+
+    public function cleanAction() {
+        $path = __DIR__ . '/../../../../';
+        $path = realpath($path);
+        $path = $path . '/app/cache/';
+        $this->removeDir($path . 'prod/');
+        $this->removeDir($path . 'dev/');
+        return $this->render('CidetsiBaseBundle:Default:clean.html.twig');
+    }
+
+    private function removeDir($dir) {
+        if ($handle = opendir($dir)) {
+            $array = array();
+            while (false !== ($file = readdir($handle))) {
+                if ($file != '.' && $file != '..') {
+                    if (is_dir($dir . $file)) {
+                        if (!@rmdir($dir . $file)) {
+                            $this->removeDir($dir . $file . '/');
+                        }
+                    } else {
+                        @unlink($dir . $file);
+                    }
+                }
+            }
+            closedir($handle);
+            @rmdir($dir);
+        }
+    }
 }
+

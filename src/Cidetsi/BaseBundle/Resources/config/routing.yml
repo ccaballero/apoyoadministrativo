@@ -11,3 +11,8 @@ base_login_check:
 
 base_logout:
     pattern: /salir
+
+base_clean:
+    pattern: /clean
+    defaults: { _controller: CidetsiBaseBundle:Default:clean }
+

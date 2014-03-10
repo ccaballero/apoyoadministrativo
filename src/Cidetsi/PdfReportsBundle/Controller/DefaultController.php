@@ -59,8 +59,6 @@ class DefaultController extends Controller
         ));
         $args = $this->getArguments(
             array('Letter', 23, 34, 14, 27, 20, 20, 'P', 'lista-materias.pdf'));
-        var_dump($pdf);
-        die;
         $pdf->generatePdfResponse($html, $args);
     }
 

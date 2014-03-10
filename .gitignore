@@ -31,6 +31,8 @@ data/implantation/sql/06-docentes.sql
 data/implantation/sql/08-grupo-docentes.sql
 data/implantation/sql/09-auxiliares.sql
 
+/logs/
+
 LICENSE
 README.md
 UPGRADE*.md

@@ -22,3 +22,4 @@ gestiones:
 pdf_report:
     resource: "@CidetsiPdfReportsBundle/Resources/config/routing.yml"
     prefix:   /pdf
+
