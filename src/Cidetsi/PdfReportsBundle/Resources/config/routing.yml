@@ -1,6 +1,6 @@
 pdf_test:
     pattern: /test.pdf
-    defaults: { _controller: CidetsiPdfReportsBundle:Default:test }
+    defaults: { _controller: CidetsiPdfReportsBundle:Test:test }
 
 pdf_materias:
     pattern: /{id}/lista-materias.pdf

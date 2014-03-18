@@ -12,7 +12,7 @@ class DefaultController extends Controller
         return $mpdfService;
     }
 
-    protected function getArguments($args) {
+    protected function getArguments($args, $mpdf) {
         $format = $args[0];
         $mgl = intval($args[1]);
         $mgr = intval($args[2]);
@@ -32,19 +32,23 @@ class DefaultController extends Controller
             'writeHtmlClose' => null,
             'outputFilename' => $title,
             'outputDest' => 'I',
+            'mpdf' => $mpdf,
         );
     }
 
     public function testAction() {
         $pdf = $this->getService();
+        $mpdf = $pdf->getMpdf();
+
         $html = $this->renderView(
             'CidetsiPdfReportsBundle:Default:test.pdf.twig');
         $args = $this->getArguments(
             array('Letter-L', 20, 20, 20, 20, 20, 20, 'L',
-                'pagina-de-evaluacion.pdf'));
+                'pagina-de-evaluacion.pdf'), $mpdf);
         $pdf->generatePdfResponse($html, $args);
     }
 
+    /* Print the list of subjects for department (id: id of department)*/
     public function materiasAction($id) {
         $departamento = $this->getDoctrine()->getManager()
             ->getRepository('CidetsiDepartamentosBundle:Departamento')
@@ -52,13 +56,22 @@ class DefaultController extends Controller
         $materias = $departamento->listMaterias();
 
         $pdf = $this->getService();
-        $html = $this->renderView(
-            'CidetsiPdfReportsBundle:Default:materias.pdf.twig', array(
+        $mpdf = $pdf->getMpdf();
+
+        $header = $this->renderView(
+            'CidetsiPdfReportsBundle:Materias:header.pdf.twig', array(
                 'departamento' => $departamento,
+        ));
+        $html = $this->renderView(
+            'CidetsiPdfReportsBundle:Materias:materias.pdf.twig', array(
                 'materias' => $materias,
         ));
+
+        //$mpdf->setHTMLHeader($header);
+        $mpdf->setHeader('asdf|asdf|asdf');
         $args = $this->getArguments(
-            array('Letter', 23, 34, 14, 27, 20, 20, 'P', 'lista-materias.pdf'));
+            array('Letter', 23, 34, 14, 27, 20, 20, 'P', 'lista-materias.pdf'),
+            $mpdf);
         $pdf->generatePdfResponse($html, $args);
     }
 

@@ -1,0 +1,14 @@
+<?php
+
+namespace Cidetsi\PdfReportsBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class TestController extends Controller
+{
+    public function testAction() {
+        list($service, $mpdf) = CustomPdf::getService();
+        return $this->renderView('CidetsiPdfReportsBundle:Test:test.pdf.twig');
+    }
+}
+
