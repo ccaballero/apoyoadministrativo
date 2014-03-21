@@ -8,13 +8,23 @@ use Cidetsi\PdfReportsBundle\Entity\CustomPdf;
 class TestController extends Controller
 {
     public function testAction() {
-        list($service, $mpdf) = CustomPdf::getService($this);
-        $args = CustomPdf::getArgs(array('mpdf' => $mpdf));
-        $html = $this->renderView('CidetsiPdfReportsBundle:Test:test.pdf.twig');
+        $args = array('utf-8', 'Letter', 0, '', 30, 20, 45, 30, 20, 20);
+        list($service, $mpdf) = CustomPdf::getService($this, $args);
 
-        $mpdf->setDefaultFontSize();
+        $html = $this->renderView(
+            'CidetsiPdfReportsBundle:Test:test.pdf.twig');
+        $header = $this->renderView(
+            'CidetsiPdfReportsBundle:Test:header.pdf.twig');
+        $footer = $this->renderView(
+            'CidetsiPdfReportsBundle:Test:footer.pdf.twig');
 
-        $service->generatePdfResponse($html, $args);
+        $mpdf->setHTMLHeader($header);
+        $mpdf->setHTMLFooter($footer);
+        $service->generatePdfResponse($html, array(
+            'outputFilename' => 'Test',
+            'outputDest' => 'I',
+            'mpdf' => $mpdf,
+        ));
     }
 }
 
