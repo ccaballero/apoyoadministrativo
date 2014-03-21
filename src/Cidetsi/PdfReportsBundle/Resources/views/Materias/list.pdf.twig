@@ -1,16 +1,4 @@
-<style>
-    * { font-size: 8pt; }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    table.grid, table.grid td, table.grid th {
-        border: 1px solid #000000;
-        padding: 0px 3px;
-    }
-    .text-center { text-align: center; }
-    .text-right { text-align: right; }
-</style>
+{% include('CidetsiPdfReportsBundle:Default:style.css.twig') %}
 
 <table class="grid">
     <tr>
@@ -27,7 +15,7 @@
         <td>{{ malla.name }}</td>
         <td>
         {% for carrera in malla.carrera %}
-            {{ carrera }}<br/>
+            {{ carrera|upper }}<br/>
         {% endfor %}
         </td>
     </tr>

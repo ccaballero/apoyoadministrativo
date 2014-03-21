@@ -4,7 +4,7 @@ pdf_test:
 
 pdf_materias:
     pattern: /{id}/lista-materias.pdf
-    defaults: { _controller: CidetsiPdfReportsBundle:Default:materias }
+    defaults: { _controller: CidetsiPdfReportsBundle:Materias:list }
 
 pdf_seguimiento:
     pattern: /seguimiento.pdf

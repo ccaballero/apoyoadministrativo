@@ -21,7 +21,7 @@ class TestController extends Controller
         $mpdf->setHTMLHeader($header);
         $mpdf->setHTMLFooter($footer);
         $service->generatePdfResponse($html, array(
-            'outputFilename' => 'Test',
+            'outputFilename' => 'página_de_evaluación.pdf',
             'outputDest' => 'I',
             'mpdf' => $mpdf,
         ));
