@@ -1,8 +1,14 @@
 <br />
 <div class="btn-group btn-group-sm">
-    <a href="" class="btn btn-default">Agregar</a>
+    <a href="" class="btn btn-default">
+        <span class="glyphicon glyphicon-plus"></span>
+        <span>Agregar</span>
+    </a>
     <a href="{{ path('pdf_materias', {'id': departamento.ident })}}"
-       class="btn btn-default">Generar PDF</a>
+       class="btn btn-default">
+       <span class="glyphicon glyphicon-print"></span>
+       <span>Generar PDF</span>
+    </a>
 </div>
 <br />
 <br />
@@ -28,9 +34,9 @@
         </td>
         {% if flag == true %}
             <td class="text-center" rowspan="{{ materia|length }}">
-                <span class="glyphicon glyphicon-search"></span>
-                <span class="glyphicon glyphicon-search"></span>
-                <span class="glyphicon glyphicon-search"></span>
+                <a href="{{ path('materia_read', {'id': malla.ident }) }}"> 
+                    <span class="glyphicon glyphicon-file"></span>
+                </a>
             </td>
             {% set flag = false %}
         {% endif %}

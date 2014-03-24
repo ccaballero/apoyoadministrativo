@@ -145,6 +145,7 @@ class Departamento implements \Cidetsi\BaseBundle\Entity\Resource
                     $malla[$_m->getCode()]['carrera'][] = $_m->getCarrera();
                 } else {
                     $malla[$_m->getCode()] = array(
+                        'ident' => $materia->getIdent(),
                         'level' => $_m->getLevel(),
                         'code' => $_m->getCode(),
                         'name' => $_m->getName(),

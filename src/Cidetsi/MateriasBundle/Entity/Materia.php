@@ -161,7 +161,7 @@ class Materia implements \Cidetsi\BaseBundle\Entity\Resource
     }
 
     public function getLabel() {
-        return $this->getIdent();
+        return $this->getName();
     }
 
     public function getSlug() {
