@@ -1,3 +1,6 @@
+Documento de Planificación
+==========================
+
 Habiendo definido las funcionalidades que requiero para consolidar un producto
 mejorado al antiguo sistema de apoyo administrativo.
 
